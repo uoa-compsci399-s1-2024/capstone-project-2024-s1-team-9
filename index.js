@@ -24,7 +24,39 @@ app.get('/non-dairy-beverages', (req, res) => {
 
 
 
-// ******** FUNCTIONS ********
+// ******** FUNCTIONS/CALCULATIONS ********
+
+// HSR Profiler Score
+
+// HSR Star Points
+
+// NPSC Group Number
+
+// NPSC Category
+
+// All Fruit, Veg concentrated?
+
+// Whole Food %
+
+// Fruit Veg. Nuts, Pulses %
+
+// Baseline Energy Points
+
+// Baseline Sat Fat Points
+
+// Baseline Total Sugars Points
+
+// Baseline Sodium Points
+
+// Total Baseline Points (Table A)
+
+// Modifying Points % FVNL
+
+// Modifying Points % Fibre
+
+// Modifying Points % Protein
+
+// Total Modifying Points (Table C)
 
 
 
