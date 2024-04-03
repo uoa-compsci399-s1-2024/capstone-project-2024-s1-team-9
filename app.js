@@ -22,6 +22,33 @@ app.get('/non-dairy-beverages', (req, res) => {
 });
 
 // ******** GET INPUT DATA ********
+var inputData;
+
+app.post('/inputData', (req, res) => {
+    const { error } = validateInputData(req.body);
+    if (error) return res.status(400).send(error);
+
+    const data = {
+        hsrCategory: req.body.hsrCategory,
+        food: req.body.food,
+        company: req.body.company,
+        energy: req.body.energy,
+        satFat: req.body.satFat,
+        totalSugars: req.body.totalSugars,
+        sodium: req.body.sodium,
+        fibre: req.body.fibre,
+        protein: req.body.protein,
+        concFruitVeg: req.body.concFruitVeg,
+        fvnl: req.body.fvnl,
+    };
+    inputData = data;
+    res.send(inputData);
+});
+
+app.get('/inputData', (req, res) => {
+    res.send(allFruitVegConcentrated());
+});
+
 function validateInputData(inputData) {
     const schema = Joi.object({
         hsrCategory: Joi.string().min(1).required(),
@@ -37,7 +64,7 @@ function validateInputData(inputData) {
         fvnl: Joi.number().precision(2).min(0).max(100).required(),
     });
 
-    return schema.validate(course);
+    return schema.validate(inputData);
 }
 
 
@@ -52,6 +79,12 @@ function validateInputData(inputData) {
 // NPSC Category
 
 // All Fruit, Veg concentrated?
+function allFruitVegConcentrated() {
+    if (inputData.concFruitVeg  > 0 && inputData.fvnl == 0) {
+        return "yes";
+    }
+    return "no";
+}
 
 // Whole Food %
 
