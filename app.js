@@ -116,6 +116,37 @@ function allFruitVegConcentrated() {
 
 // % flexed foods and end points based on new industry data
 
+const num3 = new Map();
+num3.set("dairy-beverages", 6);
+num3.set("foods", 29);
+num3.set("Dairy foods", 14);
+num3.set("Fats", 45);
+num3.set("Cheese", 41);
+num3.set("Cereals", 29);
+num3.set("non-dairy-beverages", 3);
+num3.set("Non-core foods", 29);
+num3.set("Protein", 29);
+num3.set("Vegetables", 29);
+
+const num1 = new Map();
+num1.set("dairy-beverages", -2);
+num1.set("foods", -15);
+num1.set("Dairy foods", -3);
+num1.set("Fats", 10);
+num1.set("Cheese", 23);
+num1.set("Cereals", -15);
+num1.set("non-dairy-beverages", -6);
+num1.set("Non-core foods", -15);
+num1.set("Protein", -15);
+num1.set("Vegetables", -15);
+
+const num2 = new Map();
+
+for (let key of num3.keys()) {
+    const range = (num3.get(key) || 0) - (num1.get(key) || 0);
+    result.set(key, range);
+}
+
 // AMMENDED lookups with simplified categories
 
 // Extended tables, category 1 and 2 foods
