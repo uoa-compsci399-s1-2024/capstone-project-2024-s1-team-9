@@ -115,6 +115,7 @@ function allFruitVegConcentrated() {
 // ******** DATA ********
 
 // % flexed foods and end points based on new industry data
+// ORIGINAL Lookups with extra categories
 
 const num3 = new Map();
 num3.set("dairy-beverages", 6);
@@ -148,6 +149,13 @@ for (let key of num3.keys()) {
 }
 
 // AMMENDED lookups with simplified categories
+// used for category validation
+// key HSR category, value NPSC group number
+
+const hsr_category = new Map();
+hsr_category.set("beverages", 1);
+hsr_category.set("food", 2);
+hsr_category.set("fats", 3);
 
 // Extended tables, category 1 and 2 foods
 
