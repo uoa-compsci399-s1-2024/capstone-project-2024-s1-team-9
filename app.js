@@ -120,9 +120,9 @@ function allFruitVegConcentrated() {
 
 // Extended tables, category 1 and 2 foods
 
-const energyIncrement = 335;
+const energyIncrementCat1_2 = 335;
 
-const sodiumIncrement = 90;
+const sodiumIncrementCat1_2 = 90;
 
 const satFatCat1_2 = [
 	0, 1.01, 2.01, 3.01, 4.01, 5.01, 6.01, 7.01, 8.01, 9.01, 
@@ -137,7 +137,18 @@ const totSugCat1_2 = [
     67.71, 71.61, 75.51, 79.41, 83.31, 87.31, 91.21, 95.11, 99.01
 ]
 
+
 // Extended tables, category 3 foods
+
+const energyIncrementCat3 = 335;
+
+const satFatIncrementCat3 = 1;
+
+const sodiumIncrementCat3 = 90;
+
+const totSugCat3 = [
+    0, 5.01, 9.01, 13.51, 18.01, 22.51, 27.01, 31.01, 36.01, 40.01, 45.01
+]
 
 // Daily intake references
 
