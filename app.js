@@ -152,4 +152,32 @@ const totSugCat3 = [
 
 // Daily intake references
 
+const dailyIntakeReferences = new Map();
+dailyIntakeReferences.set("energy", 8700);
+dailyIntakeReferences.set("protein", 50);
+dailyIntakeReferences.set("fat", 70);
+dailyIntakeReferences.set("fattyAcids", 24);
+dailyIntakeReferences.set("carbohydrate", 310);
+dailyIntakeReferences.set("sodium", 2300);
+dailyIntakeReferences.set("sugars", 90);
+dailyIntakeReferences.set("fibre", 30);
+
 // NPSC profiler points table C & extended FoPL profiler points table C
+//NPSC points correlate to the index
+const concFVNL = [
+	0.00, 25.00, 43.00, 52.00, 63.00, 67.00, 80.00, 90.00, 99.50, 100 
+]
+
+const FVNL = [
+	0.00, 40.01, 60.01, 67.01, 75.01, 80.01, 90.01, 95.01, 99.51, 100
+]
+
+//extended
+
+const foodsFibre = [
+	0.00, 0.91, 1.91, 2.81, 3.71, 4.71, 5.41, 6.31, 7.31, 8.41, 9.71, 11.21, 13.01, 15.01, 17.31, 20.01
+]
+
+const foodsProtein = [
+	0.00, 1.61, 3.20, 4.81, 6.41, 8.01, 9.61, 11.61, 13.91, 16.71, 20.01, 24.01, 28.91, 34.71, 41.61, 50.01
+]
