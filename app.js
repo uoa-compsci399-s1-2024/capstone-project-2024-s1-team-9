@@ -267,13 +267,13 @@ function getNpscGroupNumber() {
 
 //     --> lookup cat1and2 energy
 
-function category1_2Energy() {
+function getCategory1_2Energy() {
     return Math.floor((inputData.energy - 0.01) / energyIncrementCat1_2)
 }
 
 //     --> lookup cat1and2 satfat
 
-function category1_2SatFat() {
+function getCategory1_2SatFat() {
     i = 0;
     while (inputData.satFat >= satFatCat1_2[i+1]) {
         i++;
@@ -283,13 +283,13 @@ function category1_2SatFat() {
 
 //     --> lookup cat1and2 sodium
 
-function category1_2Sodium() {
+function getCategory1_2Sodium() {
     return Math.floor((inputData.sodium - 0.01) / sodiumIncrementCat1_2)
 }
 
 //     --> lookup cat1and2 totsug
 
-function category1_2TotSug() {
+function getCategory1_2TotSug() {
     i = 0;
     while (inputData.totalSugars >= totSugCat1_2[i+1]) {
         i++;
