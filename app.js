@@ -248,6 +248,11 @@ function category1_2Energy() {
 
 //     --> lookup cat1and2 satfat
 //     --> lookup cat1and2 sodium
+
+function category1_2Sodium() {
+    return Math.floor((inputData.sodium - 0.01) / sodiumIncrementCat1_2)
+}
+
 //     --> lookup cat1and2 totsug
 
 
