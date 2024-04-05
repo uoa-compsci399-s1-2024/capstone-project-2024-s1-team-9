@@ -220,3 +220,41 @@ const foodsFibre = [
 const foodsProtein = [
 	0.00, 1.61, 3.20, 4.81, 6.41, 8.01, 9.61, 11.61, 13.91, 16.71, 20.01, 24.01, 28.91, 34.71, 41.61, 50.01
 ]
+
+
+
+// ******** DATA LOOKUPS ********
+
+// % flexed foods and end points based on new industry data
+//     --> lookup num3
+//     --> lookup num1
+//     --> lookup num2
+
+
+// AMMENDED lookups with simplified categories
+//     --> lookup NPSC group number
+
+
+// Extended tables, category 1 and 2 foods
+//     --> lookup cat1and2 energy
+//     --> lookup cat1and2 satfat
+//     --> lookup cat1and2 sodium
+//     --> lookup cat1and2 totsug
+
+
+// Extended tables, category 3 foods
+//     --> lookup cat3 energy
+//     --> lookup cat3 satfat
+//     --> lookup cat3 sodium
+//     --> lookup cat3 totsug
+
+
+// Daily intake references
+//     --> lookup value
+
+
+// NPSC profiler points table C & extended FoPL profiler points table C
+//     --> lookup concFVNL
+//     --> lookup FVNL
+//     --> lookup foodsFibre
+//     --> lookup foodsProtein
