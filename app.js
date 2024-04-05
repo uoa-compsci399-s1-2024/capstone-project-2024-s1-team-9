@@ -159,9 +159,9 @@ for (let key of num3.keys()) {
 
 const npscGroupNumber = new Map();
 npscGroupNumber.set("1D - Dairy beverages", 1);
-npscGroupNumber.set("2 Foods", 2);
+npscGroupNumber.set("2 - Foods", 2);
 npscGroupNumber.set("2D - Dairy foods", 2);
-npscGroupNumber.set("3- Fats, oils", 3);
+npscGroupNumber.set("3 - Fats, oils", 3);
 npscGroupNumber.set("3D - Cheese", 3);
 
 const npscCategory = new Map();
@@ -259,7 +259,9 @@ function getNpscCategory() {
 
 //     --> lookup NPSC group number if given NPSC category
 
-
+function getNpscGroupNumber() {
+    return npscGroupNumber.get(inputData.hsrCategory);
+}
 
 // Extended tables, category 1 and 2 foods - FRASER
 
