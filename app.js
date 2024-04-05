@@ -166,9 +166,9 @@ npscGroupNumber.set("3D - Cheese", 3);
 
 const npscCategory = new Map();
 npscCategory.set("1D - Dairy beverages", "Beverages");
-npscCategory.set("2 Foods", "Food");
+npscCategory.set("2 - Foods", "Food");
 npscCategory.set("2D - Dairy foods", "Food");
-npscCategory.set("3- Fats, oils", "Fats/Oils/Cheese");
+npscCategory.set("3 - Fats, oils", "Fats/Oils/Cheese");
 npscCategory.set("3D - Cheese", "Fats/Oils/Cheese");
 
 
@@ -251,7 +251,12 @@ const foodsProtein = [
 
 // AMMENDED lookups with simplified categories - FRASER
 
-//     --> lookup NPSC group number if given HSR category
+//     --> lookup NPSC category if given HSR category
+
+function getNpscCategory() {
+    return npscCategory.get(inputData.hsrCategory);
+}
+
 //     --> lookup NPSC group number if given NPSC category
 
 
