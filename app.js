@@ -144,7 +144,7 @@ num1.set("Vegetables", -15);
 const num2 = new Map();
 
 for (let key of num3.keys()) {
-    const range = (num3.get(key) || 0) - (num1.get(key) || 0);
+    const range = Math.abs(num3.get(key) - num1.get(key));
     num2.set(key, range);
 }
 
