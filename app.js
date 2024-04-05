@@ -21,7 +21,11 @@ app.get('/non-dairy-beverages', (req, res) => {
     res.send('This will be the page for non-dairy beverages calculator');
 });
 
+
+// ********************************
 // ******** GET INPUT DATA ********
+// ********************************
+
 var inputData;
 
 app.post('/inputData', (req, res) => {
@@ -68,7 +72,9 @@ function validateInputData(inputData) {
 }
 
 
+// ****************************************
 // ******** FUNCTIONS/CALCULATIONS ********
+// ****************************************
 
 // HSR Profiler Score
 
@@ -111,8 +117,9 @@ function allFruitVegConcentrated() {
 
 
 
-
+// **********************
 // ******** DATA ********
+// **********************
 
 // % flexed foods and end points based on new industry data
 // ORIGINAL Lookups with extra categories
@@ -148,14 +155,22 @@ for (let key of num3.keys()) {
     num2.set(key, range);
 }
 
-// AMMENDED lookups with simplified categories
-// used for category validation
-// key HSR category, value NPSC group number
+// AMENDED lookups with simplified categories
 
-const hsr_category = new Map();
-hsr_category.set("beverages", 1);
-hsr_category.set("food", 2);
-hsr_category.set("fats", 3);
+const npscGroupNumber = new Map();
+npscGroupNumber.set("1D - Dairy beverages", 1);
+npscGroupNumber.set("2 Foods", 2);
+npscGroupNumber.set("2D - Dairy foods", 2);
+npscGroupNumber.set("3- Fats, oils", 3);
+npscGroupNumber.set("3D - Cheese", 3);
+
+const npscCategory = new Map();
+npscCategory.set("1D - Dairy beverages", "Beverages");
+npscCategory.set("2 Foods", "Food");
+npscCategory.set("2D - Dairy foods", "Food");
+npscCategory.set("3- Fats, oils", "Fats/Oils/Cheese");
+npscCategory.set("3D - Cheese", "Fats/Oils/Cheese");
+
 
 // Extended tables, category 1 and 2 foods
 
@@ -222,8 +237,9 @@ const foodsProtein = [
 ]
 
 
-
+// ******************************
 // ******** DATA LOOKUPS ********
+// ******************************
 
 // % flexed foods and end points based on new industry data - AHAD
 
@@ -232,10 +248,12 @@ const foodsProtein = [
 //     --> lookup num2
 
 
+
 // AMMENDED lookups with simplified categories - FRASER
 
 //     --> lookup NPSC group number if given HSR category
 //     --> lookup NPSC group number if given NPSC category
+
 
 
 // Extended tables, category 1 and 2 foods - FRASER
@@ -273,6 +291,7 @@ function category1_2TotSug() {
 }
 
 
+
 // Extended tables, category 3 foods - AHAD
 
 //     --> lookup cat3 energy
@@ -281,11 +300,13 @@ function category1_2TotSug() {
 //     --> lookup cat3 totsug
 
 
+
 // Daily intake references - RILEY
 
 //     --> lookup claim
 //     --> lookup A tipping point
 //     --> lookup fruit/veg tipping point
+
 
 
 // NPSC profiler points table C & extended FoPL profiler points table C - RILEY
