@@ -250,7 +250,9 @@ const foodsProtein = [
 
 
 // Daily intake references
-//     --> lookup value
+//     --> lookup claim
+//     --> lookup A tipping point
+//     --> lookup fruit/veg tipping point
 
 
 // NPSC profiler points table C & extended FoPL profiler points table C
