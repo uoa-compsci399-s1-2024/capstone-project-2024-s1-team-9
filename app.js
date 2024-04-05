@@ -247,6 +247,15 @@ function category1_2Energy() {
 }
 
 //     --> lookup cat1and2 satfat
+
+function category1_2SatFat() {
+    i = 0;
+    while (inputData.satFat >= satFatCat1_2[i+1]) {
+        i++;
+    }
+    return i;
+}
+
 //     --> lookup cat1and2 sodium
 
 function category1_2Sodium() {
