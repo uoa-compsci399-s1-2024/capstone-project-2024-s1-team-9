@@ -145,7 +145,7 @@ const num2 = new Map();
 
 for (let key of num3.keys()) {
     const range = (num3.get(key) || 0) - (num1.get(key) || 0);
-    result.set(key, range);
+    num2.set(key, range);
 }
 
 // AMMENDED lookups with simplified categories
