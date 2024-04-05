@@ -226,24 +226,33 @@ const foodsProtein = [
 // ******** DATA LOOKUPS ********
 
 // % flexed foods and end points based on new industry data - AHAD
+
 //     --> lookup num3
 //     --> lookup num1
 //     --> lookup num2
 
 
 // AMMENDED lookups with simplified categories - FRASER
+
 //     --> lookup NPSC group number if given HSR category
 //     --> lookup NPSC group number if given NPSC category
 
 
 // Extended tables, category 1 and 2 foods - FRASER
+
 //     --> lookup cat1and2 energy
+
+function category1_2Energy() {
+    return Math.floor((inputData.energy - 0.01) / energyIncrementCat1_2)
+}
+
 //     --> lookup cat1and2 satfat
 //     --> lookup cat1and2 sodium
 //     --> lookup cat1and2 totsug
 
 
 // Extended tables, category 3 foods - AHAD
+
 //     --> lookup cat3 energy
 //     --> lookup cat3 satfat
 //     --> lookup cat3 sodium
@@ -251,12 +260,14 @@ const foodsProtein = [
 
 
 // Daily intake references - RILEY
+
 //     --> lookup claim
 //     --> lookup A tipping point
 //     --> lookup fruit/veg tipping point
 
 
 // NPSC profiler points table C & extended FoPL profiler points table C - RILEY
+
 //     --> lookup concFVNL
 //     --> lookup FVNL
 //     --> lookup foodsFibre
