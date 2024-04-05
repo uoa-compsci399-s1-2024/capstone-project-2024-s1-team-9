@@ -264,6 +264,14 @@ function category1_2Sodium() {
 
 //     --> lookup cat1and2 totsug
 
+function category1_2TotSug() {
+    i = 0;
+    while (inputData.totalSugars >= totSugCat1_2[i+1]) {
+        i++;
+    }
+    return i;
+}
+
 
 // Extended tables, category 3 foods - AHAD
 
