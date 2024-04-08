@@ -215,6 +215,9 @@ dailyIntakeReferences.set("carbohydrate", 310);
 dailyIntakeReferences.set("sodium", 2300);
 dailyIntakeReferences.set("sugars", 90);
 dailyIntakeReferences.set("fibre", 30);
+dailyIntakeReferences.set("tippingPoint", 13);
+dailyIntakeReferences.set("claim", 1); // 1 = yes, 0 = no
+dailyIntakeReferences.set("fruitVegTippingPoint", 5);
 
 // NPSC profiler points table C & extended FoPL profiler points table C
 //NPSC points correlate to the index
@@ -310,15 +313,60 @@ function getCategory1_2TotSug() {
 
 // Daily intake references - RILEY
 
-//     --> lookup claim
-//     --> lookup A tipping point
-//     --> lookup fruit/veg tipping point
+//     --> lookup claim - not sure if we want claim to be int (1/0) or string (yes/no) but can easily swapped
+function getClaim(){
+    if (dailyIntakeReferences.get("claim") == 1){
+        return "yes";
+    } else {
+        return "no"; 
+    }
+}
 
+//     --> lookup A tipping point
+function getTippingPoint(){
+    return dailyIntakeReferences.get("tippingPoint");
+}
+
+//     --> lookup fruit/veg tipping point
+function getFruitVegTippingPoint(){
+    return dailyIntakeReferences.get("fruitVegTippingPoint");
+}
 
 
 // NPSC profiler points table C & extended FoPL profiler points table C - RILEY
 
 //     --> lookup concFVNL
+function getNpscPointsConcFVNL(){
+    i = 0;
+    while (inputData.concFruitVeg >= concFVNL[i+1]) {
+        i++;
+    }
+    return i;
+}
+
 //     --> lookup FVNL
+function getNpscPointsFVNL(){
+    i = 0;
+    while (inputData.fvnl >= FVNL[i+1]) {
+        i++;
+    }
+    return i;
+}
+
 //     --> lookup foodsFibre
+function getNpscPointsFoodsFibre(){
+    i = 0;
+    while (inputData.fibre >= foodsFibre[i+1]) {
+        i++;
+    }
+    return i;
+}
+
 //     --> lookup foodsProtein
+function getNpscPointsFoodsProtein(){
+    i = 0;
+    while (inputData.protein >= foodsProtein[i+1]) {
+        i++;
+    }
+    return i;
+}
