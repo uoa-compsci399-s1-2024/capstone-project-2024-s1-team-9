@@ -305,9 +305,28 @@ function getCategory1_2TotSug() {
 // Extended tables, category 3 foods - AHAD
 
 //     --> lookup cat3 energy
+function getCategory3Energy() {
+    return Math.floor((inputData.energy - 0.01) / energyIncrementCat3)
+}
+
 //     --> lookup cat3 satfat
+function getCategory3SatFat() {
+    return Math.floor((inputData.satFat - 0.01) / satFatIncrementCat3)
+}
+
 //     --> lookup cat3 sodium
+function getCategory3Sodium() {
+    return Math.floor((inputData.sodium - 0.01) / sodiumIncrementCat3)
+}
+
 //     --> lookup cat3 totsug
+function getCategory3TotSug() {
+    i = 0;
+    while (inputData.totalSugars >= totSugCat3[i+1]) {
+        i++;
+    }
+    return i;
+}
 
 
 
