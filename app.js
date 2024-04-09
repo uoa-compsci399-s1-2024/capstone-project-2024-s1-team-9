@@ -244,7 +244,7 @@ const foodsProtein = [
 // ******** DATA LOOKUPS ********
 // ******************************
 
-// % flexed foods and end points based on new industry data - AHAD
+// % flexed foods and end points based on new industry data - AHAD - DONE BY RILEY
 
 //     --> lookup num3
 //     --> lookup num1
@@ -302,7 +302,7 @@ function getCategory1_2TotSug() {
 
 
 
-// Extended tables, category 3 foods - AHAD
+// Extended tables, category 3 foods - AHAD - DONE BY FRASER
 
 //     --> lookup cat3 energy
 function getCategory3Energy() {
