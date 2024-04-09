@@ -247,8 +247,21 @@ const foodsProtein = [
 // % flexed foods and end points based on new industry data - AHAD - DONE BY RILEY
 
 //     --> lookup num3
-//     --> lookup num1
+function getNum3(){
+    return num3.get(inputData.hsrCategory);
+}
+
 //     --> lookup num2
+function getNum2(){
+    return num2.get(inputData.hsrCategory);
+}
+
+
+hsrProfilerScore = 0; //temp variable - take away when function to calc hsrProfilerScore is implemented
+//     --> lookup num1
+function getNum1(){
+    return hsrProfilerScore - num1.get(inputData.hsrCategory); 
+}
 
 
 
