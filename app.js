@@ -78,6 +78,24 @@ function validateInputData(inputData) {
 
 // HSR Profiler Score
 
+function calculateHSRProfilerScore(inputData) {
+    const category = inputData.hsrCategory;
+    const baselinePoints = calculateBaselinePoints(inputData, category);  // function needs implementation
+    // modifyingPoints include (HSR V points) (HSR P points if eligible) (HSR F points if eligible)
+    const modifyingPoints = calculateModifyingPoints(inputData, category);  // function needs implementation
+    const finalHSRScore = baselinePoints - modifyingPoints;
+    return finalHSRScore;
+}
+
+// Route to calculate HSR profiler score
+app.post('/calculateHSRProfilerScore', (req, res) => {
+    const { error } = validateInputData(req.body);
+    if (error) return res.status(400).send(error);
+
+    const hsrProfilerScore = calculateHSRProfilerScore(req.body);
+    res.send({ hsrProfilerScore });
+});
+
 // HSR Star Points
 
 // NPSC Group Number
