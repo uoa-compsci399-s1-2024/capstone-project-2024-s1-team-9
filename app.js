@@ -76,13 +76,14 @@ function validateInputData(inputData) {
 // ******** FUNCTIONS/CALCULATIONS ********
 // ****************************************
 
+
 // HSR Profiler Score
 
-function calculateHSRProfilerScore(inputData) {
+function calculateHSRProfilerScore(inputData) {  
     const category = inputData.hsrCategory;
-    const baselinePoints = calculateBaselinePoints(inputData, category);  // function needs implementation
+    const baselinePoints = calculateTotalBaselinePoints();
     // modifyingPoints include (HSR V points) (HSR P points if eligible) (HSR F points if eligible)
-    const modifyingPoints = calculateModifyingPoints(inputData, category);  // function needs implementation
+    const modifyingPoints = calculateModifyingPoints();  // function needs implementation
     const finalHSRScore = baselinePoints - modifyingPoints;
     return finalHSRScore;
 }
@@ -115,14 +116,50 @@ function allFruitVegConcentrated() {
 // Fruit Veg. Nuts, Pulses %
 
 // Baseline Energy Points
+function calculateBaselineEnergyPoints() {
+    if (getNpscGroupNumber() !== 3) {
+        return getCategory1_2Energy();
+    } else {
+        return getCategory3Energy();
+    }
+}
 
 // Baseline Sat Fat Points
+function calculateBaselineSatFatPoints() {
+    if (getNpscGroupNumber() !== 3) {
+        return getCategory1_2SatFat();
+    } else {
+        return getCategory3SatFat();
+    }
+}
 
 // Baseline Total Sugars Points
+function calculateBaselineTotalSugarsPoints() {
+    if (getNpscGroupNumber() !== 3) {
+        return getCategory1_2TotSug();
+    } else {
+        return getCategory3TotSug();
+    }
+}
 
 // Baseline Sodium Points
+function calculateBaselineSodiumPoints() {
+    if (getNpscGroupNumber() !== 3) {
+        return getCategory1_2Sodium();
+    } else {
+        return getCategory3Sodium();
+    }
+}
 
 // Total Baseline Points (Table A)
+function calculateTotalBaselinePoints() {
+    const energyPoints = calculateBaselineEnergyPoints();
+    const satFatPoints = calculateBaselineSatFatPoints();
+    const totalSugarsPoints = calculateBaselineTotalSugarsPoints();
+    const sodiumPoints = calculateBaselineSodiumPoints();
+    
+    return energyPoints + satFatPoints + totalSugarsPoints + sodiumPoints;
+}
 
 // Modifying Points % FVNL
 
@@ -294,8 +331,10 @@ function getNpscCategory() {
 //     --> lookup NPSC group number if given NPSC category
 
 function getNpscGroupNumber() {
-    return npscGroupNumber.get(inputData.hsrCategory);
+    return parseInt(inputData.hsrCategory.charAt(0));
 }
+
+
 
 // Extended tables, category 1 and 2 foods - FRASER
 
