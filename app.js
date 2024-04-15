@@ -79,7 +79,7 @@ function validateInputData(inputData) {
 
 // HSR Profiler Score
 
-function calculateHSRProfilerScore(inputData) {  
+function calculateHSRProfilerScore() {  
     const category = inputData.hsrCategory;
     const baselinePoints = calculateTotalBaselinePoints();
     // modifyingPoints include (HSR V points) (HSR P points if eligible) (HSR F points if eligible)
@@ -90,7 +90,7 @@ function calculateHSRProfilerScore(inputData) {
 
 // Route to calculate HSR profiler score
 app.get('/calculateHSRProfilerScore', (req, res) => {
-    const hsrProfilerScore = calculateHSRProfilerScore(inputData);
+    const hsrProfilerScore = calculateHSRProfilerScore();
     res.send({ hsrProfilerScore });
 });
 
