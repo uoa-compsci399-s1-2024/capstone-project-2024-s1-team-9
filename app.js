@@ -97,7 +97,9 @@ app.get('/calculateHSRProfilerScore', (req, res) => {
 
 // HSR Star Points
 function calculateHSRStarPoints() {
-    // need num1 num2 num3
+    const num1 = getNum1();
+    const num2 = getNum2();
+    const num3 = getNum3();
     const result = 10.499 - (num1 / num2 * num3);
     
     if (result < 1) {
