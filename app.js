@@ -547,3 +547,8 @@ function getNonDairyBevsStarPoints(score) {
     }
     return i;
 }
+
+// calculate points
+function calculatePoints() {
+    return getNonDairyBevsEnergy() + getNonDairyBevsTotalSugars() - getNonDairyBevsFvnl();
+}
