@@ -49,11 +49,8 @@ app.post('/inputData', (req, res) => {
     res.send(inputData);
 });
 
-app.get('/inputData', (req, res) => {
-    res.send(allFruitVegConcentrated());
-});
 
-function validateInputData(inputData) {
+function validateInputData(input) {
     const schema = Joi.object({
         hsrCategory: Joi.string().min(1).required(),
         food: Joi.string(),
@@ -68,7 +65,7 @@ function validateInputData(inputData) {
         fvnl: Joi.number().precision(2).min(0).max(100).required(),
     });
 
-    return schema.validate(inputData);
+    return schema.validate(input);
 }
 
 
@@ -459,4 +456,38 @@ function getNpscPointsFoodsProtein(){
         i++;
     }
     return i;
+}
+
+
+// ******************************************
+// ******** NON-DAIRY BEVERAGES CALC ********
+// ******************************************
+
+var inputDataNonDairyBevs;
+
+app.post('/non-dairy-beverages/inputData', (req, res) => {
+    const { error } = validateInputDataNonDairyBevs(req.body);
+    if (error) return res.status(400).send(error);
+
+    const data = {
+        product: req.body.product,
+        company: req.body.company,
+        energy: req.body.energy,
+        totalSugars: req.body.totalSugars,
+        fvnl: req.body.fvnl,
+    };
+    inputDataNonDairyBevs = data;
+    res.send(inputDataNonDairyBevs);
+});
+
+function validateInputDataNonDairyBevs(input) {
+    const schema = Joi.object({
+        product: Joi.string(),
+        company: Joi.string(),
+        energy: Joi.number().integer().min(0).max(350).required(),
+        totalSugars: Joi.number().precision(1).min(0).max(20).required(),
+        fvnl: Joi.number().precision(2).min(0).max(100).required(),
+    });
+
+    return schema.validate(input);
 }
