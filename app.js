@@ -491,3 +491,18 @@ function validateInputDataNonDairyBevs(input) {
 
     return schema.validate(input);
 }
+
+// Energy table
+const energyNonDairyBevs = [
+    0, 0, 31.01, 61.01, 91.01, 121.01, 151.01, 181.01, 211.01, 241.01, 271.01
+]
+
+// Total sugars table
+const totSugNonDairyBevs = [
+    0, 0.11, 1.61, 3.11, 4.61, 6.11, 7.61, 9.11, 10.61, 12.11, 13.61
+]
+
+// fvnl table
+const fvnlNonDairyBevs = [
+    0, 25, 33, 41, 49, 57, 65, 73, 81, 89, 96
+]
