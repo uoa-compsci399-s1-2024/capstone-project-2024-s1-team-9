@@ -96,6 +96,18 @@ app.get('/calculateHSRProfilerScore', (req, res) => {
 
 
 // HSR Star Points
+function calculateHSRStarPoints() {
+    // need num1 num2 num3
+    const result = 10.499 - (num1 / num2 * num3);
+    
+    if (result < 1) {
+        return 1;
+    } else if (result < 11) {
+        return Math.floor(result);
+    } else {
+        return 10;
+    }
+}
 
 
 // All Fruit, Veg concentrated?
@@ -298,6 +310,8 @@ const foodsProtein = [
 
 //     --> lookup num3
 function getNum3(){
+    const category = inputData.hsrCategory;
+    
     return num3.get(inputData.hsrCategory);
 }
 
@@ -326,7 +340,7 @@ function getNpscCategory() {
 //     --> lookup NPSC group number if given NPSC category
 
 function getNpscGroupNumber() {
-    return parseInt(inputData.hsrCategory.charAt(0));
+    return npscGroupNumber.get(inputData.hsrCategory);
 }
 
 
