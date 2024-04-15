@@ -506,3 +506,8 @@ const totSugNonDairyBevs = [
 const fvnlNonDairyBevs = [
     0, 25, 33, 41, 49, 57, 65, 73, 81, 89, 96
 ]
+
+// Score to star points
+const scoreToStarPoints = [
+    -10, 1, 2, 4, 6, 8, 10, 12
+]
