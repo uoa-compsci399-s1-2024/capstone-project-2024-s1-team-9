@@ -560,3 +560,9 @@ function calculateNonDairyBevsStarPoints(score) {
         return i;
     }
 }
+
+// Route to calculate non-dairy bevs score
+app.get('/non-dairy-beverages/calculateScore', (req, res) => {
+    const nonDairyBevsScore = calculateNonDairyBevsStarPoints();
+    res.send({ nonDairyBevsScore });
+});
