@@ -511,3 +511,39 @@ const fvnlNonDairyBevs = [
 const scoreToStarPoints = [
     -10, 1, 2, 4, 6, 8, 10, 12
 ]
+
+// Energy lookup
+function getNonDairyBevsEnergy() {
+    i = 0;
+    while (inputDataNonDairyBevs.energy >= energyNonDairyBevs[i+1]) {
+        i++;
+    }
+    return i;
+}
+
+// Total suagrs lookup
+function getNonDairyBevsTotalSugars() {
+    i = 0;
+    while (inputDataNonDairyBevs.totalSugars >= totSugNonDairyBevs[i+1]) {
+        i++;
+    }
+    return i;
+}
+
+// fvnl lookup
+function getNonDairyBevsFvnl() {
+    i = 0;
+    while (inputDataNonDairyBevs.fvnl >= fvnlNonDairyBevs[i+1]) {
+        i++;
+    }
+    return i;
+}
+
+// star points lookup
+function getNonDairyBevsStarPoints(score) {
+    i = 0;
+    while (score >= scoreToStarPoints[i+1]) {
+        i++;
+    }
+    return i;
+}
