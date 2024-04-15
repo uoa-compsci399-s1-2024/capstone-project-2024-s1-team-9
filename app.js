@@ -302,8 +302,6 @@ const foodsProtein = [
 
 //     --> lookup num3
 function getNum3(){
-    const category = inputData.hsrCategory;
-    
     return num3.get(inputData.hsrCategory);
 }
 
