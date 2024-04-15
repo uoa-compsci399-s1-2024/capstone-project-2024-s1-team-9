@@ -89,19 +89,14 @@ function calculateHSRProfilerScore(inputData) {
 }
 
 // Route to calculate HSR profiler score
-app.post('/calculateHSRProfilerScore', (req, res) => {
-    const { error } = validateInputData(req.body);
-    if (error) return res.status(400).send(error);
-
-    const hsrProfilerScore = calculateHSRProfilerScore(req.body);
+app.get('/calculateHSRProfilerScore', (req, res) => {
+    const hsrProfilerScore = calculateHSRProfilerScore(inputData);
     res.send({ hsrProfilerScore });
 });
 
+
 // HSR Star Points
 
-// NPSC Group Number
-
-// NPSC Category
 
 // All Fruit, Veg concentrated?
 function allFruitVegConcentrated() {
