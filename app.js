@@ -539,16 +539,24 @@ function getNonDairyBevsFvnl() {
     return i;
 }
 
-// star points lookup
-function getNonDairyBevsStarPoints(score) {
-    i = 0;
-    while (score >= scoreToStarPoints[i+1]) {
-        i++;
-    }
-    return i;
-}
-
 // calculate points
 function calculatePoints() {
     return getNonDairyBevsEnergy() + getNonDairyBevsTotalSugars() - getNonDairyBevsFvnl();
+}
+
+// star points calculation
+function calculateNonDairyBevsStarPoints(score) {
+    if (score == "Water") {
+        return 10;
+    }
+    else if (score == "Flavoured water") {
+        return 9;
+    }
+    else {
+        i = 0;
+        while (score >= scoreToStarPoints[i+1]) {
+            i++;
+        }
+        return i;
+    }
 }
