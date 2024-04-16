@@ -11,7 +11,7 @@ app.use(express.json());
 
 var inputDataNonDairyBevs;
 
-app.post('/non-dairy-beverages/inputData', (req, res) => {
+app.post('/inputData', (req, res) => {
     const { error } = validateInputDataNonDairyBevs(req.body);
     if (error) return res.status(400).send(error);
 
@@ -108,7 +108,7 @@ function calculateNonDairyBevsStarPoints(score) {
 }
 
 // Route to calculate non-dairy bevs score
-app.get('/non-dairy-beverages/calculateScore', (req, res) => {
+app.get('/calculateScore', (req, res) => {
     const nonDairyBevsScore = calculateNonDairyBevsStarPoints();
     res.send({ nonDairyBevsScore });
 });
