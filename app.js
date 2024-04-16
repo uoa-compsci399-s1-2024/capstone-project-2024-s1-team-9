@@ -1,7 +1,4 @@
 
-// Joi used for data validation
-const Joi = require('joi');
-
 // Setup express.js
 const express = require('express');
 const app = express();
