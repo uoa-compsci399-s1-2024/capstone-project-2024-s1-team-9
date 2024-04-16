@@ -1,6 +1,14 @@
 
 // *** THIS FILE HANDLES DATA INPUT AND VALIDATION ***
 
+// Joi used for data validation
+const Joi = require('joi');
+
+// Setup express.js
+const express = require('express');
+const app = express();
+app.use(express.json());
+
 
 var inputData;
 

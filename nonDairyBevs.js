@@ -1,6 +1,13 @@
 
 // *** THIS FILE CONTAINS ALL DATA, LOOKUPS AND CALCULATIONS FOR NON-DAIRY BEVERAGES CALC ***
 
+// Joi used for data validation
+const Joi = require('joi');
+
+// Setup express.js
+const express = require('express');
+const app = express();
+app.use(express.json());
 
 var inputDataNonDairyBevs;
 

@@ -1,6 +1,11 @@
 
 // *** THIS FILE HAS ALL CALCULATION FUNCTIONS ***
 
+// Setup express.js
+const express = require('express');
+const app = express();
+app.use(express.json());
+
 
 // HSR Profiler Score
 
