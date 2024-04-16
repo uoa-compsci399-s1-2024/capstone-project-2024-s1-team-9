@@ -46,8 +46,17 @@ function allFruitVegConcentrated() {
 }
 
 // Whole Food %
+function calculateWholeFoodPercentage(concentratedFruitVeg, fvnl) {
+    return inputData.concFruitVeg + inputData.fvnl;
+}
 
 // Fruit Veg. Nuts, Pulses %
+function calculateFVNPPercentage(concentratedFruitVeg, fvnl) {
+    const num1 = inputData.fvnl + (2 * inputData.concFruitVeg);
+    const num2 = num1 + (100 - inputData.concFruitVeg - inputData.fvnl);
+    const result = 100 * (num1 / num2);
+    return Math.round(result * 100) / 100;
+}
 
 // Baseline Energy Points
 function calculateBaselineEnergyPoints() {
