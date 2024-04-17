@@ -109,10 +109,36 @@ function calculateTotalBaselinePoints() {
     return energyPoints + satFatPoints + totalSugarsPoints + sodiumPoints;
 }
 
-// Modifying Points % FVNL
+// Modifying Points % FVNL  
+function calculateModifyingPointsFVNL(){
+    if (allFruitVegConcentrated() == getClaim()){
+        return getNpscPointsConcFVNL();
+    } else {
+        return getNpscPointsFVNL();
+    }
+}
 
 // Modifying Points % Fibre
+function calculateModifyingPointsFibre(){
+    if (getNpscCategory() == 1){
+        return 0;
+    } else {
+        return getNpscPointsFoodsFibre();
+    }
+}
 
 // Modifying Points % Protein
+function calculateModifyingPointsProtein(){
+    return getNpscPointsFoodsProtein();
+}
 
 // Total Modifying Points (Table C)
+function calculateModifyingPoints(){
+    if (calculateTotalBaselinePoints() < getTippingPoint()){
+        return calculateModifyingPointsFVNL() + calculateModifyingPointsFibre() + calculateModifyingPointsProtein();
+    } else if (calculateModifyingPointsFVNL() >= getFruitVegTippingPoint()){
+        return calculateModifyingPointsFVNL() + calculateModifyingPointsFibre() + calculateModifyingPointsProtein();
+    } else {
+        return calculateModifyingPointsFVNL() + calculateModifyingPointsFibre();
+    }
+}
