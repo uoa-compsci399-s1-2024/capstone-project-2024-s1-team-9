@@ -58,7 +58,7 @@ app.get('/non_dairy_beverages/score', (req, res) => {
 
 // Route for non-dairy beverages input
 app.post('/non_dairy_beverages/input', (req, res) => {
-    const { error } = validateInputDataNonDairyBevs(req.body);
+    const { error } = nonDairyBevsCalcs.validateInputDataNonDairyBevs(req.body);
     if (error) return res.status(400).send(error);
 
     const data = {

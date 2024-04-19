@@ -93,5 +93,6 @@ function calculateNonDairyBevsStarPoints(score) {
 }
 
 module.exports = {
-    calculateNonDairyBevsStarPoints
+    calculateNonDairyBevsStarPoints,
+    validateInputDataNonDairyBevs
 }
