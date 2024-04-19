@@ -22,7 +22,7 @@ function calculateHSRProfilerScore() {
 
 // HSR Star Points
 function calculateHSRStarPoints() {
-    const num1 = getNum1();
+    const num1 = getNum1(); 
     const num2 = getNum2();
     const num3 = getNum3();
     const result = 10.499 - (num1 / num2 * num3);

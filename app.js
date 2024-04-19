@@ -19,7 +19,7 @@ app.get('/non-dairy-beverages', (req, res) => {
 
 // Route to calculate HSR profiler score
 app.get('/calculateHSRProfilerScore', (req, res) => {
-    const hsrProfilerScore = calculateHSRProfilerScore();
+    const hsrProfilerScore = calculations.calculateHSRProfilerScore();
     res.send({ hsrProfilerScore });
 });
 
