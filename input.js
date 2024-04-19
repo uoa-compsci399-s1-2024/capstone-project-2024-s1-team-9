@@ -10,30 +10,6 @@ const app = express();
 app.use(express.json());
 
 
-var inputData;
-
-app.post('/inputData', (req, res) => {
-    const { error } = validateInputData(req.body);
-    if (error) return res.status(400).send(error);
-
-    const data = {
-        hsrCategory: req.body.hsrCategory,
-        food: req.body.food,
-        company: req.body.company,
-        energy: req.body.energy,
-        satFat: req.body.satFat,
-        totalSugars: req.body.totalSugars,
-        sodium: req.body.sodium,
-        fibre: req.body.fibre,
-        protein: req.body.protein,
-        concFruitVeg: req.body.concFruitVeg,
-        fvnl: req.body.fvnl,
-    };
-    inputData = data;
-    res.send(inputData);
-});
-
-
 function validateInputData(input) {
     const schema = Joi.object({
         hsrCategory: Joi.string().min(1).required(),
@@ -50,4 +26,8 @@ function validateInputData(input) {
     });
 
     return schema.validate(input);
+}
+
+module.exports = {
+    validateInputData
 }

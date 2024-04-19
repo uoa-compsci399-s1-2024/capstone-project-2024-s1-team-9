@@ -6,23 +6,18 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+// Get input
+const { inputData } = require("./app");
 
 // HSR Profiler Score
-
 function calculateHSRProfilerScore() {  
     const category = inputData.hsrCategory;
     const baselinePoints = calculateTotalBaselinePoints();
     // modifyingPoints include (HSR V points) (HSR P points if eligible) (HSR F points if eligible)
-    const modifyingPoints = calculateModifyingPoints();  // function needs implementation
+    const modifyingPoints = calculateModifyingPoints();
     const finalHSRScore = baselinePoints - modifyingPoints;
     return finalHSRScore;
 }
-
-// Route to calculate HSR profiler score
-app.get('/calculateHSRProfilerScore', (req, res) => {
-    const hsrProfilerScore = calculateHSRProfilerScore();
-    res.send({ hsrProfilerScore });
-});
 
 
 // HSR Star Points
@@ -141,4 +136,8 @@ function calculateModifyingPoints(){
     } else {
         return calculateModifyingPointsFVNL() + calculateModifyingPointsFibre();
     }
+}
+
+module.exports = {
+    calculateHSRProfilerScore
 }
