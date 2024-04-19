@@ -11,21 +11,6 @@ app.use(express.json());
 
 var inputDataNonDairyBevs;
 
-app.post('/inputData', (req, res) => {
-    const { error } = validateInputDataNonDairyBevs(req.body);
-    if (error) return res.status(400).send(error);
-
-    const data = {
-        product: req.body.product,
-        company: req.body.company,
-        energy: req.body.energy,
-        totalSugars: req.body.totalSugars,
-        fvnl: req.body.fvnl,
-    };
-    inputDataNonDairyBevs = data;
-    res.send(inputDataNonDairyBevs);
-});
-
 function validateInputDataNonDairyBevs(input) {
     const schema = Joi.object({
         product: Joi.string(),
@@ -107,8 +92,6 @@ function calculateNonDairyBevsStarPoints(score) {
     }
 }
 
-// Route to calculate non-dairy bevs score
-app.get('/calculateScore', (req, res) => {
-    const nonDairyBevsScore = calculateNonDairyBevsStarPoints();
-    res.send({ nonDairyBevsScore });
-});
+module.exports = {
+    calculateNonDairyBevsStarPoints
+}
