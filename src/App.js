@@ -1,6 +1,6 @@
 import "./App.css";
 import "./Components/calculator/calculator.jsx";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import calculator from "./Components/calculator/calculator.jsx";
 import "./Components/category/CategorySelector.jsx";
 import CategorySelector from "./Components/category/CategorySelector.jsx";

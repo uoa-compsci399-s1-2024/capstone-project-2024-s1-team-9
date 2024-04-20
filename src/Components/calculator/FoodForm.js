@@ -3,6 +3,7 @@ import logo1  from "../Assets/category.svg";
 import logo2  from "../Assets/energy.svg";
 import logo3  from "../Assets/food.svg";
 const FoodRatingForm = () => {
+  const [category, setCategory] = useState("");
   const [foodName, setFoodName] = useState("");
   const [company, setCompany] = useState("");
   const [energy, setEnergy] = useState("");
@@ -22,6 +23,21 @@ const FoodRatingForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div>
+        <label>Category: </label>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+        >
+          <option value="">Select category</option>
+          <option value="Dairy Beverages">Dairy Beverages</option>
+          <option value="Foods">Foods</option>
+          <option value="Dairy Foods">Dairy Foods</option>
+          <option value="Fats, Oils">Fats, Oils</option>
+          <option value="Cheeses">Cheeses</option>
+        </select>
+      </div>
       <div>
         <label>Food Name: </label>
         <input

@@ -14,15 +14,16 @@ const Calculator1 = () => {
     <Container>
       <Row>
         <Col size={12}>
+        
           <DropdownButton
           className="dropdown-button"
-            id="dropdown-basic-button"
+            
             title="Select Category"
             variant="primary"
             onSelect={(eventKey) => handleCategorySelect(eventKey)}
           >
-            <Dropdown.Item eventKey="food">Food</Dropdown.Item>
-            <Dropdown.Item eventKey="non-dairy">Non-Dairy Beverage</Dropdown.Item>
+            <Dropdown.Item eventKey="food">Foods</Dropdown.Item>
+            <Dropdown.Item eventKey="non-dairy">Non-Dairy Beverages</Dropdown.Item>
           </DropdownButton>
         </Col>
       </Row>
