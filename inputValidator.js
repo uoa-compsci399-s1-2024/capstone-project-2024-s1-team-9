@@ -28,7 +28,7 @@ router.post('/input', (req, res) => {
         concFruitVeg: req.body.concFruitVeg,
         fvnl: req.body.fvnl,
     };
-    const inputData = data;
+    inputData = data;
     res.send(inputData);
 });
 
