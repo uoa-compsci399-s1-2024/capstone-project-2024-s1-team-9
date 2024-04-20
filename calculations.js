@@ -9,7 +9,7 @@ const router = express.Router();
 const lookup = require("./lookups");
 
 // Require input validator
-const inputValidator = require("./inputValidator");
+const inputData = require("./inputValidator");
 
 // Route to calculate HSR profiler score
 router.get('/score', (req, res) => {
@@ -21,7 +21,6 @@ router.get('/score', (req, res) => {
 
 // HSR Profiler Score
 function calculateHSRProfilerScore() {  
-    //const category = inputData.hsrCategory;
     const baselinePoints = calculateTotalBaselinePoints();
     const modifyingPoints = calculateModifyingPoints();
     const finalHSRScore = baselinePoints - modifyingPoints;
