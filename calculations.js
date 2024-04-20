@@ -3,17 +3,46 @@
 
 // Setup express.js
 const express = require('express');
-const app = express();
-app.use(express.json());
+const router = express.Router();
+
+// Require lookup functions
+const lookup = require("./lookups");
+
+// Require input validator
+const inputValidator = require("./inputValidator");
+
+// Route to calculate HSR profiler score
+router.get('/score', (req, res) => {
+    const hsrProfilerScore = calculateHSRStarPoints();
+    res.send({ hsrProfilerScore });
+});
 
 // Get input
-const { inputData } = require("./app");
+router.post('/input', (req, res) => {
+    const { error } = inputValidator.validateInputData(req.body);
+    if (error) return res.status(400).send(error);
+
+    const data = {
+        hsrCategory: req.body.hsrCategory,
+        food: req.body.food,
+        company: req.body.company,
+        energy: req.body.energy,
+        satFat: req.body.satFat,
+        totalSugars: req.body.totalSugars,
+        sodium: req.body.sodium,
+        fibre: req.body.fibre,
+        protein: req.body.protein,
+        concFruitVeg: req.body.concFruitVeg,
+        fvnl: req.body.fvnl,
+    };
+    const inputData = data;
+    res.send(inputData);
+});
 
 // HSR Profiler Score
 function calculateHSRProfilerScore() {  
-    const category = inputData.hsrCategory;
+    //const category = inputData.hsrCategory;
     const baselinePoints = calculateTotalBaselinePoints();
-    // modifyingPoints include (HSR V points) (HSR P points if eligible) (HSR F points if eligible)
     const modifyingPoints = calculateModifyingPoints();
     const finalHSRScore = baselinePoints - modifyingPoints;
     return finalHSRScore;
@@ -22,9 +51,9 @@ function calculateHSRProfilerScore() {
 
 // HSR Star Points
 function calculateHSRStarPoints() {
-    const num1 = getNum1(); 
-    const num2 = getNum2();
-    const num3 = getNum3();
+    const num1 = calculateHSRProfilerScore() - lookup.getNum1(); 
+    const num2 = lookup.getNum2();
+    const num3 = lookup.getNum3();
     const result = 10.499 - (num1 / num2 * num3);
     
     if (result < 1) {
@@ -60,37 +89,37 @@ function calculateFVNPPercentage(concentratedFruitVeg, fvnl) {
 
 // Baseline Energy Points
 function calculateBaselineEnergyPoints() {
-    if (getNpscGroupNumber() !== 3) {
-        return getCategory1_2Energy();
+    if (lookup.getNpscGroupNumber() !== 3) {
+        return lookup.getCategory1_2Energy();
     } else {
-        return getCategory3Energy();
+        return lookup.getCategory3Energy();
     }
 }
 
 // Baseline Sat Fat Points
 function calculateBaselineSatFatPoints() {
-    if (getNpscGroupNumber() !== 3) {
-        return getCategory1_2SatFat();
+    if (lookup.getNpscGroupNumber() !== 3) {
+        return lookup.getCategory1_2SatFat();
     } else {
-        return getCategory3SatFat();
+        return lookup.getCategory3SatFat();
     }
 }
 
 // Baseline Total Sugars Points
 function calculateBaselineTotalSugarsPoints() {
-    if (getNpscGroupNumber() !== 3) {
-        return getCategory1_2TotSug();
+    if (lookup.getNpscGroupNumber() !== 3) {
+        return lookup.getCategory1_2TotSug();
     } else {
-        return getCategory3TotSug();
+        return lookup.getCategory3TotSug();
     }
 }
 
 // Baseline Sodium Points
 function calculateBaselineSodiumPoints() {
-    if (getNpscGroupNumber() !== 3) {
-        return getCategory1_2Sodium();
+    if (lookup.getNpscGroupNumber() !== 3) {
+        return lookup.getCategory1_2Sodium();
     } else {
-        return getCategory3Sodium();
+        return lookup.getCategory3Sodium();
     }
 }
 
@@ -106,30 +135,30 @@ function calculateTotalBaselinePoints() {
 
 // Modifying Points % FVNL  
 function calculateModifyingPointsFVNL(){
-    if (allFruitVegConcentrated() == getClaim()){
-        return getNpscPointsConcFVNL();
+    if (allFruitVegConcentrated() == lookup.getClaim()){
+        return lookup.getNpscPointsConcFVNL();
     } else {
-        return getNpscPointsFVNL();
+        return lookup.getNpscPointsFVNL();
     }
 }
 
 // Modifying Points % Fibre
 function calculateModifyingPointsFibre(){
-    if (getNpscCategory() == 1){
+    if (lookup.getNpscCategory() == 1){
         return 0;
     } else {
-        return getNpscPointsFoodsFibre();
+        return lookup.getNpscPointsFoodsFibre();
     }
 }
 
 // Modifying Points % Protein
 function calculateModifyingPointsProtein(){
-    return getNpscPointsFoodsProtein();
+    return lookup.getNpscPointsFoodsProtein();
 }
 
 // Total Modifying Points (Table C)
 function calculateModifyingPoints(){
-    if (calculateTotalBaselinePoints() < getTippingPoint()){
+    if (calculateTotalBaselinePoints() < lookup.getTippingPoint()){
         return calculateModifyingPointsFVNL() + calculateModifyingPointsFibre() + calculateModifyingPointsProtein();
     } else if (calculateModifyingPointsFVNL() >= getFruitVegTippingPoint()){
         return calculateModifyingPointsFVNL() + calculateModifyingPointsFibre() + calculateModifyingPointsProtein();
@@ -138,6 +167,7 @@ function calculateModifyingPoints(){
     }
 }
 
-module.exports = {
-    calculateHSRProfilerScore
-}
+
+// export
+module.exports = router;
+exports.inputData = this.inputData;

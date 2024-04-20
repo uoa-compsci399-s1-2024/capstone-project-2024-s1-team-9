@@ -6,14 +6,13 @@ const Joi = require('joi');
 
 // Setup express.js
 const express = require('express');
-const app = express();
-app.use(express.json());
+const router = express.Router();
 
 
 function validateInputData(input) {
     const schema = Joi.object({
         hsrCategory: Joi.string().min(1).required(),
-        food: Joi.string(),
+        food: Joi.string().required(),
         company: Joi.string(),
         energy: Joi.number().integer().min(0).max(3685).required(),
         satFat: Joi.number().precision(1).min(0).max(100).required(),
@@ -28,6 +27,8 @@ function validateInputData(input) {
     return schema.validate(input);
 }
 
+
+// export
 module.exports = {
     validateInputData
 }

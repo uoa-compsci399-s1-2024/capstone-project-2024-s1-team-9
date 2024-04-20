@@ -14,11 +14,7 @@ app.get('/non_dairy_beverages', (req, res) => {
     res.send('This will be the page for non-dairy beverages calculator');
 });
 
-// Route for HSR calculator input
-const input = require("./input");
-app.use("/hsr", input);
-
-// Route to calculate HSR profiler score
+// Route to get input and calculate HSR profiler score
 const calculations = require("./calculations");
 app.use("/hsr", calculations);
 
