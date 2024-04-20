@@ -8,6 +8,29 @@ const Joi = require('joi');
 const express = require('express');
 const router = express.Router();
 
+let inputData;
+
+// Get input
+router.post('/input', (req, res) => {
+    const { error } = validateInputData(req.body);
+    if (error) return res.status(400).send(error);
+
+    const data = {
+        hsrCategory: req.body.hsrCategory,
+        food: req.body.food,
+        company: req.body.company,
+        energy: req.body.energy,
+        satFat: req.body.satFat,
+        totalSugars: req.body.totalSugars,
+        sodium: req.body.sodium,
+        fibre: req.body.fibre,
+        protein: req.body.protein,
+        concFruitVeg: req.body.concFruitVeg,
+        fvnl: req.body.fvnl,
+    };
+    const inputData = data;
+    res.send(inputData);
+});
 
 function validateInputData(input) {
     const schema = Joi.object({
@@ -29,6 +52,4 @@ function validateInputData(input) {
 
 
 // export
-module.exports = {
-    validateInputData
-}
+module.exports = inputData;
