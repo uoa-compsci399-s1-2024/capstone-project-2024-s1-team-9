@@ -11,7 +11,7 @@ const CategorySelector = () => {
   };
 
   // List of categories
-  const categories = ['Category 1', 'Category 2', 'Category 3'];
+  const categories = ['1. Non- dairy beverage', '1D. Milk and Dairy beverages', '2. Food', '2D. Dairy foods', '3. Oils and Spreads', '3D. Cheese'];
 
   return (
     <div>
