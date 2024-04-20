@@ -5,8 +5,7 @@
 const data = require("./data");
 
 // Get input
-var input = require("./calculations");
-var inputData = input.hsrCategory;
+const inputData = require("./inputValidator");
 
 // % flexed foods and end points based on new industry data
 
