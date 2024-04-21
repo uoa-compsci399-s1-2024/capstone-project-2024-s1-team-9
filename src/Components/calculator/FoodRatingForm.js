@@ -12,11 +12,45 @@ const FoodRatingForm = () => {
   const [protein, setProtein] = useState("");
   const [concFruitVeg, setConcFruitVeg] = useState("");
   const [fvnl, setFvnl] = useState("");
+  const [loading, setLoading] = useState(false); 
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // get api data here
+    setLoading(true); 
+    try {
+      // get api endpoint from backend team
+      const response = await fetch("put api endpoint here" , {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // not sure if this is the correct json body, need to check with backend team
+        body: JSON.stringify({
+          category,
+          foodName,
+          company,
+          energy,
+          saturatedFat,
+          totalSugars,
+          sodium,
+          fibre,
+          protein,
+          concFruitVeg,
+          fvnl,
+        }),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to submit form.");
+      }
+      console.log("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error:", error); 
+      setError("Error occurred while submitting the form."); 
+    }
+    setLoading(false); 
   };
 
   return (
@@ -144,7 +178,7 @@ const FoodRatingForm = () => {
 
 
       <div>
-        <button type="submit">Calculate</button>
+        <button type="submit" onSubmit={console.log("test")}>Calculate</button>
       </div>
     </form>
   );
