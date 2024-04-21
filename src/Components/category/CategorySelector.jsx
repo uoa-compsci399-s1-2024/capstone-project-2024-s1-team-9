@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './category.css'; // Import CSS file for styling
-import FoodForm from "../calculator/FoodForm";
+import FoodForm from "../calculator/FoodRatingForm";
 const CategorySelector = () => {
   // State to hold the selected category
   const [selectedCategory, setSelectedCategory] = useState('');

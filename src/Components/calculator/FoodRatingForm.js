@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import logo1  from "../Assets/category.svg";
-import logo2  from "../Assets/energy.svg";
-import logo3  from "../Assets/food.svg";
+
 const FoodRatingForm = () => {
   const [category, setCategory] = useState("");
   const [foodName, setFoodName] = useState("");
