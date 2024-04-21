@@ -11,7 +11,6 @@ num3.set("2 - Foods", 29);
 num3.set("2D - Dairy foods", 14);
 num3.set("3 - Fats, oils", 45);
 num3.set("3D - Cheese", 41);
-num3.set("non-dairy-beverages", 3);
 exports.num3 = num3;
 
 const num1 = new Map();
@@ -20,7 +19,6 @@ num1.set("2 - Foods", -15);
 num1.set("2D - Dairy foods", -3);
 num1.set("3 - Fats, oils", 10);
 num1.set("3D - Cheese", 23);
-num1.set("non-dairy-beverages", -6);
 exports.num1 = num1;
 
 const num2 = new Map();
@@ -34,21 +32,19 @@ exports.num1 = num1;
 // AMENDED lookups with simplified categories
 
 const npscGroupNumber = new Map();
-npscGroupNumber.set("1. Non- dairy beverage", 1);
-npscGroupNumber.set("1D. Milk and Dairy beverages", 1);
-npscGroupNumber.set("2. Food", 2);
-npscGroupNumber.set("2D. Dairy foods", 2);
-npscGroupNumber.set("3. Oils and Spreads", 3);
-npscGroupNumber.set("3D. Cheese", 3);
+npscGroupNumber.set("1D - Dairy beverages", 1);
+npscGroupNumber.set("2 - Foods", 2);
+npscGroupNumber.set("2D - Dairy foods", 2);
+npscGroupNumber.set("3 - Fats, oils", 3);
+npscGroupNumber.set("3D - Cheese", 3);
 exports.npscGroupNumber = npscGroupNumber;
 
 const npscCategory = new Map();
-npscCategory.set("1. Non- dairy beverage", "Beverages");
-npscCategory.set("1D. Milk and Dairy beverages", "Beverages");
-npscCategory.set("2. Food", "Food");
-npscCategory.set("2D. Dairy foods", "Food");
-npscCategory.set("3. Oils and Spreads", "Fats/Oils/Cheese");
-npscCategory.set("3D. Cheese", "Fats/Oils/Cheese");
+npscCategory.set("1D - Dairy beverages", "Beverages");
+npscCategory.set("2 - Foods", "Food");
+npscCategory.set("2D - Dairy foods", "Food");
+npscCategory.set("3 - Fats, oils", "Fats/Oils/Cheese");
+npscCategory.set("3D - Cheese", "Fats/Oils/Cheese");
 exports.npscCategory = npscCategory;
 
 
