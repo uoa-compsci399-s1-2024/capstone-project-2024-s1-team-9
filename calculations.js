@@ -13,6 +13,7 @@ const inputData = require("./inputValidator");
 
 // Route to calculate HSR profiler score
 router.get('/score', (req, res) => {
+    console.log(inputData.hsrCategory);
     const hsrProfilerScore = calculateHSRStarPoints();
     res.send({ hsrProfilerScore });
 });
@@ -20,7 +21,7 @@ router.get('/score', (req, res) => {
 
 
 // HSR Profiler Score
-function calculateHSRProfilerScore() {  
+function calculateHSRProfilerScore() {
     const baselinePoints = calculateTotalBaselinePoints();
     const modifyingPoints = calculateModifyingPoints();
     const finalHSRScore = baselinePoints - modifyingPoints;
@@ -139,7 +140,7 @@ function calculateModifyingPointsProtein(){
 function calculateModifyingPoints(){
     if (calculateTotalBaselinePoints() < lookup.getTippingPoint()){
         return calculateModifyingPointsFVNL() + calculateModifyingPointsFibre() + calculateModifyingPointsProtein();
-    } else if (calculateModifyingPointsFVNL() >= getFruitVegTippingPoint()){
+    } else if (calculateModifyingPointsFVNL() >= lookup.getFruitVegTippingPoint()){
         return calculateModifyingPointsFVNL() + calculateModifyingPointsFibre() + calculateModifyingPointsProtein();
     } else {
         return calculateModifyingPointsFVNL() + calculateModifyingPointsFibre();

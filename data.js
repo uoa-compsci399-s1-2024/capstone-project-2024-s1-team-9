@@ -13,6 +13,7 @@ num3.set("3 - Fats, oils", 45);
 num3.set("3D - Cheese", 41);
 exports.num3 = num3;
 
+
 const num1 = new Map();
 num1.set("1D - Dairy beverages", -2);
 num1.set("2 - Foods", -15);
@@ -27,7 +28,7 @@ for (let key of num3.keys()) {
     const range = Math.abs(num3.get(key) - num1.get(key));
     num2.set(key, range);
 }
-exports.num1 = num1;
+exports.num2 = num2;
 
 // AMENDED lookups with simplified categories
 

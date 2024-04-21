@@ -17,6 +17,8 @@ app.get('/non_dairy_beverages', (req, res) => {
 // Route to get input and calculate HSR profiler score
 const calculations = require("./calculations");
 app.use("/hsr", calculations);
+const input = require("./inputValidator");
+app.use("/hsr", input);
 
 // Route for non-dairy bevs input and calculate score
 const nonDairyBevs = require("./nonDairyBevs");

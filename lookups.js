@@ -5,7 +5,7 @@
 const data = require("./data");
 
 // Get input
-const inputData = require("./inputValidator");
+const inputData = require("./inputValidator").inputData;
 
 // % flexed foods and end points based on new industry data
 
