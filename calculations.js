@@ -204,7 +204,7 @@ function getNpscPointsFoodsProtein(){
 
 // Route to calculate HSR profiler score
 router.get('/score', (req, res) => {
-    const hsrProfilerScore = calculateHSRStarPoints();
+    const hsrProfilerScore = calculateHSRStarPoints() / 2;
     res.send({ hsrProfilerScore });
 });
 
@@ -239,8 +239,10 @@ function calculateHSRStarPoints() {
 // All Fruit, Veg concentrated?
 function allFruitVegConcentrated() {
     if (inputData.concFruitVeg  > 0 && inputData.fvnl == 0) {
+        console.log("all fruit veg concentrated? YES");
         return "yes";
     }
+    console.log("all fruit veg concentrated? NO");
     return "no";
 }
 
@@ -260,8 +262,10 @@ function calculateFVNPPercentage(concentratedFruitVeg, fvnl) {
 // Baseline Energy Points
 function calculateBaselineEnergyPoints() {
     if (getNpscGroupNumber() !== 3) {
+        console.log("baseline energy " + getCategory1_2Energy());
         return getCategory1_2Energy();
     } else {
+        console.log("baseline energy " + getCategory3Energy());
         return getCategory3Energy();
     }
 }
@@ -269,8 +273,10 @@ function calculateBaselineEnergyPoints() {
 // Baseline Sat Fat Points
 function calculateBaselineSatFatPoints() {
     if (getNpscGroupNumber() !== 3) {
+        console.log("baseline satfat " + getCategory1_2SatFat());
         return getCategory1_2SatFat();
     } else {
+        console.log("baseline satfat " + getCategory3SatFat());
         return getCategory3SatFat();
     }
 }
@@ -278,8 +284,10 @@ function calculateBaselineSatFatPoints() {
 // Baseline Total Sugars Points
 function calculateBaselineTotalSugarsPoints() {
     if (getNpscGroupNumber() !== 3) {
+        console.log("baseline totsug " + getCategory1_2TotSug());
         return getCategory1_2TotSug();
     } else {
+        console.log("baseline totsug " + getCategory3TotSug());
         return getCategory3TotSug();
     }
 }
@@ -287,8 +295,10 @@ function calculateBaselineTotalSugarsPoints() {
 // Baseline Sodium Points
 function calculateBaselineSodiumPoints() {
     if (getNpscGroupNumber() !== 3) {
+        console.log("baseline sodium " + getCategory1_2Sodium());
         return getCategory1_2Sodium();
     } else {
+        console.log("baseline sodium " + getCategory3Sodium());
         return getCategory3Sodium();
     }
 }
@@ -299,8 +309,11 @@ function calculateTotalBaselinePoints() {
     const satFatPoints = calculateBaselineSatFatPoints();
     const totalSugarsPoints = calculateBaselineTotalSugarsPoints();
     const sodiumPoints = calculateBaselineSodiumPoints();
+
+    const total = energyPoints + satFatPoints + totalSugarsPoints + sodiumPoints;
     
-    return energyPoints + satFatPoints + totalSugarsPoints + sodiumPoints;
+    console.log("baseline TOTAL " + total);
+    return total;
 }
 
 // Modifying Points % FVNL  
