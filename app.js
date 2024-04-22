@@ -22,6 +22,12 @@ app.use("/hsr", calculations);
 const nonDairyBevs = require("./nonDairyBevs");
 app.use("/non_dairy_beverages", nonDairyBevs)
 
+// Route to get the list of categories
+app.get('/categories', (req, res) => {
+    const categories = ["1 - Non-dairy beverages", "1D - Dairy beverages", "2 - Foods", "2D - Dairy foods", "3 - Fats, oils", "3D - Cheese"];
+    res.json(categories);
+});
+
 // Listen on port 3000 if no other port given
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`listening on port ${port}...`));
