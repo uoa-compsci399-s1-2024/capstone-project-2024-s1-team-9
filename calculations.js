@@ -208,6 +208,12 @@ router.get('/score', (req, res) => {
     res.send({ hsrProfilerScore });
 });
 
+// Route to get rating image filename
+router.get('/rating_image', (req, res) => {
+    const hsrProfilerScore = calculateHSRStarPoints() / 2;
+    res.send({rating_image: "" + hsrProfilerScore + "stars.svg"});
+});
+
 
 
 // HSR Profiler Score

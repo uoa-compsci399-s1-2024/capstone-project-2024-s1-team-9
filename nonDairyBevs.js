@@ -14,6 +14,13 @@ router.get('/score', (req, res) => {
     res.send({ nonDairyBevsScore });
 });
 
+// Route to get rating image filename
+router.get('/rating_image', (req, res) => {
+    const nonDairyBevsScore = calculateNonDairyBevsStarPoints();
+    res.send({rating_image: "" + nonDairyBevsScore + "stars.svg"});
+});
+
+
 // Route for non-dairy beverages input
 var inputDataNonDairyBevs;
 
