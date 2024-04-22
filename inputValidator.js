@@ -1,23 +1,6 @@
 
-// *** THIS FILE HANDLES DATA INPUT AND VALIDATION ***
-
 // Joi used for data validation
 const Joi = require('joi');
-
-// Setup express.js and bodyParser
-const express = require('express');
-const router = express.Router();
-
-// Get input
-router.post('/input', (req, res) => {
-    const { error } = validateInputData(req.body);
-    if (error) return res.status(400).send(error);
-
-    
-
-    res.send(req.body);
-});
-
 
 // Validate input data
 function validateInputData(input) {
@@ -38,6 +21,6 @@ function validateInputData(input) {
     return schema.validate(input);
 }
 
-
-// export
-module.exports = router;
+module.exports = {
+    validateInputData
+}
