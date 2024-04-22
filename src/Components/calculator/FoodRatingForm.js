@@ -173,13 +173,12 @@ const FoodRatingForm = () => {
 
         
 
-
-
-
-
       <div>
-        <button type="submit" onSubmit={console.log("test")}>Calculate</button>
+      <button type="submit" disabled={loading}>
+          {loading ? "Submitting..." : "Calculate"}
+        </button>
       </div>
+      {error && <div>{error}</div>}
     </form>
   );
 };
