@@ -10,7 +10,7 @@ import Calculator1 from "./Components/calculator/Calculator1.js";
 function App() {
   return (
     <div className="App">
-      <h1 className="title">Health Sar Rating Calculator</h1>
+      <h1 className="title">Health Star Rating Calculator</h1>
       <div className="underline1"></div>
       <Calculator1 />
       {/* {CategorySelector()} */}
