@@ -236,13 +236,11 @@ function calculateHSRStarPoints() {
 }
 
 
-// All Fruit, Veg concentrated?
+// All Fruit, Veg concentrated? - *checked ok*
 function allFruitVegConcentrated() {
     if (inputData.concFruitVeg  > 0 && inputData.fvnl == 0) {
-        console.log("all fruit veg concentrated? YES");
         return "yes";
     }
-    console.log("all fruit veg concentrated? NO");
     return "no";
 }
 
@@ -251,7 +249,7 @@ function calculateWholeFoodPercentage(concentratedFruitVeg, fvnl) {
     return inputData.concFruitVeg + inputData.fvnl;
 }
 
-// Fruit Veg. Nuts, Pulses % --> NOT USED
+// Fruit Veg. Nuts, Pulses % --> *checked ok*
 function calculateFVNPPercentage(concentratedFruitVeg, fvnl) {
     const num1 = inputData.fvnl + (2 * inputData.concFruitVeg);
     const num2 = num1 + (100 - inputData.concFruitVeg - inputData.fvnl);
@@ -259,51 +257,43 @@ function calculateFVNPPercentage(concentratedFruitVeg, fvnl) {
     return Math.round(result * 100) / 100;
 }
 
-// Baseline Energy Points
+// Baseline Energy Points - *checked ok*
 function calculateBaselineEnergyPoints() {
     if (getNpscGroupNumber() !== 3) {
-        console.log("baseline energy " + getCategory1_2Energy());
         return getCategory1_2Energy();
     } else {
-        console.log("baseline energy " + getCategory3Energy());
         return getCategory3Energy();
     }
 }
 
-// Baseline Sat Fat Points
+// Baseline Sat Fat Points - *checked ok*
 function calculateBaselineSatFatPoints() {
     if (getNpscGroupNumber() !== 3) {
-        console.log("baseline satfat " + getCategory1_2SatFat());
         return getCategory1_2SatFat();
     } else {
-        console.log("baseline satfat " + getCategory3SatFat());
         return getCategory3SatFat();
     }
 }
 
-// Baseline Total Sugars Points
+// Baseline Total Sugars Points - *checked ok*
 function calculateBaselineTotalSugarsPoints() {
     if (getNpscGroupNumber() !== 3) {
-        console.log("baseline totsug " + getCategory1_2TotSug());
         return getCategory1_2TotSug();
     } else {
-        console.log("baseline totsug " + getCategory3TotSug());
         return getCategory3TotSug();
     }
 }
 
-// Baseline Sodium Points
+// Baseline Sodium Points - *checked ok*
 function calculateBaselineSodiumPoints() {
     if (getNpscGroupNumber() !== 3) {
-        console.log("baseline sodium " + getCategory1_2Sodium());
         return getCategory1_2Sodium();
     } else {
-        console.log("baseline sodium " + getCategory3Sodium());
         return getCategory3Sodium();
     }
 }
 
-// Total Baseline Points (Table A)
+// Total Baseline Points (Table A) - *checked ok*
 function calculateTotalBaselinePoints() {
     const energyPoints = calculateBaselineEnergyPoints();
     const satFatPoints = calculateBaselineSatFatPoints();
@@ -311,30 +301,28 @@ function calculateTotalBaselinePoints() {
     const sodiumPoints = calculateBaselineSodiumPoints();
 
     const total = energyPoints + satFatPoints + totalSugarsPoints + sodiumPoints;
-    
-    console.log("baseline TOTAL " + total);
     return total;
 }
 
-// Modifying Points % FVNL  
+// Modifying Points % FVNL - *checked ok*
 function calculateModifyingPointsFVNL(){
     if (allFruitVegConcentrated() == getClaim()){
         return getNpscPointsConcFVNL();
     } else {
-        return getNpscPointsFVNL();
+        return calculateFVNPPercentage();
     }
 }
 
-// Modifying Points % Fibre
+// Modifying Points % Fibre - *checked ok*
 function calculateModifyingPointsFibre(){
-    if (getNpscCategory() == 1){
+    if (getNpscGroupNumber() == 1){
         return 0;
     } else {
         return getNpscPointsFoodsFibre();
     }
 }
 
-// Modifying Points % Protein
+// Modifying Points % Protein - *checked ok*
 function calculateModifyingPointsProtein(){
     return getNpscPointsFoodsProtein();
 }
