@@ -59,11 +59,20 @@ exports.npscCategory = npscCategory;
 
 // Extended tables, category 1 and 2 foods
 
-const energyIncrementCat1_2 = 335;
-exports.energyIncrementCat1_2 = energyIncrementCat1_2;
+const energyCat1_2 = [
+    0, 335.01, 670.01, 1005.01, 1340.01, 1675.01, 2010.01, 2345.01,
+    2680.01, 3015.01, 3350.01, 3685.01
+]
+exports.energyCat1_2 = energyCat1_2;
 
-const sodiumIncrementCat1_2 = 90;
-exports.sodiumIncrementCat1_2 = sodiumIncrementCat1_2;
+const sodiumCat1_2 = [
+    0, 90.01, 180.01, 270.01, 360.01, 450.01, 540.01, 630.01,
+    720.01, 810.01, 900.01, 990.01, 1080.01, 1170.01, 1260.01,
+    1350.01, 1440.01, 1530.01, 1620.01, 1710.01, 1800.01, 1890.01,
+    1980.01, 2070.01, 2160.01, 2250.01, 2340.01, 2430.01, 2520.01,
+    2610.01, 2700.01
+]
+exports.sodiumCat1_2 = sodiumCat1_2;
 
 const satFatCat1_2 = [
 	0, 1.01, 2.01, 3.01, 4.01, 5.01, 6.01, 7.01, 8.01, 9.01, 
@@ -83,14 +92,29 @@ exports.totSugCat1_2 = totSugCat1_2;
 
 // Extended tables, category 3 foods
 
-const energyIncrementCat3 = 335;
-exports.energyIncrementCat3 = energyIncrementCat3;
+const energyCat3 = [
+    0, 335.01, 670.01, 1005.01, 1340.01, 1675.01, 2010.01, 2345.01,
+    2680.01, 3015.01, 3350.01, 3685.01
+]
+exports.energyCat3 = energyCat3;
 
-const satFatIncrementCat3 = 1;
-exports.satFatIncrementCat3 = satFatIncrementCat3;
+const satFatCat3 = values = [
+    0, 1.01, 2.01, 3.01, 4.01, 5.01, 6.01, 7.01, 8.01,
+    9.01, 10.01, 11.01, 12.01, 13.01, 14.01, 15.01, 16.01,
+    17.01, 18.01, 19.01, 20.01, 21.01, 22.01, 23.01, 24.01,
+    25.01, 26.01, 27.01, 28.01, 29.01, 30.01
+]
 
-const sodiumIncrementCat3 = 90;
-exports.sodiumIncrementCat3 = sodiumIncrementCat3;
+exports.satFatCat3 = satFatCat3;
+
+const sodiumCat3 = [
+    0, 90.01, 180.01, 270.01, 360.01, 450.01, 540.01, 630.01,
+    720.01, 810.01, 900.01, 990.01, 1080.01, 1170.01, 1260.01,
+    1350.01, 1440.01, 1530.01, 1620.01, 1710.01, 1800.01, 1890.01,
+    1980.01, 2070.01, 2160.01, 2250.01, 2340.01, 2430.01, 2520.01,
+    2610.01, 2700.01
+]
+exports.sodiumCat3 = sodiumCat3;
 
 const totSugCat3 = [
     0, 5.01, 9.01, 13.51, 18.01, 22.51, 27.01, 31.01, 36.01, 40.01, 45.01

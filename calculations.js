@@ -85,7 +85,11 @@ function getNpscGroupNumber() {
 
 //     --> lookup cat1and2 energy
 function getCategory1_2Energy() {
-    return Math.max(Math.floor((inputData.energy - 0.01) / data.energyIncrementCat1_2), 0);
+    i = 0;
+    while (inputData.energy >= data.energyCat1_2[i+1]) {
+        i++;
+    }
+    return i;
 }
 
 //     --> lookup cat1and2 satfat
@@ -99,7 +103,11 @@ function getCategory1_2SatFat() {
 
 //     --> lookup cat1and2 sodium
 function getCategory1_2Sodium() {
-    return Math.max(Math.floor((inputData.sodium - 0.01) / data.sodiumIncrementCat1_2), 0);
+    i = 0;
+    while (inputData.sodium >= data.sodiumCat1_2[i+1]) {
+        i++;
+    }
+    return i;
 }
 
 //     --> lookup cat1and2 totsug
@@ -117,17 +125,29 @@ function getCategory1_2TotSug() {
 
 //     --> lookup cat3 energy
 function getCategory3Energy() {
-    return Math.max(Math.floor((inputData.energy - 0.01) / data.energyIncrementCat3), 0);
+    i = 0;
+    while (inputData.energy >= data.energyCat3[i+1]) {
+        i++;
+    }
+    return i;
 }
 
 //     --> lookup cat3 satfat
 function getCategory3SatFat() {
-    return Math.max(Math.floor((inputData.satFat - 0.01) / data.satFatIncrementCat3), 0);
+    i = 0;
+    while (inputData.satFat >= data.satFatCat3[i+1]) {
+        i++;
+    }
+    return i;
 }
 
 //     --> lookup cat3 sodium
 function getCategory3Sodium() {
-    return Math.max(Math.floor((inputData.sodium - 0.01) / data.sodiumIncrementCat3), 0);
+    i = 0;
+    while (inputData.sodium >= data.sodiumCat3[i+1]) {
+        i++;
+    }
+    return i;
 }
 
 //     --> lookup cat3 totsug
@@ -244,12 +264,12 @@ function calculateHSRStarPoints() {
     const num1 = calculateHSRProfilerScore() - getNum1();
     const num2 = getNum2();
     const num3 = getStarConversionDivisor();
-    const result = 10.499 - (num1 / num2 * num3);
+    const result = Math.round(10.499 - (num1 / num2 * num3));
 
     if (result < 1) {
         return 1;
     } else if (result < 11) {
-        return Math.floor(result);
+        return result;
     } else {
         return 10;
     }
@@ -291,6 +311,7 @@ function calculateBaselineSatFatPoints() {
     if (getNpscGroupNumber() !== 3) {
         return getCategory1_2SatFat();
     } else {
+        console.log(getCategory3SatFat());
         return getCategory3SatFat();
     }
 }
