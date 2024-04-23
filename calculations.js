@@ -44,6 +44,11 @@ router.post('/input', (req, res) => {
 // require data tables
 const data = require("./data");
 
+//     --> lookup star conversion divisor
+function getStarConversionDivisor() {
+    return data.starConversionDivisor.get(inputData.hsrCategory);
+}
+
 //     --> lookup num3
 function getNum3(){
     return data.num3.get(inputData.hsrCategory);
@@ -80,7 +85,7 @@ function getNpscGroupNumber() {
 
 //     --> lookup cat1and2 energy
 function getCategory1_2Energy() {
-    return Math.floor((inputData.energy - 0.01) / data.energyIncrementCat1_2)
+    return Math.max(Math.floor((inputData.energy - 0.01) / data.energyIncrementCat1_2), 0);
 }
 
 //     --> lookup cat1and2 satfat
@@ -94,7 +99,7 @@ function getCategory1_2SatFat() {
 
 //     --> lookup cat1and2 sodium
 function getCategory1_2Sodium() {
-    return Math.floor((inputData.sodium - 0.01) / data.sodiumIncrementCat1_2)
+    return Math.max(Math.floor((inputData.sodium - 0.01) / data.sodiumIncrementCat1_2), 0);
 }
 
 //     --> lookup cat1and2 totsug
@@ -112,17 +117,17 @@ function getCategory1_2TotSug() {
 
 //     --> lookup cat3 energy
 function getCategory3Energy() {
-    return Math.floor((inputData.energy - 0.01) / data.energyIncrementCat3)
+    return Math.max(Math.floor((inputData.energy - 0.01) / data.energyIncrementCat3), 0);
 }
 
 //     --> lookup cat3 satfat
 function getCategory3SatFat() {
-    return Math.floor((inputData.satFat - 0.01) / data.satFatIncrementCat3)
+    return Math.max(Math.floor((inputData.satFat - 0.01) / data.satFatIncrementCat3), 0);
 }
 
 //     --> lookup cat3 sodium
 function getCategory3Sodium() {
-    return Math.floor((inputData.sodium - 0.01) / data.sodiumIncrementCat3)
+    return Math.max(Math.floor((inputData.sodium - 0.01) / data.sodiumIncrementCat3), 0);
 }
 
 //     --> lookup cat3 totsug
@@ -178,6 +183,15 @@ function getNpscPointsFVNL(){
     return i;
 }
 
+//     --> lookup FVNL %
+function getNpscPointsFVNLPercentage(fvnlPercentage){
+    i = 0;
+    while (fvnlPercentage >= data.FVNL[i+1]) {
+        i++;
+    }
+    return Math.min(i, 8);
+}
+
 //     --> lookup foodsFibre
 function getNpscPointsFoodsFibre(){
     i = 0;
@@ -227,11 +241,11 @@ function calculateHSRProfilerScore() {
 
 // HSR Star Points
 function calculateHSRStarPoints() {
-    const num1 = calculateHSRProfilerScore() - getNum1(); 
+    const num1 = calculateHSRProfilerScore() - getNum1();
     const num2 = getNum2();
-    const num3 = getNum3();
+    const num3 = getStarConversionDivisor();
     const result = 10.499 - (num1 / num2 * num3);
-    
+
     if (result < 1) {
         return 1;
     } else if (result < 11) {
@@ -256,7 +270,7 @@ function calculateWholeFoodPercentage(concentratedFruitVeg, fvnl) {
 }
 
 // Fruit Veg. Nuts, Pulses % --> *checked ok*
-function calculateFVNPPercentage(concentratedFruitVeg, fvnl) {
+function calculateFVNLPercentage(concentratedFruitVeg, fvnl) {
     const num1 = inputData.fvnl + (2 * inputData.concFruitVeg);
     const num2 = num1 + (100 - inputData.concFruitVeg - inputData.fvnl);
     const result = 100 * (num1 / num2);
@@ -315,7 +329,9 @@ function calculateModifyingPointsFVNL(){
     if (allFruitVegConcentrated() == getClaim()){
         return getNpscPointsConcFVNL();
     } else {
-        return calculateFVNPPercentage();
+        const fvnlPercentage = calculateFVNLPercentage();
+        const result = getNpscPointsFVNLPercentage(fvnlPercentage);
+        return result;
     }
 }
 
@@ -333,7 +349,7 @@ function calculateModifyingPointsProtein(){
     return getNpscPointsFoodsProtein();
 }
 
-// Total Modifying Points (Table C)
+// Total Modifying Points (Table C) - *checked ok*
 function calculateModifyingPoints(){
     if (calculateTotalBaselinePoints() < getTippingPoint()){
         return calculateModifyingPointsFVNL() + calculateModifyingPointsFibre() + calculateModifyingPointsProtein();

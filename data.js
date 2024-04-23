@@ -5,6 +5,14 @@
 // % flexed foods and end points based on new industry data
 // ORIGINAL Lookups with extra categories
 
+const starConversionDivisor = new Map();
+starConversionDivisor.set("1D - Dairy beverages", 8.999);
+starConversionDivisor.set("2 - Foods", 9.999);
+starConversionDivisor.set("2D - Dairy foods", 9.999);
+starConversionDivisor.set("3 - Fats, oils", 9.999);
+starConversionDivisor.set("3D - Cheese", 9.999);
+exports.starConversionDivisor = starConversionDivisor;
+
 const num3 = new Map();
 num3.set("1D - Dairy beverages", 6);
 num3.set("2 - Foods", 29);
