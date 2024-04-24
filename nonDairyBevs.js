@@ -109,7 +109,7 @@ function calculateNonDairyBevsStarPoints() {
     if (inputDataNonDairyBevs.product == "Water" || inputDataNonDairyBevs.product == "water") {
         score =  10;
     }
-    else if (inputDataNonDairyBevs.product == "Flavoured water") {
+    else if (inputDataNonDairyBevs.product == "Flavoured water" || inputDataNonDairyBevs.product == "flavoured water") {
         score =  9;
     }
     else {
@@ -118,7 +118,7 @@ function calculateNonDairyBevsStarPoints() {
         while (points >= scoreToStarPoints[i+1]) {
             i++;
         }
-        score =  i;
+        score = 8 - i;
     }
     return score / 2;
 }
