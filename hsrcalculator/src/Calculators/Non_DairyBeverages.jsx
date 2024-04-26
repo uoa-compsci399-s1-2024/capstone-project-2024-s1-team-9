@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './NonDairyStyles.css';
+
 
 const Non_DairyBeverages = () => {
   const [product, setProduct] = useState('');
@@ -28,7 +30,8 @@ const Non_DairyBeverages = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit form.');
+        const errorData = await response.json();
+        throw new Error(errorData.details[0].message);
       }
 
       const data = await response.json();
@@ -46,70 +49,73 @@ const Non_DairyBeverages = () => {
 
     } catch (error) {
       console.error('Error:', error);
-      setError('Error occurred while submitting the form.');
+      setError(error.message);
     }
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Product: </label>
-          <input
-            type="text"
-            value={product}
-            onChange={(e) => setProduct(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Company: </label>
-          <input
-            type="text"
-            value={company}
-            onChange={(e) => setCompany(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Energy (kJ): </label>
-          <input
-            type="number"
-            value={energy}
-            onChange={(e) => setEnergy(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Total Sugars : </label>
-          <input
-            type="number"
-            value={totalSugars}
-            onChange={(e) => setTotalSugars(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>FVNL : </label>
-          <input
-            type="number"
-            value={fvnl}
-            onChange={(e) => setFvnl(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-
-      {hsrScore && (
-        <div>
-          <h2>HSR Score:</h2>
-          <p>{hsrScore}</p>
-        </div>
-      )}
-
-      {error && <p>{error}</p>}
-    </div>
+    
+      <div className="form-container">
+        <h2>Non-Dairy Beverages Form</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label className="label">Product: </label>
+            <input
+              type="text"
+              value={product}
+              onChange={(e) => setProduct(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label className="label">Company: </label>
+            <input
+              type="text"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label className="label">Energy (kJ): </label>
+            <input
+              type="number"
+              value={energy}
+              onChange={(e) => setEnergy(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label className="label">Total Sugars : </label>
+            <input
+              type="number"
+              value={totalSugars}
+              onChange={(e) => setTotalSugars(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label className="label">FVNL : </label>
+            <input
+              type="number"
+              value={fvnl}
+              onChange={(e) => setFvnl(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="button">Submit</button>
+        </form>
+  
+        {hsrScore && (
+          <div className="score-container">
+            <h2>HSR Score:</h2>
+            <p>{hsrScore}</p>
+          </div>
+        )}
+  
+        {error && <p className="error">{error}</p>}
+      </div>
+    
   );
 };
 

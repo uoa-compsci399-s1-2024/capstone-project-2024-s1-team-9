@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Non_DairyBeverages from '../Calculators/Non_DairyBeverages';
-
+import "./CategoryStyles.css";
 const CategorySelector = () => {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -20,7 +20,7 @@ const CategorySelector = () => {
     };
 
     return (
-        <div>
+        <div className='main-container'>
             Category: <select value={selectedCategory} onChange={handleCategoryChange}>
                 <option value="">Select a category</option>
                 {categories.map(category => (
