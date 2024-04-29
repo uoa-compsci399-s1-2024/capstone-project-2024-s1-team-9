@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Non_DairyBeverages from '../Calculators/Non_DairyBeverages';
+
 import "./CategoryStyles.css";
+import FoodRatingForm from '../Calculators/FoodRatingForm';
 const CategorySelector = () => {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
     const [isNonDairySelected, setIsNonDairySelected] = useState(false);
+    
 
     useEffect(() => {
         fetch('/categories')
@@ -27,8 +30,9 @@ const CategorySelector = () => {
                     <option key={category} value={category}>{category}</option>
                 ))}
             </select>
+            {selectedCategory && !isNonDairySelected && <FoodRatingForm selectedCategory={selectedCategory}/>}
+            
             {isNonDairySelected && <Non_DairyBeverages />}
-            {/* Render other components based on selectedCategory if needed */}
         </div>
     );
 };

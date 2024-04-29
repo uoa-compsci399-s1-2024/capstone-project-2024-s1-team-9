@@ -49,6 +49,7 @@ const Non_DairyBeverages = () => {
 
     } catch (error) {
       console.error('Error:', error);
+      setHsrScore(null);
       setError(error.message);
     }
   };

@@ -5,7 +5,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
-  height: 800px; 
+  height: 600px; 
   
   flex-direction: column;
   justify-content: center;
@@ -15,7 +15,7 @@
 .form-group input[type="text"],
 .form-group input[type="number"] {
   width: calc(100% - 42px); /* Adjusted width */
-  padding: 15px; /* Adjusted padding */
+  padding: 10px; /* Adjusted padding */
   border: 1px solid #ccc;
   border-radius: 5px;
   margin: 0 auto; /* Center the input field */

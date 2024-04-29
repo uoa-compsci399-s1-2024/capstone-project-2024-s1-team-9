@@ -1,11 +1,17 @@
+
+body {
+  padding-bottom: 4rem; /* Adjust this value as needed */
+}
+
 .footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 2rem;
+    padding: 0.5rem;
     background: #000;
     color: #fff;
+    z-index: 999;
   }
 
 .top {
@@ -21,7 +27,7 @@
   }
   
   .top h1 {
-    margin: 0;
+    margin: 10;
   }
   
   .top p {
