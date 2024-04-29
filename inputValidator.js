@@ -8,7 +8,7 @@ function validateInputData(input) {
         hsrCategory: Joi.string().min(1).required(),
         food: Joi.string().required(),
         company: Joi.string(),
-        energy: Joi.number().integer().min(0).max(10000).required(),
+        energy: Joi.number().precision(1).min(0).max(10000).required(), //check if energy is rounded to nearest whole or not
         satFat: Joi.number().precision(1).min(0).max(100).required(),
         totalSugars: Joi.number().precision(1).min(0).max(100).required(),
         sodium: Joi.number().integer().min(0).max(100000).required(),
