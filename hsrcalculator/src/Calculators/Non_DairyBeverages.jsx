@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './NonDairyStyles.css';
+import ResetForm from '../Components/ResetForm';
 
 
 const Non_DairyBeverages = () => {
@@ -53,8 +54,17 @@ const Non_DairyBeverages = () => {
       setError(error.message);
     }
   };
-
+  const resetForm = () => {
+    setProduct('');
+    setCompany('');
+    setEnergy('');
+    setTotalSugars('');
+    setFvnl('');
+    setError(null);
+    setHsrScore(null);
+  };
   return (
+    <>
     
       <div className="form-container">
         <h2>Non-Dairy Beverages Form</h2>
@@ -116,6 +126,8 @@ const Non_DairyBeverages = () => {
   
         {error && <p className="error">{error}</p>}
       </div>
+      <ResetForm resetForm={resetForm}/>
+      </>
     
   );
 };

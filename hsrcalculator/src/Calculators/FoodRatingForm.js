@@ -39,7 +39,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
           fvnl,
         }),
       });
-      console.log(selectedCategory)
+      //console.log(selectedCategory)
       if (!response.ok) {
         throw new Error("Failed to submit form.");
       }
