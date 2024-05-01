@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ResetForm from "../Components/ResetForm";
 
 const FoodRatingForm = ({ selectedCategory }) => {
   const [foodName, setFoodName] = useState("");
@@ -41,13 +42,17 @@ const FoodRatingForm = ({ selectedCategory }) => {
       });
       //console.log(selectedCategory)
       if (!response.ok) {
+        if (response.status === 400) {
+          const errorData = await response.json();
+          throw new Error(errorData.details[0].message);
+        }
         throw new Error("Failed to submit form.");
       }
       console.log("Form submitted successfully!");
       calculateHSRScore();
     } catch (error) {
       console.error("Error:", error); 
-      setError("Error occurred while submitting the form."); 
+      setError(error.message);
     }
     setLoading(false); 
   };
@@ -60,13 +65,31 @@ const FoodRatingForm = ({ selectedCategory }) => {
       }
       const data = await response.json();
       setHsrScore(data.hsrProfilerScore);
+      setError(null);
     } catch (error) {
-      console.error("Error:", error); 
-      setError("Error occurred while calculating HSR score."); 
+      console.error('Error:', error);
+      setHsrScore(null);
+      setError(error.message);
     }
   };
 
+  const resetForm = () => {
+    setFoodName('');
+    setCompany('');
+    setEnergy('');
+    setSatFat('');
+    setTotalSugars('');
+    setSodium('');
+    setFibre('');
+    setProtein('');
+    setConcFruitVeg('');
+    setFvnl('');
+    setError(null);
+    setHsrScore(null);
+  };
+
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <div>
         <label>Food Name: </label>
@@ -176,6 +199,8 @@ const FoodRatingForm = ({ selectedCategory }) => {
       {error && <div>{error}</div>}
       {hsrScore && <div>HSR Score: {hsrScore}</div>}
     </form>
+    <ResetForm resetForm={resetForm} />
+    </>
   );
 };
 
