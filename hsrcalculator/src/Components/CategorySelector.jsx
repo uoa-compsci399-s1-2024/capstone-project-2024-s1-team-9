@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Non_DairyBeverages from '../Calculators/Non_DairyBeverages';
+import Calculator from '../Calculators/Calculator';
 
 const CategorySelector = () => {
     const [categories, setCategories] = useState([]);
@@ -27,8 +28,7 @@ const CategorySelector = () => {
                     <option key={category} value={category}>{category}</option>
                 ))}
             </select>
-            {isNonDairySelected && <Non_DairyBeverages />}
-            {/* Render other components based on selectedCategory if needed */}
+            {isNonDairySelected ? <Non_DairyBeverages /> : <Calculator hsrCategory={selectedCategory} />}
         </div>
     );
 };
