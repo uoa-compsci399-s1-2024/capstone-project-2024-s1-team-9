@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Non_DairyBeverages from '../Calculators/Non_DairyBeverages';
 import Calculator from '../Calculators/Calculator';
 
+import "./CategoryStyles.css";
+import FoodRatingForm from '../Calculators/FoodRatingForm';
 const CategorySelector = () => {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
     const [isNonDairySelected, setIsNonDairySelected] = useState(false);
+    
 
     useEffect(() => {
         fetch('/categories')
@@ -21,14 +24,16 @@ const CategorySelector = () => {
     };
 
     return (
-        <div>
+        <div className='main-container'>
             Category: <select value={selectedCategory} onChange={handleCategoryChange}>
                 <option value="">Select a category</option>
                 {categories.map(category => (
                     <option key={category} value={category}>{category}</option>
                 ))}
             </select>
-            {isNonDairySelected ? <Non_DairyBeverages /> : <Calculator hsrCategory={selectedCategory} />}
+            {selectedCategory && !isNonDairySelected && <FoodRatingForm selectedCategory={selectedCategory}/>}
+            
+            {isNonDairySelected && <Non_DairyBeverages />}
         </div>
     );
 };
