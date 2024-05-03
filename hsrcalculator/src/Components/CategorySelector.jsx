@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Non_DairyBeverages from '../Calculators/Non_DairyBeverages';
-import Calculator from '../Calculators/Calculator';
 
 import "./CategoryStyles.css";
 import FoodRatingForm from '../Calculators/FoodRatingForm';
