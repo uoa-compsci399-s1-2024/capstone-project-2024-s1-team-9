@@ -10,7 +10,6 @@ function App() {
     <div className="App">
     <h1>Health Star Rating Calculator</h1>
     <CategorySelector />
-    
   </div>
   )
 }

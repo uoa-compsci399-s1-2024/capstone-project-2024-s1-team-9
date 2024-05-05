@@ -11,7 +11,7 @@ const Non_DairyBeverages = () => {
   const [fvnl, setFvnl] = useState('');
   const [hsrScore, setHsrScore] = useState(null);
   const [error, setError] = useState(null);
-
+  const [ratingpreview, setratingpreview] = useState(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -47,10 +47,12 @@ const Non_DairyBeverages = () => {
       const scoreData = await scoreResponse.json();
       setHsrScore(scoreData.nonDairyBevsScore);
       console.log('HSR score:', scoreData.nonDairyBevsScore);
+      setratingpreview(`/rating-svg/${scoreData.nonDairyBevsScore}stars.svg`);
 
     } catch (error) {
       console.error('Error:', error);
       setHsrScore(null);
+      setratingpreview(null);
       setError(error.message);
     }
   };
@@ -62,6 +64,7 @@ const Non_DairyBeverages = () => {
     setFvnl('');
     setError(null);
     setHsrScore(null);
+    setratingpreview(null);
   };
   return (
     <>
@@ -121,6 +124,8 @@ const Non_DairyBeverages = () => {
           <div className="score-container">
             <h2>HSR Score:</h2>
             <p>{hsrScore}</p>
+            <img src={ratingpreview} alt="" />
+            <p>end of image</p>
           </div>
         )}
   
