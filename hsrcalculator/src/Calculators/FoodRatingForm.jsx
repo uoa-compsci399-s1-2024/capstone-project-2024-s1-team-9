@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ResetForm from "../Components/ResetForm";
+import './calculator.css';
 
 
 const FoodRatingForm = ({ selectedCategory }) => {
@@ -90,7 +91,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
   };
 
   return (
-    <>
+    <div className="main-container">
       <form onSubmit={handleSubmit}>
         <div>
           <label>Food Name: </label>
@@ -208,7 +209,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
         <img src={ratingpreview} alt="" />
       </form>
       <ResetForm resetForm={resetForm} />
-    </>
+    </div>
   );
 };
 

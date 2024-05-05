@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './NonDairyStyles.css';
+import './calculator.css';
 import ResetForm from '../Components/ResetForm';
 
 
@@ -68,8 +68,7 @@ const Non_DairyBeverages = () => {
   return (
     <>
     
-      <div className="form-container">
-        <h2>Non-Dairy Beverages Form</h2>
+      <div className="main-container">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="label">Product: </label>
