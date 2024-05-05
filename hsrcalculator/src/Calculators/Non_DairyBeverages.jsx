@@ -35,7 +35,6 @@ const Non_DairyBeverages = () => {
         throw new Error(errorData.details[0].message);
       }
 
-      const data = await response.json();
       
       setError(null);
 
@@ -125,7 +124,6 @@ const Non_DairyBeverages = () => {
             <h2>HSR Score:</h2>
             <p>{hsrScore}</p>
             <img src={ratingpreview} alt="" />
-            <p>end of image</p>
           </div>
         )}
   

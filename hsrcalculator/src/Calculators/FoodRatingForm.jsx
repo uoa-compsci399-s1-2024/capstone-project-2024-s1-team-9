@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ResetForm from "../Components/ResetForm";
 
+
 const FoodRatingForm = ({ selectedCategory }) => {
   const [foodName, setFoodName] = useState("");
   const [company, setCompany] = useState("");
@@ -15,6 +16,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [hsrScore, setHsrScore] = useState(null);
+  const [ratingpreview, setratingpreview] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,6 +65,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
       }
       const data = await response.json();
       setHsrScore(data.hsrProfilerScore);
+      setratingpreview(`/rating-svg/${data.hsrProfilerScore}stars.svg`);
       setError(null);
     } catch (error) {
       console.error("Error:", error);
@@ -202,6 +205,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
         </div>
         {error && <div>{error}</div>}
         {hsrScore && <div>HSR Score: {hsrScore}</div>}
+        <img src={ratingpreview} alt="" />
       </form>
       <ResetForm resetForm={resetForm} />
     </>
