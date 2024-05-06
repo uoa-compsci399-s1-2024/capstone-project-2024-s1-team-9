@@ -1,7 +1,6 @@
 {
   "name": "hsrcalculator",
   "version": "0.1.0",
-  "proxy": "https://capstone-project-2024-s1-team-9.onrender.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
