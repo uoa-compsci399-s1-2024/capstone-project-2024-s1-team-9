@@ -1,0 +1,17 @@
+.main-container {
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  select:focus {
+    outline: none;
+    border-color: #007bff; /* Change border color on focus */
+  }
