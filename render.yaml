@@ -1,0 +1,17 @@
+services:
+-type: web
+  name: backend-service
+  env: node
+  buildCommand: cd backend && npm install && npm run build
+  startCommand: cd backend && npm start
+  envVars:
+key: NODE_ENV
+  value: production
+key: API_URL
+  value: https://capstone-project-2024-s1-team-9.onrender.com/
+healthCheckPath: /api/health
+-type: static-site
+  name: frontend-service
+  env: static
+  buildCommand: cd frontend && npm install && npm run build
+  publishDir: frontend/build
