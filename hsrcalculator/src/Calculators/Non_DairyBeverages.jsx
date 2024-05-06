@@ -12,9 +12,10 @@ const Non_DairyBeverages = () => {
   const [hsrScore, setHsrScore] = useState(null);
   const [error, setError] = useState(null);
   const [ratingpreview, setratingpreview] = useState(null);
+  const [loading, setLoading] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
       const response = await fetch('/non_dairy_beverages/input', {
         method: 'POST',
@@ -54,6 +55,7 @@ const Non_DairyBeverages = () => {
       setratingpreview(null);
       setError(error.message);
     }
+  setLoading(false);
   };
   const resetForm = () => {
     setProduct('');
@@ -115,7 +117,10 @@ const Non_DairyBeverages = () => {
               required
             />
           </div>
-          <button type="submit" className="button">Submit</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Calculating..." : "Calculate"}
+          </button>
+          
         </form>
   
         {hsrScore && (

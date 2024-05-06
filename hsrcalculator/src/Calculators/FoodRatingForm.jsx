@@ -111,7 +111,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
             required
           />
         </div>
-
+  
         <div>
           <label>Energy (kJ): </label>
           <input
@@ -121,87 +121,80 @@ const FoodRatingForm = ({ selectedCategory }) => {
             required
           />
         </div>
-
+  
         <div>
-          <label>Saturated Fat: </label>
+          <label>Saturated Fat (g/100g): </label>
           <input
             type="number"
             value={satFat}
             onChange={(e) => setSatFat(e.target.value)}
             required
-            placeholder="(g/100g)"
           />
         </div>
-
+  
         <div>
-          <label>Total Sugars : </label>
+          <label>Total Sugars (g/100g): </label>
           <input
             type="number"
             value={totalSugars}
             onChange={(e) => setTotalSugars(e.target.value)}
             required
-            placeholder="(g/100g)"
           />
         </div>
-
+  
         <div>
-          <label>Sodium : </label>
+          <label>Sodium (mg/100g): </label>
           <input
             type="number"
             value={sodium}
             onChange={(e) => setSodium(e.target.value)}
             required
-            placeholder="(mg/100g)"
           />
         </div>
-
+  
         <div>
-          <label>Fibre : </label>
+          <label>Fibre (g/100g): </label>
           <input
             type="number"
             value={fibre}
             onChange={(e) => setFibre(e.target.value)}
             required
-            placeholder="(g/100g)"
           />
         </div>
-
+  
         <div>
-          <label>Protien : </label>
+          <label>Protien (g/100g): </label>
           <input
             type="number"
             value={protein}
             onChange={(e) => setProtein(e.target.value)}
             required
-            placeholder="(g/100g)"
           />
         </div>
-
+  
         <div>
-          <label>ConcFruitVeg : </label>
+          <label>Concentrated Fruit and Vegetable (%): </label>
           <input
             type="number"
             value={concFruitVeg}
             onChange={(e) => setConcFruitVeg(e.target.value)}
             required
-            placeholder="%"
           />
         </div>
-
+  
         <div>
-          <label>FVNL : </label>
+          <label>FVNL (%): </label>
           <input
             type="number"
             value={fvnl}
             onChange={(e) => setFvnl(e.target.value)}
             required
-            placeholder="%"
           />
         </div>
-
+  
         <div>
           <button type="submit" disabled={loading}>
-            {loading ? "Submitting..." : "Calculate"}
+            {loading ? "Calculating..." : "Calculate"}
           </button>
         </div>
         {error && <div>{error}</div>}
@@ -210,7 +203,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
       </form>
       <ResetForm resetForm={resetForm} />
     </div>
-  );
+  );  
 };
 
 export default FoodRatingForm;

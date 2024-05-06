@@ -1,4 +1,5 @@
 import React from 'react';
+import "../Calculators/calculator.css";
 
 const ResetForm = ({ resetForm }) => {
   const handleReset = () => {
