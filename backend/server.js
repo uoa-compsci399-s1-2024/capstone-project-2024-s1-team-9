@@ -1,8 +1,14 @@
 
 // Setup express.js
 const express = require('express');
+// Added cors
+const cors = require('cors');
 const app = express();
 app.use(express.json());
+// Added cors to allow requests from the frontend service
+app.use(cors({
+    origin:'https://frontend-service-oq9p.onrender.com'
+}))
 
 // Main page
 app.get('/hsr', (req, res) => {
