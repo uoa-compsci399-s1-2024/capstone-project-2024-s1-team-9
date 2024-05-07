@@ -5,10 +5,22 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 app.use(express.json());
-// Added cors to allow requests from the frontend service
+
+// Added cors to allow requests from both frontend service domains
+const allowedOrigins = [
+    'https://frontend-service-oq9p.onrender.com',
+    'https://healthstarcalcnz.online'
+];
+
 app.use(cors({
-    origin:'https://frontend-service-oq9p.onrender.com'
-}))
+    origin: function (origin, callback) {
+        if (allowedOrigins.indexOf(origin) === -1) {
+            var msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    }
+}));
 
 // Main page
 app.get('/hsr', (req, res) => {
