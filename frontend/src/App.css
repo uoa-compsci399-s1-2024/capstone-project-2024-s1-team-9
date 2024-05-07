@@ -5,14 +5,14 @@ body, h1, h2, h3, h4, h5, h6, p, ul, ol {
   
   /* Set font family and size */
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
   }
   
   /* Style for the entire App */
   .App {
     width: 100%;
-    max-width: 800px; /* Adjust as needed */
+    max-width: 95%; /* Adjust as needed */
     margin: 0 auto;
     padding: 20px;
   }
@@ -21,4 +21,5 @@ body, h1, h2, h3, h4, h5, h6, p, ul, ol {
   h1 {
     font-size: 24px;
     margin-bottom: 20px;
+    color: #F9B120;
   }

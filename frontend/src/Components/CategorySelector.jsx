@@ -4,6 +4,7 @@ import "./CategoryStyles.css";
 import FoodRatingForm from '../Calculators/FoodRatingForm';
 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
+//Remember to add ${BACKEND_URL} to fetch() before create pull request
 
 const CategorySelector = () => {
     const [categories, setCategories] = useState([]);

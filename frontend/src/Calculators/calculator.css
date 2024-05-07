@@ -1,9 +1,4 @@
-/* NonDairyStyles.css */
-.form-group {
-  margin-bottom: 15px;
-}
-
-.label {
+label {
   display: block;
   margin-bottom: 5px;
 }
@@ -12,28 +7,17 @@ input[type="text"],
 input[type="number"] {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #FC8510;
   border-radius: 5px;
   box-sizing: border-box;
 }
-
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #0056b3;
+input[type="text"]:hover,
+input[type="number"]:hover{
+  border-color: #F4EBB8; /* Change border color on hover */
 }
 
 .score-container {
   margin-top: 20px;
-  text-align: center;
 }
 
 .score-container h2 {
@@ -50,24 +34,45 @@ input[type="number"] {
 .reset button{
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #F9C74F;
+    color: #000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 .reset button:hover {
-  background-color: #0056b3;
+  background-color: #F4EBB8;
 }
 .main-container button{
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #F9C74F;
+  color: #000;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 10px;
 }
 .main-container button:hover {
-  background-color: #0056b3;
+  background-color: #F4EBB8;
 }
+
+.preview-container {
+  display: flex; /* Align items horizontally */
+  flex-direction: row;
+  align-items: center; /* Align items vertically */
+}
+.preview-container h3 {
+  margin-right: 10px; /* Adjust spacing between items */
+}
+.score-container {
+  display: flex; /* Align items horizontally */
+  flex-direction: row;
+  align-items: flex-end; /* Align items vertically */
+}
+.score-container h3 {
+  margin-right: 10px; /* Adjust spacing between items */
+}
+
+
+

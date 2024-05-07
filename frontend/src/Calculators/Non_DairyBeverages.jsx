@@ -3,7 +3,7 @@ import './calculator.css';
 import ResetForm from '../Components/ResetForm';
 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
-
+//Remember to add ${BACKEND_URL} to fetch() before create pull request
 const Non_DairyBeverages = () => {
   const [product, setProduct] = useState('');
   const [company, setCompany] = useState('');
@@ -33,8 +33,11 @@ const Non_DairyBeverages = () => {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.details[0].message);
+        if (response.status === 400) {
+          const errorData = await response.json();
+          throw new Error(errorData.details[0].message);
+        }
+        throw new Error("Failed to submit form.");
       }
 
       
@@ -71,7 +74,7 @@ const Non_DairyBeverages = () => {
   return (
     <>
     
-      <div className="main-container">
+      <div className="form-container">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="label">Product: </label>
@@ -101,7 +104,7 @@ const Non_DairyBeverages = () => {
             />
           </div>
           <div className="form-group">
-            <label className="label">Total Sugars : </label>
+            <label className="label">Total Sugars (g/100g): </label>
             <input
               type="number"
               value={totalSugars}
@@ -110,7 +113,7 @@ const Non_DairyBeverages = () => {
             />
           </div>
           <div className="form-group">
-            <label className="label">FVNL : </label>
+            <label className="label">FVNL (%): </label>
             <input
               type="number"
               value={fvnl}
@@ -123,16 +126,19 @@ const Non_DairyBeverages = () => {
           </button>
           
         </form>
-  
+        {error && <p className="error">{error}</p>}
         {hsrScore && (
           <div className="score-container">
-            <h2>HSR Score:</h2>
+            <h3>Health Star Rating:</h3>
             <p>{hsrScore}</p>
+          </div>
+        )}
+        {ratingpreview && (
+          <div className="preview-container">
+            <h3>Lable Preview:</h3> 
             <img src={ratingpreview} alt="" />
           </div>
         )}
-  
-        {error && <p className="error">{error}</p>}
       </div>
       <ResetForm resetForm={resetForm}/>
       </>

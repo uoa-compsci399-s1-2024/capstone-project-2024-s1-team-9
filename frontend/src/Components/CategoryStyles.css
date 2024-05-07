@@ -6,12 +6,32 @@
   select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #FC8510;
     border-radius: 5px;
     box-sizing: border-box;
   }
   
   select:focus {
     outline: none;
-    border-color: #007bff; /* Change border color on focus */
+    border-color: #F4EBB8; /* Change border color on focus */
+  }
+  select:hover{
+    border-color: #F4EBB8; /* Change border color on hover */
+  }
+
+  /* Styling for options */
+  select option {
+    background-color: #fff; /* Background color */
+    color: #333; /* Text color */
+  }
+
+  /* Styling for selected option */
+  select option:checked {
+    background-color: #F4EBB8; /* Background color */
+    color: #333; /* Text color */
+  }
+
+  select option:hover{
+    background-color: #F4EBB8; /* Background color */
+    color: #333; /* Text color */
   }
