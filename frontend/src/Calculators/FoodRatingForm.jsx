@@ -3,7 +3,7 @@ import ResetForm from "../Components/ResetForm";
 import './calculator.css';
 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
-
+//Remember to add ${BACKEND_URL} to fetch() before create pull request
 const FoodRatingForm = ({ selectedCategory }) => {
   const [foodName, setFoodName] = useState("");
   const [company, setCompany] = useState("");
@@ -92,7 +92,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
   };
 
   return (
-    <div className="main-container">
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
         <div>
           <label>Food Name: </label>
@@ -198,9 +198,14 @@ const FoodRatingForm = ({ selectedCategory }) => {
             {loading ? "Calculating..." : "Calculate"}
           </button>
         </div>
-        {error && <div>{error}</div>}
-        {hsrScore && <div>HSR Score: {hsrScore}</div>}
-        <img src={ratingpreview} alt="" />
+        {error && <p className="error">{error}</p>}
+        {hsrScore && (
+          <div className="score-container">
+            <h2>HSR Score:</h2>
+            <p>{hsrScore}</p>
+            <img src={ratingpreview} alt="" />
+          </div>
+        )}
       </form>
       <ResetForm resetForm={resetForm} />
     </div>

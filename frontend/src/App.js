@@ -2,6 +2,7 @@ import React from 'react'
 import CategorySelector from './Components/CategorySelector.jsx'
 import Non_DairyBeverages from './Calculators/Non_DairyBeverages.jsx'
 import Footer from './Components/Footer.js'
+import "./App.css";
 
 
 
