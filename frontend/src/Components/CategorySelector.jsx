@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Non_DairyBeverages from '../Calculators/Non_DairyBeverages';
+import "./CategoryStyles.css";
+import FoodRatingForm from '../Calculators/FoodRatingForm';
 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 
-import "./CategoryStyles.css";
-import FoodRatingForm from '../Calculators/FoodRatingForm';
 const CategorySelector = () => {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
