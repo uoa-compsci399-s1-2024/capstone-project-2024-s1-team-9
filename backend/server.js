@@ -9,13 +9,17 @@ app.use(express.json());
 // Added cors to allow requests from both frontend service domains
 const allowedOrigins = [
     'https://frontend-service-oq9p.onrender.com',
-    'https://healthstarcalcnz.online'
+    'https://www.healthstarcalcnz.online'
 ];
 
 app.use(cors({
     origin: function (origin, callback) {
+
+        //allowing requests from no origin for local testing
+        if (!origin) return callback(null, true);
+
         if (allowedOrigins.indexOf(origin) === -1) {
-            var msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+            var msg = 'The CORS policy for this site does not allow access from the specified Origin: ${origin}';
             return callback(new Error(msg), false);
         }
         return callback(null, true);

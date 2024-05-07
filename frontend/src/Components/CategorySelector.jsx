@@ -12,7 +12,7 @@ const CategorySelector = () => {
     
 
     useEffect(() => {
-        fetch('${BACKEND_URL}')
+        fetch(`${BACKEND_URL}/categories`)
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.error('Error fetching categories:', error));

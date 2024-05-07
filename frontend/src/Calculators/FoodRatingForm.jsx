@@ -24,7 +24,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("${BACKEND_URL}/hsr/input", {
+      const response = await fetch(`${BACKEND_URL}/hsr/input`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +61,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
 
   const calculateHSRScore = async () => {
     try {
-        const response = await fetch("${BACKEND_URL}/hsr/score");
+        const response = await fetch(`${BACKEND_URL}/hsr/score`);
       if (!response.ok) {
         throw new Error("Failed to calculate HSR score.");
       }
