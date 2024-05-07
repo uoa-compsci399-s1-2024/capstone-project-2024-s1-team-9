@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './calculator.css';
 import ResetForm from '../Components/ResetForm';
 
+const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 
 const Non_DairyBeverages = () => {
   const [product, setProduct] = useState('');
@@ -17,7 +18,7 @@ const Non_DairyBeverages = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch('/non_dairy_beverages/input', {
+        const response = await fetch('${BACKEND_URL}/non_dairy_beverages/input', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,7 +41,7 @@ const Non_DairyBeverages = () => {
       setError(null);
 
       
-      const scoreResponse = await fetch('/non_dairy_beverages/score');
+      const scoreResponse = await fetch('${BACKEND_URL}/non_dairy_beverages/score');
       if (!scoreResponse.ok) {
         throw new Error('Failed to get HSR score.');
       }

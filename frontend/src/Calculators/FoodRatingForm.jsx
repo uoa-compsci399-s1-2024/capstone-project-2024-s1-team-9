@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ResetForm from "../Components/ResetForm";
 import './calculator.css';
 
+const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 
 const FoodRatingForm = ({ selectedCategory }) => {
   const [foodName, setFoodName] = useState("");
@@ -23,7 +24,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("/hsr/input", {
+      const response = await fetch("${BACKEND_URL}/hsr/input", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,7 +61,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
 
   const calculateHSRScore = async () => {
     try {
-      const response = await fetch("/hsr/score");
+        const response = await fetch("${BACKEND_URL}/hsr/score");
       if (!response.ok) {
         throw new Error("Failed to calculate HSR score.");
       }

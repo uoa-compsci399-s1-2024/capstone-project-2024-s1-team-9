@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Non_DairyBeverages from '../Calculators/Non_DairyBeverages';
 
+const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
+
 import "./CategoryStyles.css";
 import FoodRatingForm from '../Calculators/FoodRatingForm';
 const CategorySelector = () => {
@@ -10,7 +12,7 @@ const CategorySelector = () => {
     
 
     useEffect(() => {
-        fetch('https://backend-service-5ufi.onrender.com/categories')
+        fetch('${BACKEND_URL}')
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.error('Error fetching categories:', error));
