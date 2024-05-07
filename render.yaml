@@ -9,7 +9,6 @@ services:
         value: production
       # - key: API_URL
       #   value: https://capstone-project-2024-s1-team-9.onrender.com/
-    healthCheckPath: /api/health
   - type: web
     name: frontend-service
     branch: main
