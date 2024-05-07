@@ -10,7 +10,7 @@ const CategorySelector = () => {
     
 
     useEffect(() => {
-        fetch('https://capstone-project-2024-s1-team-9-2.onrender.com/categories')
+        fetch('https://backend-service-5ufi.onrender.com/categories')
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.error('Error fetching categories:', error));
