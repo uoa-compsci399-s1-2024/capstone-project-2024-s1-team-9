@@ -66,13 +66,36 @@ input[type="number"]:hover{
   margin-right: 10px; /* Adjust spacing between items */
 }
 .score-container {
-  display: flex; /* Align items horizontally */
-  flex-direction: row;
-  align-items: flex-end; /* Align items vertically */
-}
-.score-container h3 {
-  margin-right: 10px; /* Adjust spacing between items */
+  display: flex;
+  flex-direction: column; /* Display elements in a column */
+  align-items: flex-start; /* Align items to the start of the column */
+  margin-top: 20px;
 }
 
+.score-container h2 {
+  margin-bottom: 20px; /* Add space below the H2 tag */
+}
 
+.score-container p {
+  font-size: 20px;
+  
+}
 
+.score-container img {
+  width: 300px;
+  height: auto;
+}
+/* popover css*/
+
+.tooltip1 {
+  font-size: 14px;
+  margin-left: 400px; /* Add margin to separate the button and input */
+  margin-bottom: 5px;
+}
+
+.tooltip1.popover {
+  max-width: none; /* Adjust the popover width */
+  
+  
+  
+}
