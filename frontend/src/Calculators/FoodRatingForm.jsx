@@ -1,7 +1,6 @@
 import React, { useState, bootstrap } from "react";
 import ResetForm from "../Components/ResetForm";
 import './calculator.css';
-import { OverlayTrigger, Popover, Button } from 'react-bootstrap'; 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 //Remember to add ${BACKEND_URL} to fetch() before create pull request
 const FoodRatingForm = ({ selectedCategory }) => {
@@ -203,19 +202,7 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
   
         <div>
           <label>Concentrated Fruit and Vegetable (%): </label>
-          <OverlayTrigger
           
-          placement="right"
-          overlay={<Popover id="popover-basic">IDK WHAT TO PUT HERE  </Popover>}
-        >
-          <Button 
-className="tooltip0" 
-variant="secondary" 
-style={{ fontSize: "14px" }} 
->
-What is FVNL
-</Button>
-        </OverlayTrigger>
           <input
             type="number"
             value={concFruitVeg}
@@ -226,19 +213,7 @@ What is FVNL
   
         <div>
           <label> FVNL (%): </label>
-          <OverlayTrigger
           
-            placement="right"
-            overlay={<Popover id="popover-basic">Fruit Vegtable Nuts and Legumes </Popover>}
-          >
-            <Button 
-  className="tooltip1" 
-  variant="secondary" 
-  style={{ fontSize: "14px" }} 
->
-  What is FVNL
-</Button>
-          </OverlayTrigger>
           <input
             type="number"
             value={fvnl}
@@ -259,7 +234,7 @@ What is FVNL
           <h2>HSR Score:</h2>
           <p>{hsrScore}/5</p>
           <div><img src={ratingpreview} alt="HealthStar Rating Score" />
-          {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}</div>
+          {ratingpreview && <button onClick={downloadImage}>Download Image</button>}</div>
           
         </div>
           
