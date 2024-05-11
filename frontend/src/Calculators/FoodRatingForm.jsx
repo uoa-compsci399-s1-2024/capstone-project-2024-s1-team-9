@@ -1,4 +1,5 @@
-import React, { useState, bootstrap } from "react";
+import React, { useState } from "react";
+import { Button, Popover, OverlayTrigger } from 'react-bootstrap';
 import ResetForm from "../Components/ResetForm";
 import './calculator.css';
 import { OverlayTrigger, Popover, Button } from 'react-bootstrap'; 
