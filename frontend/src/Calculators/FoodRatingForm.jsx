@@ -20,8 +20,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
   const [hsrScore, setHsrScore] = useState(null);
   const [ratingpreview, setratingpreview] = useState(null);
 
-  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
