@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, bootstrap } from "react";
 import ResetForm from "../Components/ResetForm";
 import './calculator.css';
-
+import { OverlayTrigger, Popover, Button } from 'react-bootstrap'; 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 //Remember to add ${BACKEND_URL} to fetch() before create pull request
 const FoodRatingForm = ({ selectedCategory }) => {
+  
   const [foodName, setFoodName] = useState("");
   const [company, setCompany] = useState("");
   const [energy, setEnergy] = useState("");
@@ -19,6 +20,9 @@ const FoodRatingForm = ({ selectedCategory }) => {
   const [error, setError] = useState(null);
   const [hsrScore, setHsrScore] = useState(null);
   const [ratingpreview, setratingpreview] = useState(null);
+
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,6 +81,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
   };
 
   const resetForm = () => {
+    
     setFoodName("");
     setCompany("");
     setEnergy("");
@@ -91,6 +96,27 @@ const FoodRatingForm = ({ selectedCategory }) => {
     setHsrScore(null);
   };
 
+  const downloadImage = () => {
+    if (ratingpreview) {
+      const link = document.createElement('a');
+      link.href = ratingpreview;
+      link.download = 'HSR_Score_Image.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const nextInput = document.getElementById(e.target.getAttribute('data-next'));
+      if (nextInput) {
+        nextInput.focus();
+      }
+    }
+  };
+
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
@@ -101,7 +127,9 @@ const FoodRatingForm = ({ selectedCategory }) => {
             value={foodName}
             onChange={(e) => setFoodName(e.target.value)}
             required
+            
           />
+          
         </div>
         <div>
           <label>Company: </label>
@@ -114,7 +142,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
         </div>
   
         <div>
-          <label>Energy (kJ): </label>
+          <label>Energy (kJ per 100 g): </label>
           <input
             type="number"
             value={energy}
@@ -164,7 +192,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
         </div>
   
         <div>
-          <label>Protien (g/100g): </label>
+          <label>Protein (g/100g): </label>
           <input
             type="number"
             value={protein}
@@ -175,6 +203,19 @@ const FoodRatingForm = ({ selectedCategory }) => {
   
         <div>
           <label>Concentrated Fruit and Vegetable (%): </label>
+          <OverlayTrigger
+          
+          placement="right"
+          overlay={<Popover id="popover-basic">IDK WHAT TO PUT HERE  </Popover>}
+        >
+          <Button 
+className="tooltip0" 
+variant="secondary" 
+style={{ fontSize: "14px" }} 
+>
+What is FVNL
+</Button>
+        </OverlayTrigger>
           <input
             type="number"
             value={concFruitVeg}
@@ -184,13 +225,27 @@ const FoodRatingForm = ({ selectedCategory }) => {
         </div>
   
         <div>
-          <label>FVNL (%): </label>
+          <label> FVNL (%): </label>
+          <OverlayTrigger
+          
+            placement="right"
+            overlay={<Popover id="popover-basic">Fruit Vegtable Nuts and Legumes </Popover>}
+          >
+            <Button 
+  className="tooltip1" 
+  variant="secondary" 
+  style={{ fontSize: "14px" }} 
+>
+  What is FVNL
+</Button>
+          </OverlayTrigger>
           <input
             type="number"
             value={fvnl}
             onChange={(e) => setFvnl(e.target.value)}
             required
           />
+
         </div>
   
         <div>
@@ -201,10 +256,14 @@ const FoodRatingForm = ({ selectedCategory }) => {
         {error && <p className="error">{error}</p>}
         {hsrScore && (
           <div className="score-container">
-            <h2>HSR Score:</h2>
-            <p>{hsrScore}</p>
-            <img src={ratingpreview} alt="" />
-          </div>
+          <h2>HSR Score:</h2>
+          <p>{hsrScore}/5</p>
+          <div><img src={ratingpreview} alt="HealthStar Rating Score" />
+          {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}</div>
+          
+        </div>
+          
+          
         )}
       </form>
       <ResetForm resetForm={resetForm} />

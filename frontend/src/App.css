@@ -19,7 +19,8 @@ body, h1, h2, h3, h4, h5, h6, p, ul, ol {
   
   /* Style for the main heading */
   h1 {
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 20px;
     color: #F9B120;
+    text-align: center;
   }

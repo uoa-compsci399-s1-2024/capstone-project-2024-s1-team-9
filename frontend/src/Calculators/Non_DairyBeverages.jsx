@@ -95,7 +95,7 @@ const Non_DairyBeverages = () => {
             />
           </div>
           <div className="form-group">
-            <label className="label">Energy (kJ): </label>
+            <label className="label">Energy (kJ per 100g): </label>
             <input
               type="number"
               value={energy}
