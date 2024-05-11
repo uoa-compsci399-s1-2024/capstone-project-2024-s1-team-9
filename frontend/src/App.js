@@ -1,5 +1,4 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import CategorySelector from './Components/CategorySelector.jsx'
 import Non_DairyBeverages from './Calculators/Non_DairyBeverages.jsx'
 import Footer from './Components/Footer.js'
