@@ -85,17 +85,48 @@ input[type="number"]:hover{
   width: 300px;
   height: auto;
 }
-/* popover css*/
+/* tooltip css*/
 
-.tooltip1 {
-  font-size: 14px;
-  margin-left: 400px; /* Add margin to separate the button and input */
+.tooltip1  {
+  font-size: 12px; 
+  padding: 5px 10px; 
+  margin-left: 20px; 
   margin-bottom: 5px;
 }
 
-.tooltip1.popover {
-  max-width: none; /* Adjust the popover width */
+.input-wrapper {
   
-  
-  
+  align-items: center;
+  margin-bottom: 10px; /* Adjust the margin bottom */
 }
+
+.input-wrapper .fvnl-label {
+  margin-right: 10px; 
+}
+
+.input-wrapper .tooltip2 {
+  margin-left: 10px; 
+  margin-bottom: 5px;
+}
+
+/* non - dairy bev tooltip css */
+
+
+
+
+
+.form-group {
+  
+  align-items: center;
+  margin-bottom: 10px; 
+}
+
+.form-group label {
+  margin-right: 10px;
+}
+
+.form-group .tooltip2 {
+  margin-left: 10px; 
+  margin-bottom: 5px;
+}
+

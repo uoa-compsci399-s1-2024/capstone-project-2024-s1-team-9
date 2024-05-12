@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './calculator.css';
 import ResetForm from '../Components/ResetForm';
-
+import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap'; 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 //Remember to add ${BACKEND_URL} to fetch() before create pull request
 const Non_DairyBeverages = () => {
@@ -71,6 +71,24 @@ const Non_DairyBeverages = () => {
     setHsrScore(null);
     setratingpreview(null);
   };
+
+  const downloadImage = () => {
+    if (ratingpreview) {
+      const link = document.createElement('a');
+      link.href = ratingpreview;
+      link.download = 'HSR_Score_Image.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Fruit Vegetable Nuts and Legumes 
+    </Tooltip>
+  );
+
+
   return (
     <>
     
@@ -114,6 +132,13 @@ const Non_DairyBeverages = () => {
           </div>
           <div className="form-group">
             <label className="label">FVNL (%): </label>
+            <OverlayTrigger
+            placement="right"
+            overlay={renderTooltip}
+            
+          >
+            <Button className="tooltip2" variant="success">What is FVNL</Button>
+          </OverlayTrigger>
             <input
               type="number"
               value={fvnl}
@@ -130,13 +155,14 @@ const Non_DairyBeverages = () => {
         {hsrScore && (
           <div className="score-container">
             <h3>Health Star Rating:</h3>
-            <p>{hsrScore}</p>
+            <p>{hsrScore}/5</p>
           </div>
         )}
         {ratingpreview && (
           <div className="preview-container">
-            <h3>Lable Preview:</h3> 
-            <img src={ratingpreview} alt="" />
+            <h3>Label Preview:</h3> 
+            <img src={ratingpreview} alt="Health Star Rating Score" />
+            {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}
           </div>
         )}
       </div>
