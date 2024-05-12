@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ResetForm from "../Components/ResetForm";
 import './calculator.css';
-import { OverlayTrigger, Popover, Button } from 'react-bootstrap'; 
+import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap'; 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 //Remember to add ${BACKEND_URL} to fetch() before create pull request
 const FoodRatingForm = ({ selectedCategory }) => {
@@ -20,9 +20,6 @@ const FoodRatingForm = ({ selectedCategory }) => {
   const [error, setError] = useState(null);
   const [hsrScore, setHsrScore] = useState(null);
   const [ratingpreview, setratingpreview] = useState(null);
-
-  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -117,6 +114,18 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
     }
   };
 
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Fruit Vegetable Nuts and Legumes 
+    </Tooltip>
+  );
+
+  const renderTooltip2 = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      idk what to put in here. What does Cathy want?
+    </Tooltip>
+  );
+
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
@@ -127,9 +136,7 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
             value={foodName}
             onChange={(e) => setFoodName(e.target.value)}
             required
-            
           />
-          
         </div>
         <div>
           <label>Company: </label>
@@ -204,18 +211,11 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
         <div>
           <label>Concentrated Fruit and Vegetable (%): </label>
           <OverlayTrigger
-          
-          placement="right"
-          overlay={<Popover id="popover-basic">IDK WHAT TO PUT HERE  </Popover>}
-        >
-          <Button 
-className="tooltip0" 
-variant="secondary" 
-style={{ fontSize: "14px" }} 
->
-What is FVNL
-</Button>
-        </OverlayTrigger>
+            placement="right"
+            overlay={renderTooltip2}
+          >
+            <Button variant="success">What is this?</Button>
+          </OverlayTrigger>
           <input
             type="number"
             value={concFruitVeg}
@@ -227,17 +227,10 @@ What is FVNL
         <div>
           <label> FVNL (%): </label>
           <OverlayTrigger
-          
             placement="right"
-            overlay={<Popover id="popover-basic">Fruit Vegtable Nuts and Legumes </Popover>}
+            overlay={renderTooltip}
           >
-            <Button 
-  className="tooltip1" 
-  variant="secondary" 
-  style={{ fontSize: "14px" }} 
->
-  What is FVNL
-</Button>
+            <Button variant="success">What is FVNL</Button>
           </OverlayTrigger>
           <input
             type="number"
@@ -245,7 +238,6 @@ What is FVNL
             onChange={(e) => setFvnl(e.target.value)}
             required
           />
-
         </div>
   
         <div>
@@ -256,14 +248,11 @@ What is FVNL
         {error && <p className="error">{error}</p>}
         {hsrScore && (
           <div className="score-container">
-          <h2>HSR Score:</h2>
-          <p>{hsrScore}/5</p>
-          <div><img src={ratingpreview} alt="HealthStar Rating Score" />
-          {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}</div>
-          
-        </div>
-          
-          
+            <h2>HSR Score:</h2>
+            <p>{hsrScore}/5</p>
+            <img src={ratingpreview} alt="Health Star Rating Score" />
+            {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}
+          </div>
         )}
       </form>
       <ResetForm resetForm={resetForm} />

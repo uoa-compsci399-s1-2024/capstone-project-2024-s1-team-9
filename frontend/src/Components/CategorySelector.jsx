@@ -22,7 +22,7 @@ const CategorySelector = () => {
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value);
         // Check if the selected category is "1 - Non-dairy beverages"
-        setIsNonDairySelected(event.target.value === "1 - Non-dairy beverages");
+        setIsNonDairySelected(event.target.value === "Non-dairy beverages");
     };
 
     return (
