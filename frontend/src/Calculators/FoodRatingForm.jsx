@@ -234,26 +234,20 @@ const FoodRatingForm = ({ selectedCategory }) => {
   
 
         <div className="input-wrapper">
-          <label className="fvnl-label"> FVNL (%):  </label>
-          <OverlayTrigger
-            placement="right"
-            overlay={renderTooltip}
-            
-          >
-            <Button className="tooltip2" variant="success">What is FVNL?</Button>
-          </OverlayTrigger>
-
-        <div>
-          <label> FVNL (%): </label>
-          
-
-          <input
-            type="number"
-            value={fvnl}
-            onChange={(e) => setFvnl(e.target.value)}
-            required
-          />
-        </div>
+  <label className="fvnl-label"> FVNL (%):  </label>
+  <OverlayTrigger
+    placement="right"
+    overlay={renderTooltip}
+  >
+    <Button className="tooltip2" variant="success">What is FVNL?</Button>
+  </OverlayTrigger>
+  <input
+    type="number"
+    value={fvnl}
+    onChange={(e) => setFvnl(e.target.value)}
+    required
+  />
+</div>
   
         <div>
           <button type="submit" disabled={loading}>
@@ -262,24 +256,13 @@ const FoodRatingForm = ({ selectedCategory }) => {
         </div>
         {error && <p className="error">{error}</p>}
         {hsrScore && (
-          <div className="score-container">
-
-            <h2>HSR Score:</h2>
-            <p>{hsrScore}/5</p>
-            <img src={ratingpreview} alt="Health Star Rating Score" />
-            {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}
-          </div>
-
-          <h2>HSR Score:</h2>
-          <p>{hsrScore}/5</p>
-          <div><img src={ratingpreview} alt="HealthStar Rating Score" />
-          {ratingpreview && <button onClick={downloadImage}>Download Image</button>}</div>
-          
-        </div>
-          
-          
-
-        )}
+  <div className="score-container">
+    <h2>HSR Score:</h2>
+    <p>{hsrScore}/5</p>
+    <img src={ratingpreview} alt="Health Star Rating Score" />
+    {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}
+  </div>
+)}
       </form>
       <ResetForm resetForm={resetForm} />
     </div>
