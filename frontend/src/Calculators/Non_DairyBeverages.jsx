@@ -4,7 +4,7 @@ import ResetForm from '../Components/ResetForm';
 import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap'; 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 //Remember to add ${BACKEND_URL} to fetch() before create pull request
-const Non_DairyBeverages = () => {
+const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
   const [product, setProduct] = useState('');
   const [company, setCompany] = useState('');
   const [energy, setEnergy] = useState('');
@@ -70,6 +70,7 @@ const Non_DairyBeverages = () => {
     setError(null);
     setHsrScore(null);
     setratingpreview(null);
+    setSelectedCategory("")
   };
 
   const downloadImage = () => {
@@ -92,7 +93,8 @@ const Non_DairyBeverages = () => {
   return (
     <>
     
-      <div className="form-container">
+    {selectedCategory && ( // Only render the form if a category is selected
+  <div className="form-container">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="label">Product: </label>
@@ -166,6 +168,7 @@ const Non_DairyBeverages = () => {
           </div>
         )}
       </div>
+      )}
       <ResetForm resetForm={resetForm}/>
       </>
     

@@ -94,7 +94,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory}) => {
     setFvnl("");
     setError(null);
     setHsrScore(null);
-    setSelectedCategory(null);
+    setSelectedCategory("");
   };
 
   const downloadImage = () => {
