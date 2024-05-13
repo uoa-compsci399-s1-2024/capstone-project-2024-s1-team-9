@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import ResetForm from "../Components/ResetForm";
 import './calculator.css';
+
+import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap'; 
+
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 //Remember to add ${BACKEND_URL} to fetch() before create pull request
 const FoodRatingForm = ({ selectedCategory }) => {
@@ -19,7 +22,6 @@ const FoodRatingForm = ({ selectedCategory }) => {
   const [error, setError] = useState(null);
   const [hsrScore, setHsrScore] = useState(null);
   const [ratingpreview, setratingpreview] = useState(null);
-
 
 
   const handleSubmit = async (e) => {
@@ -98,7 +100,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
     if (ratingpreview) {
       const link = document.createElement('a');
       link.href = ratingpreview;
-      link.download = 'HSR_Score_Image.png';
+      link.download = 'HSR_Score_Image.svg';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -115,6 +117,18 @@ const FoodRatingForm = ({ selectedCategory }) => {
     }
   };
 
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Fruit Vegetable Nuts and Legumes 
+    </Tooltip>
+  );
+
+  const renderTooltip2 = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      idk what to put in here. What does Cathy want?
+    </Tooltip>
+  );
+
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
@@ -125,9 +139,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
             value={foodName}
             onChange={(e) => setFoodName(e.target.value)}
             required
-            
           />
-          
         </div>
         <div>
           <label>Company: </label>
@@ -201,7 +213,17 @@ const FoodRatingForm = ({ selectedCategory }) => {
   
         <div>
           <label>Concentrated Fruit and Vegetable (%): </label>
+
+          <OverlayTrigger
+            placement="right"
+            overlay={renderTooltip2}
+            
+          >
+            <Button className="tooltip1" variant="success">What is this?</Button>
+          </OverlayTrigger>
+
           
+
           <input
             type="number"
             value={concFruitVeg}
@@ -210,16 +232,27 @@ const FoodRatingForm = ({ selectedCategory }) => {
           />
         </div>
   
+
+        <div className="input-wrapper">
+          <label className="fvnl-label"> FVNL (%):  </label>
+          <OverlayTrigger
+            placement="right"
+            overlay={renderTooltip}
+            
+          >
+            <Button className="tooltip2" variant="success">What is FVNL?</Button>
+          </OverlayTrigger>
+
         <div>
           <label> FVNL (%): </label>
           
+
           <input
             type="number"
             value={fvnl}
             onChange={(e) => setFvnl(e.target.value)}
             required
           />
-
         </div>
   
         <div>
@@ -230,6 +263,13 @@ const FoodRatingForm = ({ selectedCategory }) => {
         {error && <p className="error">{error}</p>}
         {hsrScore && (
           <div className="score-container">
+
+            <h2>HSR Score:</h2>
+            <p>{hsrScore}/5</p>
+            <img src={ratingpreview} alt="Health Star Rating Score" />
+            {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}
+          </div>
+
           <h2>HSR Score:</h2>
           <p>{hsrScore}/5</p>
           <div><img src={ratingpreview} alt="HealthStar Rating Score" />
@@ -238,6 +278,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
         </div>
           
           
+
         )}
       </form>
       <ResetForm resetForm={resetForm} />

@@ -1,6 +1,6 @@
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 input[type="text"],
@@ -68,8 +68,9 @@ input[type="number"]:hover{
 .score-container {
   display: flex;
   flex-direction: column; /* Display elements in a column */
-  align-items: flex-start; /* Align items to the start of the column */
+  align-items: center; /* Align items to the start of the column */
   margin-top: 20px;
+  
 }
 
 .score-container h2 {
@@ -80,22 +81,73 @@ input[type="number"]:hover{
   font-size: 20px;
   
 }
-
 .score-container img {
-  width: 300px;
+  width: 100px;
   height: auto;
+  display: block; /* Set display to block */
+  margin: 0 auto; /* Center align horizontally */
+  margin-top: 10px; /* Add some space above the image */
 }
-/* popover css*/
 
-.tooltip1 {
-  font-size: 14px;
-  margin-left: 400px; /* Add margin to separate the button and input */
+
+
+
+.preview-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:300px;
+  margin-left: 150px;
+}
+
+.preview-container img{
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+
+}
+
+/* tooltip css*/
+
+.tooltip1  {
+  font-size: 12px; 
+  padding: 5px 10px; 
+  margin-left: 20px; 
   margin-bottom: 5px;
 }
 
-.tooltip1.popover {
-  max-width: none; /* Adjust the popover width */
+.input-wrapper {
   
-  
-  
+  align-items: center;
+  margin-bottom: 10px; /* Adjust the margin bottom */
 }
+
+.input-wrapper .fvnl-label {
+  margin-right: 10px; 
+}
+
+.input-wrapper .tooltip2 {
+  margin-left: 10px; 
+  margin-bottom: 5px;
+}
+
+/* non - dairy bev tooltip css */
+
+
+.form-group {
+  
+  align-items: center;
+  margin-bottom: 10px; 
+}
+
+.form-group label {
+  margin-right: 10px;
+}
+
+.form-group .tooltip2 {
+  margin-left: 10px; 
+  margin-bottom: 5px;
+}
+
