@@ -76,7 +76,7 @@ const Non_DairyBeverages = () => {
     if (ratingpreview) {
       const link = document.createElement('a');
       link.href = ratingpreview;
-      link.download = 'HSR_Score_Image.png';
+      link.download = 'HSR_Score_Image.svg';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
