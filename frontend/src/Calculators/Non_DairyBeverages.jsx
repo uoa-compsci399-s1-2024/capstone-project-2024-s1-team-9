@@ -160,7 +160,7 @@ const Non_DairyBeverages = () => {
         )}
         {ratingpreview && (
           <div className="preview-container">
-            <h3>Label Preview:</h3> 
+            
             <img src={ratingpreview} alt="Health Star Rating Score" />
             {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}
           </div>

@@ -97,7 +97,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
     if (ratingpreview) {
       const link = document.createElement('a');
       link.href = ratingpreview;
-      link.download = 'HSR_Score_Image.png';
+      link.download = 'HSR_Score_Image.svg';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -232,7 +232,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
             overlay={renderTooltip}
             
           >
-            <Button className="tooltip2" variant="success">What is FVNL</Button>
+            <Button className="tooltip2" variant="success">What is FVNL?</Button>
           </OverlayTrigger>
           <input
             type="number"
