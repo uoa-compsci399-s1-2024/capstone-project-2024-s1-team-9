@@ -6,7 +6,7 @@ import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap';
 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 //Remember to add ${BACKEND_URL} to fetch() before create pull request
-const FoodRatingForm = ({ selectedCategory }) => {
+const FoodRatingForm = ({ selectedCategory, setSelectedCategory}) => {
   
   const [foodName, setFoodName] = useState("");
   const [company, setCompany] = useState("");
@@ -22,7 +22,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
   const [error, setError] = useState(null);
   const [hsrScore, setHsrScore] = useState(null);
   const [ratingpreview, setratingpreview] = useState(null);
-
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -94,6 +94,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
     setFvnl("");
     setError(null);
     setHsrScore(null);
+    setSelectedCategory(null);
   };
 
   const downloadImage = () => {
@@ -106,6 +107,8 @@ const FoodRatingForm = ({ selectedCategory }) => {
       document.body.removeChild(link);
     }
   };
+
+ 
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
@@ -142,7 +145,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
           />
         </div>
         <div>
-          <label>Company: </label>
+          <label>Business: </label>
           <input
             type="text"
             value={company}

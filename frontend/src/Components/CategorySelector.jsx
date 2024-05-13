@@ -33,7 +33,7 @@ const CategorySelector = () => {
                     <option key={category} value={category}>{category}</option>
                 ))}
             </select>
-            {selectedCategory && !isNonDairySelected && <FoodRatingForm selectedCategory={selectedCategory}/>}
+            {selectedCategory && !isNonDairySelected && <FoodRatingForm selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>}
             
             {isNonDairySelected && <Non_DairyBeverages />}
         </div>

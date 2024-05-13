@@ -104,7 +104,7 @@ const Non_DairyBeverages = () => {
             />
           </div>
           <div className="form-group">
-            <label className="label">Company: </label>
+            <label className="label">Business: </label>
             <input
               type="text"
               value={company}
