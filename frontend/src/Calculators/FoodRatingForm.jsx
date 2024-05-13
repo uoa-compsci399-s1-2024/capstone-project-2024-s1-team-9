@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import ResetForm from "../Components/ResetForm";
 import './calculator.css';
+
 import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap'; 
+
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 //Remember to add ${BACKEND_URL} to fetch() before create pull request
 const FoodRatingForm = ({ selectedCategory }) => {
@@ -20,6 +22,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
   const [error, setError] = useState(null);
   const [hsrScore, setHsrScore] = useState(null);
   const [ratingpreview, setratingpreview] = useState(null);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -210,6 +213,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
   
         <div>
           <label>Concentrated Fruit and Vegetable (%): </label>
+
           <OverlayTrigger
             placement="right"
             overlay={renderTooltip2}
@@ -217,6 +221,9 @@ const FoodRatingForm = ({ selectedCategory }) => {
           >
             <Button className="tooltip1" variant="success">What is this?</Button>
           </OverlayTrigger>
+
+          
+
           <input
             type="number"
             value={concFruitVeg}
@@ -225,6 +232,7 @@ const FoodRatingForm = ({ selectedCategory }) => {
           />
         </div>
   
+
         <div className="input-wrapper">
           <label className="fvnl-label"> FVNL (%):  </label>
           <OverlayTrigger
@@ -234,6 +242,11 @@ const FoodRatingForm = ({ selectedCategory }) => {
           >
             <Button className="tooltip2" variant="success">What is FVNL?</Button>
           </OverlayTrigger>
+
+        <div>
+          <label> FVNL (%): </label>
+          
+
           <input
             type="number"
             value={fvnl}
@@ -250,11 +263,22 @@ const FoodRatingForm = ({ selectedCategory }) => {
         {error && <p className="error">{error}</p>}
         {hsrScore && (
           <div className="score-container">
+
             <h2>HSR Score:</h2>
             <p>{hsrScore}/5</p>
             <img src={ratingpreview} alt="Health Star Rating Score" />
             {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}
           </div>
+
+          <h2>HSR Score:</h2>
+          <p>{hsrScore}/5</p>
+          <div><img src={ratingpreview} alt="HealthStar Rating Score" />
+          {ratingpreview && <button onClick={downloadImage}>Download Image</button>}</div>
+          
+        </div>
+          
+          
+
         )}
       </form>
       <ResetForm resetForm={resetForm} />

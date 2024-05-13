@@ -6,28 +6,28 @@
 // ORIGINAL Lookups with extra categories
 
 const starConversionDivisor = new Map();
-starConversionDivisor.set("1D - Dairy beverages", 8.999);
-starConversionDivisor.set("2 - Foods", 9.999);
-starConversionDivisor.set("2D - Dairy foods", 9.999);
-starConversionDivisor.set("3 - Fats, oils", 9.999);
-starConversionDivisor.set("3D - Cheese", 9.999);
+starConversionDivisor.set("Dairy beverages", 8.999);
+starConversionDivisor.set("Foods", 9.999);
+starConversionDivisor.set("Dairy foods", 9.999);
+starConversionDivisor.set("Fats, oils", 9.999);
+starConversionDivisor.set("Cheese", 9.999);
 exports.starConversionDivisor = starConversionDivisor;
 
 const num3 = new Map();
-num3.set("1D - Dairy beverages", 6);
-num3.set("2 - Foods", 29);
-num3.set("2D - Dairy foods", 14);
-num3.set("3 - Fats, oils", 45);
-num3.set("3D - Cheese", 41);
+num3.set("Dairy beverages", 6);
+num3.set("Foods", 29);
+num3.set("Dairy foods", 14);
+num3.set("Fats, oils", 45);
+num3.set("Cheese", 41);
 exports.num3 = num3;
 
 
 const num1 = new Map();
-num1.set("1D - Dairy beverages", -2);
-num1.set("2 - Foods", -15);
-num1.set("2D - Dairy foods", -3);
-num1.set("3 - Fats, oils", 10);
-num1.set("3D - Cheese", 23);
+num1.set("Dairy beverages", -2);
+num1.set("Foods", -15);
+num1.set("Dairy foods", -3);
+num1.set("Fats, oils", 10);
+num1.set("Cheese", 23);
 exports.num1 = num1;
 
 const num2 = new Map();
@@ -41,19 +41,19 @@ exports.num2 = num2;
 // AMENDED lookups with simplified categories
 
 const npscGroupNumber = new Map();
-npscGroupNumber.set("1D - Dairy beverages", 1);
-npscGroupNumber.set("2 - Foods", 2);
-npscGroupNumber.set("2D - Dairy foods", 2);
-npscGroupNumber.set("3 - Fats, oils", 3);
-npscGroupNumber.set("3D - Cheese", 3);
+npscGroupNumber.set("Dairy beverages", 1);
+npscGroupNumber.set("Foods", 2);
+npscGroupNumber.set("Dairy foods", 2);
+npscGroupNumber.set("Fats, oils", 3);
+npscGroupNumber.set("Cheese", 3);
 exports.npscGroupNumber = npscGroupNumber;
 
 const npscCategory = new Map();
-npscCategory.set("1D - Dairy beverages", "Beverages");
-npscCategory.set("2 - Foods", "Food");
-npscCategory.set("2D - Dairy foods", "Food");
-npscCategory.set("3 - Fats, oils", "Fats/Oils/Cheese");
-npscCategory.set("3D - Cheese", "Fats/Oils/Cheese");
+npscCategory.set("Dairy beverages", "Beverages");
+npscCategory.set("Foods", "Food");
+npscCategory.set("Dairy foods", "Food");
+npscCategory.set("Fats, oils", "Fats/Oils/Cheese");
+npscCategory.set("Cheese", "Fats/Oils/Cheese");
 exports.npscCategory = npscCategory;
 
 
