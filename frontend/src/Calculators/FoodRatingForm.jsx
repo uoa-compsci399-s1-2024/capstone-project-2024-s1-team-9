@@ -215,6 +215,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory}) => {
         </div>
   
         <div>
+          <div className="foodtip1">
           <label>Concentrated Fruit and Vegetable (%): </label>
 
           <OverlayTrigger
@@ -225,7 +226,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory}) => {
             <Button className="tooltip1" variant="success">What is this?</Button>
           </OverlayTrigger>
 
-          
+          </div>
 
           <input
             type="number"
@@ -237,6 +238,8 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory}) => {
   
 
         <div className="input-wrapper">
+
+        <div className="foodtip1">
   <label className="fvnl-label"> FVNL (%):  </label>
   <OverlayTrigger
     placement="right"
@@ -244,6 +247,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory}) => {
   >
     <Button className="tooltip2" variant="success">What is FVNL?</Button>
   </OverlayTrigger>
+  </div>
   <input
     type="number"
     value={fvnl}

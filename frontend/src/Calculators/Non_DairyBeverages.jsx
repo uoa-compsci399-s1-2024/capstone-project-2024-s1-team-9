@@ -133,6 +133,9 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
             />
           </div>
           <div className="form-group">
+            <div className='non-dairy-fvnl'>
+
+            
             <label className="label">FVNL (%): </label>
             <OverlayTrigger
             placement="right"
@@ -141,6 +144,7 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
           >
             <Button className="tooltip2" variant="success">What is FVNL</Button>
           </OverlayTrigger>
+          </div>
             <input
               type="number"
               value={fvnl}
