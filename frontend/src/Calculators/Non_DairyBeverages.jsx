@@ -92,9 +92,11 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
 
   return (
     <>
-    
+    <div className="main-container">
+      <div className="content-wrapper1">
+        
     {selectedCategory && ( // Only render the form if a category is selected
-  <div className="form-container">
+  <div className="form-container1">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="label">Product: </label>
@@ -132,7 +134,7 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
               required
             />
           </div>
-          <div className="form-group">
+          <div >
             <div className='non-dairy-fvnl'>
 
             
@@ -155,25 +157,23 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
           <button type="submit" disabled={loading}>
             {loading ? "Calculating..." : "Calculate"}
           </button>
-          
+          {error && <p className="error">{error}</p>}
+         <ResetForm resetForm={resetForm}/>
         </form>
-        {error && <p className="error">{error}</p>}
-        {hsrScore && (
-          <div className="score-container">
-            <h3>Health Star Rating:</h3>
+        
+         {hsrScore && (
+          <div className="score-container1">
+            <h2>HSR Score:</h2>
             <p>{hsrScore}/5</p>
-          </div>
-        )}
-        {ratingpreview && (
-          <div className="preview-container">
-            
             <img src={ratingpreview} alt="Health Star Rating Score" />
             {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}
           </div>
         )}
+       
       </div>
       )}
-      <ResetForm resetForm={resetForm}/>
+      </div>
+    </div>
       </>
     
   );

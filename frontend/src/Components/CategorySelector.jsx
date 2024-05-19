@@ -4,13 +4,11 @@ import "./CategoryStyles.css";
 import FoodRatingForm from '../Calculators/FoodRatingForm';
 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
-//Remember to add ${BACKEND_URL} to fetch() before create pull request
 
 const CategorySelector = () => {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
     const [isNonDairySelected, setIsNonDairySelected] = useState(false);
-    
 
     useEffect(() => {
         fetch(`${BACKEND_URL}/categories`)
@@ -21,28 +19,27 @@ const CategorySelector = () => {
 
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value);
-        // Check if the selected category is "1 - Non-dairy beverages"
         setIsNonDairySelected(event.target.value === "Non-dairy beverages");
     };
 
     return (
         <div className='main-container'>
-            Category: <select value={selectedCategory} onChange={handleCategoryChange}>
+            <select value={selectedCategory} onChange={handleCategoryChange}>
                 <option value="">Select a category</option>
                 {categories.map(category => (
                     <option key={category} value={category}>{category}</option>
                 ))}
             </select>
-            {selectedCategory && !isNonDairySelected && <FoodRatingForm selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>}
-            
-            {isNonDairySelected && <Non_DairyBeverages selectedCategory={selectedCategory}  setSelectedCategory={setSelectedCategory} />}
+            <div className="content-wrapper">
+                {selectedCategory && !isNonDairySelected && 
+                    <FoodRatingForm selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                }
+                {isNonDairySelected && 
+                    <Non_DairyBeverages selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                }
+            </div>
         </div>
     );
 };
 
 export default CategorySelector;
-
-
-
-
-

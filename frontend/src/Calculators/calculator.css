@@ -1,3 +1,7 @@
+
+
+
+
 label {
   display: block;
   margin-bottom: 5px;
@@ -9,13 +13,13 @@ input[type="text"],
 input[type="number"] {
   width: 100%;
   padding: 10px;
-  border: 1px solid #FC8510;
+  border: 1px solid #fc8510;
   border-radius: 5px;
   box-sizing: border-box;
 }
 input[type="text"]:hover,
-input[type="number"]:hover{
-  border-color: #F4EBB8; /* Change border color on hover */
+input[type="number"]:hover {
+  border-color: #f4ebb8; /* Change border color on hover */
 }
 
 .score-container {
@@ -33,22 +37,22 @@ input[type="number"]:hover{
 
 /* Style for the ResetForm component */
 /* You can add more specific styling here if needed */
-.reset button{
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #F9C74F;
-    color: #000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.reset button:hover {
-  background-color: #F4EBB8;
-}
-.main-container button{
+.reset button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #F9C74F;
+  background-color: #f9c74f;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.reset button:hover {
+  background-color: #f4ebb8;
+}
+.main-container button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f9c74f;
   color: #000;
   border: none;
   border-radius: 5px;
@@ -56,7 +60,7 @@ input[type="number"]:hover{
   margin-top: 10px;
 }
 .main-container button:hover {
-  background-color: #F4EBB8;
+  background-color: #f4ebb8;
 }
 
 .preview-container {
@@ -72,7 +76,6 @@ input[type="number"]:hover{
   flex-direction: column; /* Display elements in a column */
   align-items: center; /* Align items to the start of the column */
   margin-top: 20px;
-  
 }
 
 .score-container h2 {
@@ -81,7 +84,6 @@ input[type="number"]:hover{
 
 .score-container p {
   font-size: 20px;
-  
 }
 .score-container img {
   width: 100px;
@@ -91,56 +93,46 @@ input[type="number"]:hover{
   margin-top: 10px; /* Add some space above the image */
 }
 
-
-
-
-.preview-container{
+.preview-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width:300px;
+  width: 300px;
   margin-left: 150px;
 }
 
-.preview-container img{
+.preview-container img {
   width: 100px;
   height: auto;
   display: block;
   margin: 0 auto;
   margin-top: 10px;
-
 }
 
 /* tooltip css*/
 
-.tooltip1  {
-  
-  font-size: 12px; 
-  padding: 5px 10px; 
-  margin-left: 20px; 
+.tooltip1 {
+  font-size: 12px;
+  padding: 5px 10px;
+  margin-left: 20px;
   margin-bottom: 5px;
 }
 
-.foodtip1{
+.foodtip1 {
   display: flex;
   align-items: left;
-  
 }
 
-
-
 .input-wrapper .tooltip2 {
-  margin-left: 10px; 
+  margin-left: 10px;
   margin-bottom: 5px;
 }
 
 /* non - dairy bev tooltip css */
 
-
 .form-group {
-  
   align-items: center;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .form-group label {
@@ -149,12 +141,58 @@ input[type="number"]:hover{
 }
 
 .form-group .tooltip2 {
-  margin-left: 10px; 
+  margin-left: 10px;
   margin-bottom: 5px;
 }
 
-.non-dairy-fvnl{
+.non-dairy-fvnl {
   display: flex;
   align-items: left;
-  
+}
+
+.score-container {
+  flex: 0 0 300px; 
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  height:300px;
+  margin-left: 20px;
+  align-items: center;
+  margin-top: 200px;
+ 
+}
+
+.content-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+
+.score-container1 {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  padding-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  height:300px;
+}
+
+.score-container1 img{
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+
+}
+
+.form-container1 {
+  width:400px
 }
