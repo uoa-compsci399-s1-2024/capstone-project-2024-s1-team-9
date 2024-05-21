@@ -89,6 +89,25 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
     </Tooltip>
   );
 
+  const handleDownload = () => {
+    const textContent = `
+      Product: ${product}
+      Company: ${company}
+      Energy: ${energy} kJ
+      Total Sugars: ${totalSugars} g/100g
+      FVNL: ${fvnl} %
+      HSR Score: ${hsrScore}
+    `;
+
+    const blob = new Blob([textContent], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'hsr_score.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
 
   return (
     <>
@@ -167,6 +186,7 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
             <p>{hsrScore}/5</p>
             <img src={ratingpreview} alt="Health Star Rating Score" />
             {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}
+            <button onClick={handleDownload}>Download Results</button>
           </div>
         )}
        

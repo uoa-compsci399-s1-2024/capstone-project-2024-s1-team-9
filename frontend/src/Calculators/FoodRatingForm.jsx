@@ -93,6 +93,31 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory }) => {
     setSelectedCategory("");
   };
 
+  const handleDownload = () => {
+    const textContent = `
+      Food Name: ${foodName}
+      Company: ${company}
+      Energy: ${energy} kJ
+      Saturated Fat: ${satFat} g/100g
+      Total Sugars: ${totalSugars} g/100g
+      Sodium: ${sodium} mg/100g
+      Fibre: ${fibre} g/100g
+      Protein: ${protein} g/100g
+      Concentrated Fruit and Vegetable: ${concFruitVeg} %
+      FVNL: ${fvnl} %
+      HSR Score: ${hsrScore}
+    `;
+
+    const blob = new Blob([textContent], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'hsr_score.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+
   const downloadImage = () => {
     if (ratingpreview) {
       const link = document.createElement('a');
@@ -125,6 +150,8 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory }) => {
       Percentage of concentrated (or dried) fruit or vegetable ingredients in the food.
     </Tooltip>
   );
+
+  
 
   return (
     <>
@@ -248,6 +275,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory }) => {
             <p>{hsrScore}/5</p>
             <img src={ratingpreview} alt="Health Star Rating Score" />
             {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}
+            <button onClick={handleDownload}>Download Results</button>
           </div>
         )}
       </div>
