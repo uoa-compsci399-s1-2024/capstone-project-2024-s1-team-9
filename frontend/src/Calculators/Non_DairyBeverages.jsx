@@ -85,7 +85,7 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
   };
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
-      Fruit Vegetable Nuts and Legumes 
+      Percentage of the non-concentrated fruit, nuts, legumes and vegetable ingredients in the food.
     </Tooltip>
   );
 
@@ -138,7 +138,7 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
             <div className='non-dairy-fvnl'>
 
             
-            <label className="label">FVNL (%): </label>
+            <label className="label"> Non-Concentrated FVNL (%): </label>
             <OverlayTrigger
             placement="right"
             overlay={renderTooltip}

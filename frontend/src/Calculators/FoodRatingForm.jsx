@@ -116,13 +116,13 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory }) => {
 
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
-      Fruit Vegetable Nuts and Legumes 
+      Percentage of the non-concentrated fruit, nuts, legumes and vegetable ingredients in the food.
     </Tooltip>
   );
 
   const renderTooltip2 = (props) => (
     <Tooltip id="button-tooltip" {...props}>
-      idk what to put in here. What does Cathy want?
+      Percentage of concentrated (or dried) fruit or vegetable ingredients in the food.
     </Tooltip>
   );
 
@@ -220,7 +220,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory }) => {
             </div>
             <div className="input-wrapper">
               <div className="foodtip1">
-                <label className="fvnl-label"> FVNL (%):  </label>
+                <label className="fvnl-label"> Non-Concentrated FVNL (%):  </label>
                 <OverlayTrigger placement="right" overlay={renderTooltip}>
                   <Button className="tooltip2" variant="success">What is FVNL?</Button>
                 </OverlayTrigger>
