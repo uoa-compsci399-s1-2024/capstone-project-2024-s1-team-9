@@ -9,9 +9,16 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-    <h1>Health Star Rating Calculator</h1>
-    <CategorySelector />
-  </div>
+          <h1>Health Star Rating Calculator</h1>
+          <div className="details-pane">
+              <p>TEXT</p>
+          </div>
+          <div className="main-container">
+              <div className="content-pane">
+                  <CategorySelector />
+              </div>
+          </div>
+    </div>
   )
 }
 

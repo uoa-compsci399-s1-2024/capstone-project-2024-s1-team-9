@@ -1,26 +1,54 @@
 body, h1, h2, h3, h4, h5, h6, p, ul, ol {
     margin: 0;
     padding: 0;
-  }
+}
   
-  /* Set font family and size */
-  body {
+/* Set font family and size */
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
-  }
+}
   
-  /* Style for the entire App */
-  .App {
+/* Style for the entire App */
+.App {
     width: 100%;
     max-width: 95%; /* Adjust as needed */
     margin: 0 auto;
     padding: 20px;
-  }
+}
   
-  /* Style for the main heading */
-  h1 {
+/* Style for the main heading */
+h1 {
     font-size: 30px;
     margin-bottom: 20px;
     color: #F9B120;
     text-align: center;
-  }
+}
+
+.details-pane {
+    width: 20%; /* Adjust width as needed */
+    padding: 20px;
+    background-color: #f4f4f4; /* Adjust as needed */
+    border-radius: 15px; /* More rounded edges */
+    position: absolute; /* Position freely on the page */
+    top: 100px; /* Adjust top position as needed */
+    left: 20px; /* Adjust left position as needed */
+}
+
+.main-container {
+    display: flex;
+    justify-content: center; /* Center the main content */
+}
+
+.content-pane {
+    width: 75%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-pane .category-selector-container {
+    width: 100%;
+    margin: 0 auto; /* Center the selector */
+}

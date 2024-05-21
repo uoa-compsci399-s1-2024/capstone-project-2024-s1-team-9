@@ -23,7 +23,7 @@ const CategorySelector = () => {
     };
 
     return (
-        <div className='main-container'>
+        <div className='category-selector-container'>
             <select value={selectedCategory} onChange={handleCategoryChange}>
                 <option value="">Select a category</option>
                 {categories.map(category => (
