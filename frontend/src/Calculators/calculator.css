@@ -1,7 +1,3 @@
-
-
-
-
 label {
   display: block;
   margin-bottom: 5px;
@@ -20,14 +16,6 @@ input[type="number"] {
 input[type="text"]:hover,
 input[type="number"]:hover {
   border-color: #f4ebb8; /* Change border color on hover */
-}
-
-.score-container {
-  margin-top: 20px;
-}
-
-.score-container h2 {
-  margin-bottom: 10px;
 }
 
 .error {
@@ -49,65 +37,6 @@ input[type="number"]:hover {
 .reset button:hover {
   background-color: #f4ebb8;
 }
-.main-container button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #f9c74f;
-  color: #000;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-.main-container button:hover {
-  background-color: #f4ebb8;
-}
-
-.preview-container {
-  display: flex; /* Align items horizontally */
-  flex-direction: row;
-  align-items: center; /* Align items vertically */
-}
-.preview-container h3 {
-  margin-right: 10px; /* Adjust spacing between items */
-}
-.score-container {
-  display: flex;
-  flex-direction: column; /* Display elements in a column */
-  align-items: center; /* Align items to the start of the column */
-  margin-top: 20px;
-}
-
-.score-container h2 {
-  margin-bottom: 20px; /* Add space below the H2 tag */
-}
-
-.score-container p {
-  font-size: 20px;
-}
-.score-container img {
-  width: 100px;
-  height: auto;
-  display: block; /* Set display to block */
-  margin: 0 auto; /* Center align horizontally */
-  margin-top: 10px; /* Add some space above the image */
-}
-
-.preview-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 300px;
-  margin-left: 150px;
-}
-
-.preview-container img {
-  width: 100px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  margin-top: 10px;
-}
 
 /* tooltip css*/
 
@@ -117,8 +46,8 @@ input[type="number"]:hover {
   margin-left: 20px;
   margin-bottom: 5px;
 }
-.tooltip2{
-  margin-bottom: 5px;
+.tooltip2 {
+    margin-bottom: 5px;
 }
 
 .foodtip1 {
@@ -153,49 +82,20 @@ input[type="number"]:hover {
   align-items: left;
 }
 
-.score-container {
-  flex: 0 0 300px; 
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  height:350px;
-  margin-left: 20px;
-  align-items: center;
-  margin-top: 200px;
- 
-}
-
 .content-wrapper{
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-
-
-.score-container1 {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
-  padding-top: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  height:350px;
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
-.score-container1 img{
-  width: 100px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  margin-top: 10px;
-
-}
-
-.form-container1 {
-  width:400px
+.main-form-container {
+  width: 100%;
 }

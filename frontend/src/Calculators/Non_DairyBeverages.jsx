@@ -92,7 +92,7 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory, setGlobalSc
 
   return (
     <>
-    <div className="main-container">
+    <div className="main-form-container">
       <div className="content-wrapper1">
         
     {selectedCategory && ( // Only render the form if a category is selected

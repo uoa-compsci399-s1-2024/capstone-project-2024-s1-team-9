@@ -1,0 +1,38 @@
+.score-container {
+    display: flex;
+    flex-direction: column; /* Display elements in a column */
+    align-items: center; /* Align items to the start of the column */
+    margin-top: 20px;
+}
+
+.score-container h2 {
+    margin-bottom: 10px;
+}
+
+.score-container h2 {
+    margin-bottom: 20px; /* Add space below the H2 tag */
+}
+
+.score-container p {
+    font-size: 20px;
+}
+
+.score-container img {
+    width: 100px;
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+    margin-top: 10px; 
+}
+
+.score-container {
+    flex: 0 0 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    height: 350px;
+    margin-left: 20px;
+    align-items: center;
+    margin-top: 150px;
+}

@@ -29,6 +29,22 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* Divide into three equal parts */
     gap: 20px; /* Space between columns */
+    padding: 20px;
+}
+
+.main-container button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f9c74f;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.main-container button:hover {
+    background-color: #f4ebb8;
 }
 
 .content-pane {

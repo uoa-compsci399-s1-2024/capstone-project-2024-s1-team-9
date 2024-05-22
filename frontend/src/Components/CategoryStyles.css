@@ -1,37 +1,27 @@
-.main-container {
-    margin: 20px auto;
-    max-width: 600px;
-  }
-  
-  select {
+.category-selector-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+select {
     width: 100%;
     padding: 10px;
     border: 1px solid #FC8510;
     border-radius: 5px;
     box-sizing: border-box;
-  }
-  
-  select:focus {
-    outline: none;
-    border-color: #F4EBB8; /* Change border color on focus */
-  }
-  select:hover{
-    border-color: #F4EBB8; /* Change border color on hover */
-  }
+}
 
-  /* Styling for options */
-  select option {
-    background-color: #fff; /* Background color */
-    color: #333; /* Text color */
-  }
+select:focus, select:hover {
+    border-color: #F4EBB8;
+}
 
-  /* Styling for selected option */
-  select option:checked {
-    background-color: #F4EBB8; /* Background color */
-    color: #333; /* Text color */
-  }
+select option {
+    background-color: #fff;
+    color: #333;
+}
 
-  select option:hover{
-    background-color: #F4EBB8; /* Background color */
-    color: #333; /* Text color */
-  }
+select option:checked, select option:hover {
+    background-color: #F4EBB8;
+    color: #333;
+}

@@ -131,7 +131,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
 
   return (
     <>
-    <div className="main-container">
+    <div className="main-form-container">
       <div className="content-wrapper">
         <div className="form-container">
           <form onSubmit={handleSubmit}>
