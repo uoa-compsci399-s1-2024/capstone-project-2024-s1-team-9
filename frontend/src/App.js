@@ -38,7 +38,9 @@ function App() {
     <div className="App">
           <h1>Health Star Rating Calculator</h1>
           <div className="main-container">
-              <DetailsPane />
+              <div className="details-pane">
+                  <DetailsPane />
+              </div>
               <div className="content-pane">
                   <CategorySelector setGlobalScore={setHsrScore} setRatingPreview={setRatingPreview} setDownloadData={setDownloadData} />
               </div>

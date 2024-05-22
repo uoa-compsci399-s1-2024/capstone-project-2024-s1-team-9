@@ -20,6 +20,9 @@ const CategorySelector = ({ setGlobalScore, setRatingPreview, setDownloadData })
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value);
         setIsNonDairySelected(event.target.value === "Non-dairy beverages");
+        setGlobalScore(null);
+        setRatingPreview(null);
+        setDownloadData("");
     };
 
     return (

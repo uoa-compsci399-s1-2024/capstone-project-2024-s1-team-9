@@ -103,6 +103,9 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
     setError(null);
     setHsrScore(null);
     setSelectedCategory("");
+    setGlobalScore(null);
+    setRatingPreview(null);
+    setDownloadData("");
   };
 
   const handleKeyDown = (e) => {

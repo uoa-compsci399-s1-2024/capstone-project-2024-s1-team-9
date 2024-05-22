@@ -3,7 +3,7 @@ import './DetailsPane.css';
 
 const DetailsPane = () => {
     return (
-        <div className="details-pane">
+        <div className="details-content">
             <h1>Extra Information</h1>
 
             <h3>Unit Quantity</h3>

@@ -80,7 +80,10 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory, setGlobalSc
     setError(null);
     setHsrScore(null);
     setRatingPreview(null);
-    setSelectedCategory("")
+    setSelectedCategory("");
+    setGlobalScore(null);
+    setRatingPreview(null);
+    setDownloadData("");
   };
 
   const renderTooltip = (props) => (
