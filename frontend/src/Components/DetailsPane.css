@@ -1,0 +1,9 @@
+.details-pane {
+    width: 20%; /* Adjust width as needed */
+    padding: 20px;
+    background-color: #f4f4f4; /* Adjust as needed */
+    border-radius: 15px; /* More rounded edges */
+    position: absolute; /* Position freely on the page */
+    top: 100px; /* Adjust top position as needed */
+    left: 20px; /* Adjust left position as needed */
+}
