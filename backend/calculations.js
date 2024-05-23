@@ -30,7 +30,7 @@ router.post('/input', (req, res) => {
         fibre: req.body.fibre,
         protein: req.body.protein,
         concFruitVeg: req.body.concFruitVeg,
-        fvnl: req.body.fvnl
+        fvnl: parseFloat(req.body.fvnl)
     };
 
     inputData = data;
