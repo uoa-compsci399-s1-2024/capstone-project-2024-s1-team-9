@@ -142,7 +142,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
                 type="text"
                 value={foodName}
                 onChange={(e) => setFoodName(e.target.value)}
-                required
+                
               />
             </div>
             <div>
@@ -151,7 +151,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
                 type="text"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
-                required
+                
               />
             </div>
             <div>

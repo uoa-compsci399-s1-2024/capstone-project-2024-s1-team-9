@@ -107,7 +107,7 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory, setGlobalSc
               type="text"
               value={product}
               onChange={(e) => setProduct(e.target.value)}
-              required
+              
             />
           </div>
           <div className="form-group">
@@ -116,7 +116,7 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory, setGlobalSc
               type="text"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              required
+              
             />
           </div>
           <div className="form-group">
