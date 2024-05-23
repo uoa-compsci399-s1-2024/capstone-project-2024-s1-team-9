@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import './calculator.css';
 import ResetForm from '../Components/ResetForm';
 import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap'; 
+import ScoreContainer from "../Components/ScoreContainer";
+
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
+
 //Remember to add ${BACKEND_URL} to fetch() before create pull request
-const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
+const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory, setGlobalScore, setRatingPreview, setDownloadData }) => {
   const [product, setProduct] = useState('');
   const [company, setCompany] = useState('');
   const [energy, setEnergy] = useState('');
@@ -12,9 +15,9 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
   const [fvnl, setFvnl] = useState('');
   const [hsrScore, setHsrScore] = useState(null);
   const [error, setError] = useState(null);
-  const [ratingpreview, setratingpreview] = useState(null);
   const [loading, setLoading] = useState(false);
-  const handleSubmit = async (e) => {
+
+    const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
@@ -42,21 +45,28 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
 
       
       setError(null);
-
       
       const scoreResponse = await fetch(`${BACKEND_URL}/non_dairy_beverages/score`);
       if (!scoreResponse.ok) {
         throw new Error('Failed to get HSR score.');
       }
       const scoreData = await scoreResponse.json();
-      setHsrScore(scoreData.nonDairyBevsScore);
+      setGlobalScore(scoreData.nonDairyBevsScore); // Setting global score
+      setRatingPreview(`/rating-svg/${scoreData.nonDairyBevsScore}stars.svg`); // Setting global preview image
+      const textContent = `
+        Product: ${product}
+        Company: ${company}
+        Energy: ${energy} kJ
+        Total Sugars: ${totalSugars} g/100g
+        FVNL: ${fvnl} %
+        HSR Score: ${scoreData.nonDairyBevsScore}
+      `;
+      setDownloadData(textContent);
       console.log('HSR score:', scoreData.nonDairyBevsScore);
-      setratingpreview(`/rating-svg/${scoreData.nonDairyBevsScore}stars.svg`);
 
     } catch (error) {
       console.error('Error:', error);
       setHsrScore(null);
-      setratingpreview(null);
       setError(error.message);
     }
   setLoading(false);
@@ -69,49 +79,23 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
     setFvnl('');
     setError(null);
     setHsrScore(null);
-    setratingpreview(null);
-    setSelectedCategory("")
+    setRatingPreview(null);
+    setSelectedCategory("");
+    setGlobalScore(null);
+    setRatingPreview(null);
+    setDownloadData("");
   };
 
-  const downloadImage = () => {
-    if (ratingpreview) {
-      const link = document.createElement('a');
-      link.href = ratingpreview;
-      link.download = 'HSR_Score_Image.svg';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-  };
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       Percentage of the non-concentrated fruit, nuts, legumes and vegetable ingredients in the food.
     </Tooltip>
   );
 
-  const handleDownload = () => {
-    const textContent = `
-      Product: ${product}
-      Company: ${company}
-      Energy: ${energy} kJ
-      Total Sugars: ${totalSugars} g/100g
-      FVNL: ${fvnl} %
-      HSR Score: ${hsrScore}
-    `;
-
-    const blob = new Blob([textContent], { type: 'text/plain' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'hsr_score.txt';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
 
   return (
     <>
-    <div className="main-container">
+    <div className="main-form-container">
       <div className="content-wrapper1">
         
     {selectedCategory && ( // Only render the form if a category is selected
@@ -180,14 +164,11 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory}) => {
          <ResetForm resetForm={resetForm}/>
         </form>
         
-         {hsrScore && (
-          <div className="score-container1">
-            <h2>HSR Score:</h2>
-            <p>{hsrScore}/5</p>
-            <img src={ratingpreview} alt="Health Star Rating Score" />
-            {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}
-            <button onClick={handleDownload}>Download Results</button>
-          </div>
+        {hsrScore && (
+            <ScoreContainer
+                hsrScore={hsrScore}
+                ratingPreview={setRatingPreview}
+            />
         )}
        
       </div>

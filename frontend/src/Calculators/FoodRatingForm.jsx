@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import ResetForm from "../Components/ResetForm";
 import './calculator.css';
 import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap'; 
+import ScoreContainer from "../Components/ScoreContainer";
 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 
-const FoodRatingForm = ({ selectedCategory, setSelectedCategory }) => {
+const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore, setRatingPreview, setDownloadData }) => {
   const [foodName, setFoodName] = useState("");
   const [company, setCompany] = useState("");
   const [energy, setEnergy] = useState("");
@@ -19,7 +20,6 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [hsrScore, setHsrScore] = useState(null);
-  const [ratingpreview, setratingpreview] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,7 +58,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory }) => {
       setError(error.message);
     }
     setLoading(false);
-  };
+    };
 
   const calculateHSRScore = async () => {
     try {
@@ -67,12 +67,24 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory }) => {
         throw new Error("Failed to calculate HSR score.");
       }
       const data = await response.json();
-      setHsrScore(data.hsrProfilerScore);
-      setratingpreview(`/rating-svg/${data.hsrProfilerScore}stars.svg`);
-      setError(null);
+      setGlobalScore(data.hsrProfilerScore); // Setting global score
+      setRatingPreview(`/rating-svg/${data.hsrProfilerScore}stars.svg`); // Setting global preview image
+      const textContent = `
+          Food Name: ${foodName}
+          Company: ${company}
+          Energy: ${energy} kJ
+          Saturated Fat: ${satFat} g/100g
+          Total Sugars: ${totalSugars} g/100g
+          Sodium: ${sodium} mg/100g
+          Fibre: ${fibre} g/100g
+          Protein: ${protein} g/100g
+          Concentrated Fruit and Vegetable: ${concFruitVeg} %
+          FVNL: ${fvnl} %
+          HSR Score: ${data.hsrProfilerScore}
+      `;
+      setDownloadData(textContent);
     } catch (error) {
       console.error("Error:", error);
-      setHsrScore(null);
       setError(error.message);
     }
   };
@@ -91,42 +103,9 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory }) => {
     setError(null);
     setHsrScore(null);
     setSelectedCategory("");
-  };
-
-  const handleDownload = () => {
-    const textContent = `
-      Food Name: ${foodName}
-      Company: ${company}
-      Energy: ${energy} kJ
-      Saturated Fat: ${satFat} g/100g
-      Total Sugars: ${totalSugars} g/100g
-      Sodium: ${sodium} mg/100g
-      Fibre: ${fibre} g/100g
-      Protein: ${protein} g/100g
-      Concentrated Fruit and Vegetable: ${concFruitVeg} %
-      FVNL: ${fvnl} %
-      HSR Score: ${hsrScore}
-    `;
-
-    const blob = new Blob([textContent], { type: 'text/plain' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'hsr_score.txt';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-
-  const downloadImage = () => {
-    if (ratingpreview) {
-      const link = document.createElement('a');
-      link.href = ratingpreview;
-      link.download = 'HSR_Score_Image.svg';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
+    setGlobalScore(null);
+    setRatingPreview(null);
+    setDownloadData("");
   };
 
   const handleKeyDown = (e) => {
@@ -155,7 +134,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory }) => {
 
   return (
     <>
-    <div className="main-container">
+    <div className="main-form-container">
       <div className="content-wrapper">
         <div className="form-container">
           <form onSubmit={handleSubmit}>
@@ -270,13 +249,10 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory }) => {
         </div>
         
         {hsrScore && (
-          <div className="score-container">
-            <h2>HSR Score:</h2>
-            <p>{hsrScore}/5</p>
-            <img src={ratingpreview} alt="Health Star Rating Score" />
-            {ratingpreview && <Button onClick={downloadImage}>Download Image</Button>}
-            <button onClick={handleDownload}>Download Results</button>
-          </div>
+            <ScoreContainer
+                hsrScore={hsrScore}
+                ratingPreview={setRatingPreview}
+            />
         )}
       </div>
     </div>

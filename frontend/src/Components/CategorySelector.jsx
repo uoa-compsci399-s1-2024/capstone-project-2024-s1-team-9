@@ -5,7 +5,7 @@ import FoodRatingForm from '../Calculators/FoodRatingForm';
 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 
-const CategorySelector = () => {
+const CategorySelector = ({ setGlobalScore, setRatingPreview, setDownloadData }) => {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
     const [isNonDairySelected, setIsNonDairySelected] = useState(false);
@@ -20,6 +20,9 @@ const CategorySelector = () => {
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value);
         setIsNonDairySelected(event.target.value === "Non-dairy beverages");
+        setGlobalScore(null);
+        setRatingPreview(null);
+        setDownloadData("");
     };
 
     return (
@@ -32,10 +35,10 @@ const CategorySelector = () => {
             </select>
             <div className="content-wrapper">
                 {selectedCategory && !isNonDairySelected && 
-                    <FoodRatingForm selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                    <FoodRatingForm selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} setGlobalScore={setGlobalScore} setRatingPreview={setRatingPreview} setDownloadData={setDownloadData} />
                 }
                 {isNonDairySelected && 
-                    <Non_DairyBeverages selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                    <Non_DairyBeverages selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} setGlobalScore={setGlobalScore} setRatingPreview={setRatingPreview} setDownloadData={setDownloadData} />
                 }
             </div>
         </div>

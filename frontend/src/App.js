@@ -1,50 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CategorySelector from './Components/CategorySelector.jsx'
 import Non_DairyBeverages from './Calculators/Non_DairyBeverages.jsx'
 import Footer from './Components/Footer.js'
+import DetailsPane from './Components/DetailsPane.jsx'
+import ScoreContainer from './Components/ScoreContainer.jsx'
 import "./App.css";
 
 
 
 function App() {
+    const [hsrScore, setHsrScore] = useState(null);
+    const [ratingPreview, setRatingPreview] = useState(null);
+    const [downloadData, setDownloadData] = useState("");
+
+    const downloadImage = () => {
+        if (ratingPreview) {
+            const link = document.createElement('a');
+            link.href = ratingPreview;
+            link.download = 'HSR_Score_Image.svg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    };
+
+    const handleDownload = () => {
+        const blob = new Blob([downloadData], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'hsr_score_details.txt';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
   return (
     <div className="App">
           <h1>Health Star Rating Calculator</h1>
-          <div className="details-pane">
-              <h1>Extra Information</h1>
-
-              <h3>Unit Quantity</h3>
-              <ul>
-                  <li>If food is solid or semi-solid use 100g</li>
-                  <li>If food is a beverage or other liquid food use 100ml</li>
-              </ul>
-              <br></br>
-              <h3>Inputs</h3>
-              <ul>
-                  <li>Users must enter the content of the food, as displayed on the nutrition information panel.</li>
-              </ul>
-              <br></br>
-              <h3>Cheese</h3>
-              <ul>
-                  <li>If the food item is cheese or processed cheese and the calcium content is less than or equal to 320mg/100g please select Category: Food</li>
-              </ul>
-              <br></br>
-              <h3>Concentrated and Non-concentrated FVNL</h3>
-              <ul>
-                  <li>These are from the formulation or recipe and may or may not be displayed on the ingredients panel.</li>
-                  <li>These together must not exceed 100 as it is a percentage of the total product.</li>
-              </ul>
-              <br></br>
-              <h3>Minimally Processed Packaged Products</h3>
-              <ul>
-                  <li>If a product is minimally processed and meets the following definition it is <strong>eligible for an automatic HSR of 5.</strong></li>
-                  <li>Fruit (excluding coconut), vegetables, fungi and legumes that have only been peeled, cut and/or surface treated, and/or blanched and/or frozen, or canned without additional fats, sugars, sweeteners or salt.</li>
-              </ul>
-
-          </div>
           <div className="main-container">
+              <div className="details-pane">
+                  <DetailsPane />
+              </div>
               <div className="content-pane">
-                  <CategorySelector />
+                  <CategorySelector setGlobalScore={setHsrScore} setRatingPreview={setRatingPreview} setDownloadData={setDownloadData} />
+              </div>
+              <div className="results-pane">
+                  {hsrScore && (
+                      <ScoreContainer
+                          hsrScore={hsrScore}
+                          ratingPreview={ratingPreview}
+                          onDownloadImage={downloadImage}
+                          onDownloadResults={handleDownload}
+                      />
+                  )}
               </div>
           </div>
     </div>
