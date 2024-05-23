@@ -4,6 +4,9 @@ import './calculator.css';
 import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap'; 
 import ScoreContainer from "../Components/ScoreContainer";
 
+
+  
+
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 
 const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore, setRatingPreview, setDownloadData }) => {
@@ -117,6 +120,8 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
       }
     }
   };
+ 
+
 
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
@@ -163,6 +168,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
                 onChange={(e) => setEnergy(e.target.value)}
                 required
               />
+              
             </div>
             <div>
               <label>Saturated Fat (g/100g): </label>
