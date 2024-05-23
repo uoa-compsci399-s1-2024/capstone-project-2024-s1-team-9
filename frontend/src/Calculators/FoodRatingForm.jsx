@@ -130,8 +130,6 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
     </Tooltip>
   );
 
-  
-
   return (
     <>
     <div className="main-form-container">
@@ -159,7 +157,8 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
             <div>
               <label>Energy (kJ per 100 g): </label>
               <input
-                type="number"
+                type="text"
+                pattern="[0-9]*[.,]?[0-9]+"
                 value={energy}
                 onChange={(e) => setEnergy(e.target.value)}
                 required
@@ -168,7 +167,8 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
             <div>
               <label>Saturated Fat (g/100g): </label>
               <input
-                type="number"
+                type="text"
+                pattern="[0-9]*[.,]?[0-9]+"
                 value={satFat}
                 onChange={(e) => setSatFat(e.target.value)}
                 required
@@ -177,7 +177,8 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
             <div>
               <label>Total Sugars (g/100g): </label>
               <input
-                type="number"
+                type="text"
+                pattern="[0-9]*[.,]?[0-9]+"
                 value={totalSugars}
                 onChange={(e) => setTotalSugars(e.target.value)}
                 required
@@ -186,7 +187,8 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
             <div>
               <label>Sodium (mg/100g): </label>
               <input
-                type="number"
+                type="text"
+                pattern="[0-9]*[.,]?[0-9]+"
                 value={sodium}
                 onChange={(e) => setSodium(e.target.value)}
                 required
@@ -195,7 +197,8 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
             <div>
               <label>Fibre (g/100g): </label>
               <input
-                type="number"
+                type="text"
+                pattern="[0-9]*[.,]?[0-9]+"
                 value={fibre}
                 onChange={(e) => setFibre(e.target.value)}
                 required
@@ -204,7 +207,8 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
             <div>
               <label>Protein (g/100g): </label>
               <input
-                type="number"
+                type="text"
+                pattern="[0-9]*[.,]?[0-9]+"
                 value={protein}
                 onChange={(e) => setProtein(e.target.value)}
                 required
@@ -218,7 +222,8 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
                 </OverlayTrigger>
               </div>
               <input
-                type="number"
+                type="text"
+                pattern="[0-9]*[.,]?[0-9]+"
                 value={concFruitVeg}
                 onChange={(e) => setConcFruitVeg(e.target.value)}
                 required
@@ -228,11 +233,12 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
               <div className="foodtip1">
                 <label className="fvnl-label"> Non-Concentrated FVNL (%):  </label>
                 <OverlayTrigger placement="right" overlay={renderTooltip}>
-                  <Button className="tooltip2" variant="success">What is FVNL?</Button>
+                  <Button className="tooltip2" variant="success">What is this?</Button>
                 </OverlayTrigger>
               </div>
               <input
-                type="number"
+                type="text"
+                pattern="[0-9]*[.,]?[0-9]+"
                 value={fvnl}
                 onChange={(e) => setFvnl(e.target.value)}
                 required

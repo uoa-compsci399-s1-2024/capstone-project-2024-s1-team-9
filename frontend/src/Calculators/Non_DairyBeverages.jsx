@@ -147,7 +147,7 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory, setGlobalSc
             overlay={renderTooltip}
             
           >
-            <Button className="tooltip2" variant="success">What is FVNL</Button>
+            <Button className="tooltip2" variant="success">What is this?</Button>
           </OverlayTrigger>
           </div>
             <input
