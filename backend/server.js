@@ -12,7 +12,8 @@ const allowedOrigins = [
     'https://www.healthstarcalcnz.online',
     // For development
     'http://localhost',
-    'http://localhost:3000'
+    'http://localhost:3000',
+    'https://frontend2-vci5.onrender.com/'
 ];
 
 app.use(cors({
