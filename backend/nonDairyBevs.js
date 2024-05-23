@@ -41,8 +41,8 @@ router.post('/input', (req, res) => {
 
 function validateInputDataNonDairyBevs(input) {
     const schema = Joi.object({
-        product: Joi.string(),
-        company: Joi.string(),
+        product: Joi.string().min(0),
+        company: Joi.string().min(0),
         energy: Joi.number().precision(1).min(0).max(1000).required(), //check if energy is rounded to nearest whole or not
         totalSugars: Joi.number().precision(1).min(0).max(100).required(),
         fvnl: Joi.number().precision(2).min(0).max(100).required(),
