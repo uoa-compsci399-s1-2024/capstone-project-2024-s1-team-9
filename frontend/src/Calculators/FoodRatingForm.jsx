@@ -147,7 +147,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
               />
             </div>
             <div>
-              <label>Energy (kJ per 100 g): </label>
+              <label>Energy (kJ/100g or /100ml): </label>
               <input
                 type="text"
                 pattern="[0-9]*[.,]?[0-9]+"
@@ -158,7 +158,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
               
             </div>
             <div>
-              <label>Saturated Fat (g/100g): </label>
+              <label>Saturated Fat (g/100g or /100ml): </label>
               <input
                 type="text"
                 pattern="[0-9]*[.,]?[0-9]+"
@@ -168,7 +168,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
               />
             </div>
             <div>
-              <label>Total Sugars (g/100g): </label>
+              <label>Total Sugars (g/100g or /100ml): </label>
               <input
                 type="text"
                 pattern="[0-9]*[.,]?[0-9]+"
@@ -178,7 +178,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
               />
             </div>
             <div>
-              <label>Sodium (mg/100g): </label>
+              <label>Sodium (mg/100g or /100ml): </label>
               <input
                 type="text"
                 pattern="[0-9]*[.,]?[0-9]+"
@@ -188,7 +188,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
               />
             </div>
             <div>
-              <label>Fibre (g/100g): </label>
+              <label>Fibre (g/100g or /100ml): </label>
               <input
                 type="text"
                 pattern="[0-9]*[.,]?[0-9]+"
@@ -198,7 +198,7 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
               />
             </div>
             <div>
-              <label>Protein (g/100g): </label>
+              <label>Protein (g/100g or /100ml): </label>
               <input
                 type="text"
                 pattern="[0-9]*[.,]?[0-9]+"

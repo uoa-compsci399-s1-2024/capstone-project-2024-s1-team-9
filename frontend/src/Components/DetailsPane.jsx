@@ -19,7 +19,7 @@ const DetailsPane = () => {
             <br></br>
             <h3>Cheese</h3>
             <ul>
-                <li>If the food item is cheese or processed cheese and the calcium content is less than or equal to 320mg/100g please select Category: Food</li>
+                <li>If the food item is cheese or processed cheese and the calcium content is less than or equal to 320mg/100g please select Category: Cheese</li>
             </ul>
             <br></br>
             <h3>Concentrated and Non-concentrated FVNL</h3>

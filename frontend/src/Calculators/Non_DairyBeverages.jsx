@@ -114,7 +114,7 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory, setGlobalSc
             />
           </div>
           <div className="form-group">
-            <label className="label">Energy (kJ per 100g): </label>
+            <label className="label">Energy (kJ/100g or /100ml): </label>
             <input
               type="number"
               value={energy}
@@ -123,7 +123,7 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory, setGlobalSc
             />
           </div>
           <div className="form-group">
-            <label className="label">Total Sugars (g/100g): </label>
+            <label className="label">Total Sugars (g/100g or /100ml): </label>
             <input
               type="number"
               value={totalSugars}
