@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ResetForm from "../Components/ResetForm";
 import './calculator.css';
-import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap'; 
+import { Button } from 'react-bootstrap'; 
+import { Tooltip } from 'react-tooltip';
 import ScoreContainer from "../Components/ScoreContainer";
 
 
@@ -120,20 +121,6 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
       }
     }
   };
- 
-
-
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      Percentage of the non-concentrated fruit, nuts, legumes and vegetable ingredients in the food.
-    </Tooltip>
-  );
-
-  const renderTooltip2 = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      Percentage of concentrated (or dried) fruit or vegetable ingredients in the food.
-    </Tooltip>
-  );
 
   return (
     <>
@@ -221,12 +208,17 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
               />
             </div>
             <div>
-              <div className="foodtip1">
-                <label>Concentrated Fruit and Vegetable (%): </label>
-                <OverlayTrigger placement="right" overlay={renderTooltip2}>
-                  <Button className="tooltip1" variant="success">What is this?</Button>
-                </OverlayTrigger>
-              </div>
+                <div className="foodtip1">
+                  <label>Concentrated Fruit and Vegetable (%): </label>
+                  <span
+                    data-tooltip-id="concFruitVegTooltip"
+                    data-tooltip-content="Percentage of concentrated (or dried) fruit or vegetable ingredients in the food."
+                    data-tooltip-place="right"
+                  >
+                    <Button className="tooltip1" variant="success">What is this?</Button>
+                  </span>
+                  <Tooltip id="concFruitVegTooltip" />
+                </div>
               <input
                 type="text"
                 pattern="[0-9]*[.,]?[0-9]+"
@@ -236,12 +228,17 @@ const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore,
               />
             </div>
             <div className="input-wrapper">
-              <div className="foodtip1">
-                <label className="fvnl-label"> Non-Concentrated FVNL (%):  </label>
-                <OverlayTrigger placement="right" overlay={renderTooltip}>
-                  <Button className="tooltip2" variant="success">What is this?</Button>
-                </OverlayTrigger>
-              </div>
+                <div className="foodtip1">
+                  <label className="fvnl-label"> Non-Concentrated FVNL (%): </label>
+                  <span
+                    data-tooltip-id="fvnlTooltip"
+                    data-tooltip-content="Percentage of the non-concentrated fruit, nuts, legumes, and vegetable ingredients in the food."
+                    data-tooltip-place="right"
+                  >
+                    <Button className="tooltip2" variant="success">What is this?</Button>
+                  </span>
+                  <Tooltip id="fvnlTooltip" />
+                </div>
               <input
                 type="text"
                 pattern="[0-9]*[.,]?[0-9]+"

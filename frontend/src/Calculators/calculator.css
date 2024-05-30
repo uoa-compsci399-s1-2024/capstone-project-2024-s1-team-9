@@ -38,18 +38,26 @@ input[type="number"]:hover {
   background-color: #f4ebb8;
 }
 
-/* tooltip css*/
-
-.tooltip1 {
+/* Custom Tooltip Styles */
+.react-tooltip {
+  max-width: 250px;
+  white-space: normal;
+  word-wrap: break-word;
+  padding: 10px;
   font-size: 12px;
-  padding: 5px 10px;
-  margin-left: 20px;
-  margin-bottom: 5px;
-}
-.tooltip2 {
-    margin-bottom: 5px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 600px) {
+  .react-tooltip {
+    max-width: 150px;
+    font-size: 10px;
+  }
+}
+
+/* Tooltip related styles */
 .foodtip1 {
   display: flex;
   align-items: left;

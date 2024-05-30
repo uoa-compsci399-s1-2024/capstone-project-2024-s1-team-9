@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './calculator.css';
 import ResetForm from '../Components/ResetForm';
-import { OverlayTrigger, Tooltip, Button } from 'react-bootstrap'; 
+import { Button } from 'react-bootstrap';
+import { Tooltip } from 'react-tooltip';
 import ScoreContainer from "../Components/ScoreContainer";
 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
@@ -85,14 +86,7 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory, setGlobalSc
     setRatingPreview(null);
     setDownloadData("");
   };
-
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      Percentage of the non-concentrated fruit, nuts, legumes and vegetable ingredients in the food.
-    </Tooltip>
-  );
-
-
+  
   return (
     <>
     <div className="main-form-container">
@@ -138,18 +132,17 @@ const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory, setGlobalSc
             />
           </div>
           <div >
-            <div className='non-dairy-fvnl'>
-
-            
-            <label className="label"> Non-Concentrated FVNL (%): </label>
-            <OverlayTrigger
-            placement="right"
-            overlay={renderTooltip}
-            
-          >
-            <Button className="tooltip2" variant="success">What is this?</Button>
-          </OverlayTrigger>
-          </div>
+            <div className="foodtip1">
+              <label className="fvnl-label"> Non-Concentrated FVNL (%): </label>
+              <span
+                data-tooltip-id="fvnlTooltip"
+                data-tooltip-content="Percentage of the non-concentrated fruit, nuts, legumes, and vegetable ingredients in the food."
+                data-tooltip-place="right"
+              >
+                <Button className="tooltip2" variant="success">What is this?</Button>
+              </span>
+              <Tooltip id="fvnlTooltip" />
+            </div>
             <input
               type="number"
               value={fvnl}
