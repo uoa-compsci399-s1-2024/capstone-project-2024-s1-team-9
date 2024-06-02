@@ -14,6 +14,7 @@ const allowedOrigins = [
     // For development
     'http://localhost',
     'http://localhost:3000',
+    'http://localhost:3001',
     'https://frontend2-vci5.onrender.com/'
 ];
 
