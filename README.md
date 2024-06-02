@@ -23,13 +23,13 @@ All instructions are for the main branch
 
 Backend:
 > Open the backend folder in command line
-> Execute: nmp start
-> If this doesn't start the backend service then you may need to Execute: nmp install then try nmp start again. It will then be running on port 3000
+> Execute: npm start
+> If this doesn't start the backend service then you may need to Execute: npm install then try npm start again. It will then be running on port 3000
 
 Frontend:
 > Open frontend folder in command line
-> Execute: nmp start
-> If this doesn't start the web service then you may need to Execute: nmp install then try nmp start again.
+> Execute: npm start
+> If this doesn't start the web service then you may need to Execute: npm install then try npm start again.
 
 Frontend Notes:
 The frontend in the main branch is organised to be deployed and so the API requests are programmed to use the backend service api running on render.com, if you want to run the program locally follow the local deployment instructions.
@@ -39,7 +39,7 @@ Use this if you don't want to use the hosted web services.
 > In the frontend/scr folder find FoodRatingForm, Non_DairyBeverages, and Category Selector .jsx files.
 > Replace const BACKEND_URL = 'https://backend-service-5ufi.onrender.com'; at the top with 
 const BACKEND_URL = 'http://localhost:3000';
-> Once you have done this you can follow the instructions to start the backend first to make sure that it is running on port 3000 and the frontend. They will use each other to operate the web app.
+> Once you have done this you can follow the instructions to start the backend first to make sure that it is running on port 3000 and then the frontend. You may need to press Y to accept the frontend to run on a different port, most likely port 3001 (if not 3001 then it may be blocked by CORS). They will use each other to operate the web app.
 
 Contact Jasper: jmac663@aucklanduni.ac.nz at any time if you need support.
 
