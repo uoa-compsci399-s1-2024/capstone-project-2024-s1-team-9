@@ -5,9 +5,6 @@ import { Button } from 'react-bootstrap';
 import { Tooltip } from 'react-tooltip';
 import ScoreContainer from "../Components/ScoreContainer";
 
-
-  
-
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 
 const FoodRatingForm = ({ selectedCategory, setSelectedCategory, setGlobalScore, setRatingPreview, setDownloadData }) => {

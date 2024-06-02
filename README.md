@@ -21,14 +21,35 @@ CSS
 Instructions on how to install and setup the project (specify all dependencies).
 Usage Examples (if available):
 
+All instructions are for the main branch
+
+Frontend:
+> Open frontend folder in command line
+> Execute: nmp start
+> If this doesn't start the web service then you may need to Execute: nmp install then try nmp start again.
+
+Frontend Notes:
+The frontend in the main branch is organised to be deployed and so the API requests are programmed to use the backend service api running on render.com, if you want to run the program locally follow the local deployment instructions.
+
+Backend:
+> Open the backend folder in command line
+> Execute: nmp start
+> If this doesn't start the backend service then you may need to Execute: nmp install then try nmp start again. It will then be running on port 3000
+
+Instructions for local deployment:
+Use this if you don't want to use the hosted web services.
+> In the frontend/scr folder find FoodRatingForm, Non_DairyBeverages, and Category Selector .jsx files.
+> Replace const BACKEND_URL = 'https://backend-service-5ufi.onrender.com'; with 
+const BACKEND_URL = '';
+> Once you have done this you can follow the instructions to start the frontend and the backend and they will use each other to operate the web app.
 
 
 URL of the website where the project has been deployed (if applicable):
 https://healthstarcalcnz.online
 
 Future Plan (Ideas for future releases):
-Optional accounts to save results
-
+- Optional accounts to save results
+- Continual improvements for frontend code implementation
 
 
 Acknowledgements (if any) - You can list tutorials used, projects referred to, people consulted etc.

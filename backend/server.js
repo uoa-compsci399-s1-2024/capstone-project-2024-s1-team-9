@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 
 // Added cors to allow requests from both frontend service domains
+// Add additional domains here to allow them through CORS.
 const allowedOrigins = [
     'https://frontend-service-oq9p.onrender.com',
     'https://www.healthstarcalcnz.online',

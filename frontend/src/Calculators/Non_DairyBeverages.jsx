@@ -7,7 +7,6 @@ import ScoreContainer from "../Components/ScoreContainer";
 
 const BACKEND_URL = 'https://backend-service-5ufi.onrender.com';
 
-//Remember to add ${BACKEND_URL} to fetch() before create pull request
 const Non_DairyBeverages = ({ selectedCategory, setSelectedCategory, setGlobalScore, setRatingPreview, setDownloadData }) => {
   const [product, setProduct] = useState('');
   const [company, setCompany] = useState('');
